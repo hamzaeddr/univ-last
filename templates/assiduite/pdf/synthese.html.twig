@@ -1,0 +1,1559 @@
+<style>
+.column {
+  float: left;
+  padding: 10px;
+}
+
+.left {
+  width: 65%;
+}
+
+.right {
+  width: 25%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+body { margin-top: 0px;margin-bottom: 0px;
+font-size:12px;
+ }
+ #customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+ 
+
+
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 5px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    font-size:10px;
+ 
+  text-align: left;
+  background-color: lightblue;
+  color: black;
+  
+}
+
+       .page-number:before {
+  content: "Page " counter(page);
+}
+</style>
+<table class="table" width="100%"  id="customers">
+    <thead>
+      <tr>
+        <th >N°</th>
+        <th >Etablissement</th>
+        <th>1ére Annee</th>        
+        <th>2ére Annee</th>
+        <th>3ére Annee</th>  
+        <th>4ére Annee</th>  
+        <th>5ére Annee</th>  
+        <th>6ére Annee</th>  
+        <th>7ére Annee</th>  
+      </tr>
+      
+         </thead>
+    <tbody>
+                 
+                        <tr style="background:lightgrey; text-align:center;letter-spacing:1.5px;">
+  
+    <td colspan=6 >Effectifs</td>
+    </tr>
+
+                                 <tr>
+                         
+        <td >1</td>  
+      
+                   
+                <td style="text-align:center;">FMA_MG</td>
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM0000001" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM0000002" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM0000003" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM0000004" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM0000005" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM0000006" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM0000007" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+
+          
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >2</td>  
+      
+                   
+                              <td style="text-align:center;">FMA_MG</td>
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM0000008" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM0000009" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000010" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000011" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000012" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000013" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+   
+
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >3</td>  
+      
+                   
+                <td style="text-align:center;">ISITS_IST</td>
+              {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000024" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000025" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000026" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+              
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >4</td>  
+      
+                   
+                <td style="text-align:center;">FASIMH-CAM </td>
+             {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000092" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000093" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000094" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >5</td>  
+      
+                   
+                <td style="text-align:center;">FASIMH-CAM-SIBOP</td>
+               {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000095" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000096" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000097" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >6</td>  
+      
+                   
+                <td style="text-align:center;">FASIMH-CAM-SIH</td>
+               {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000098" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000099" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000100" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >7</td>  
+      
+                   
+                <td style="text-align:center;">FASIMH_IAR</td>
+               {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000018" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000019" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000020" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >8</td>  
+      
+                   
+                <td style="text-align:center;">FASIMH_IM</td>
+               {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000021" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000022" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000023" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >9</td>  
+      
+                   
+                <td style="text-align:center;">FASIMH_IP</td>
+               {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000015" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000016" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000017" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >10</td>  
+      
+                   
+                <td style="text-align:center;">CPGEM</td>
+               {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000365" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000366" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >11</td>  
+      
+                   
+                <td style="text-align:center;">FPA_PH</td>
+            {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000014" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000071" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+            {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000087" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000088" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+            {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000089" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global %}
+                {% if pro.promotion_code == "PRM00000090" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+                 
+    
+</tr>
+
+                        <tr style="background:lightgrey; text-align:center;letter-spacing:1.5px;">
+  
+    <td colspan=6 >Effectif Total
+</td>
+    </tr>
+                                 <tr>
+                         
+        <td >1</td>  
+      
+                       
+                <td style="text-align:center;">FMA_MG</td>
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM0000001" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM0000002" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM0000003" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM0000004" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM0000005" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM0000006" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM0000007" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+
+          
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >2</td>  
+      
+                   
+                              <td style="text-align:center;">FMA_MG</td>
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM0000008" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM0000009" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000010" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000011" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000012" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000013" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+   
+
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >3</td>  
+      
+                   
+                <td style="text-align:center;">ISITS_IST</td>
+              {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000024" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000025" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000026" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+              
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >4</td>  
+      
+                   
+                <td style="text-align:center;">FASIMH-CAM </td>
+             {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000092" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000093" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000094" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >5</td>  
+      
+                   
+                <td style="text-align:center;">FASIMH-CAM-SIBOP</td>
+               {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000095" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000096" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000097" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >6</td>  
+      
+                   
+                <td style="text-align:center;">FASIMH-CAM-SIH</td>
+               {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000098" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000099" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000100" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >7</td>  
+      
+                   
+                <td style="text-align:center;">FASIMH_IAR</td>
+               {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000018" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000019" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000020" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >8</td>  
+      
+                   
+                <td style="text-align:center;">FASIMH_IM</td>
+               {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000021" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000022" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000023" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >9</td>  
+      
+                   
+                <td style="text-align:center;">FASIMH_IP</td>
+               {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000015" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000016" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000017" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >10</td>  
+      
+                   
+                <td style="text-align:center;">CPGEM</td>
+               {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000365" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000366" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >11</td>  
+      
+                   
+                <td style="text-align:center;">FPA_PH</td>
+            {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000014" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000071" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+            {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000087" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000088" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+            {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000089" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_jr %}
+                {% if pro.promotion_code == "PRM00000090" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+                 
+    
+</tr>
+
+                        <tr style="background:lightgrey; text-align:center;letter-spacing:1.5px;">
+  
+    <td colspan=6 >Effectifs Total</td>
+    </tr>
+                                 <tr>
+                         
+        <td >1</td>  
+      
+            
+                   
+                <td style="text-align:center;">FMA_MG</td>
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM0000001" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM0000002" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM0000003" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM0000004" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM0000005" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM0000006" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM0000007" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+
+          
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >2</td>  
+      
+                   
+                              <td style="text-align:center;">FMA_MG</td>
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM0000008" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM0000009" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000010" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000011" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000012" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000013" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+   
+
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >3</td>  
+      
+                   
+                <td style="text-align:center;">ISITS_IST</td>
+              {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000024" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000025" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000026" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+              
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >4</td>  
+      
+                   
+                <td style="text-align:center;">FASIMH-CAM </td>
+             {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000092" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000093" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000094" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >5</td>  
+      
+                   
+                <td style="text-align:center;">FASIMH-CAM-SIBOP</td>
+               {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000095" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000096" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000097" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >6</td>  
+      
+                   
+                <td style="text-align:center;">FASIMH-CAM-SIH</td>
+               {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000098" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000099" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000100" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >7</td>  
+      
+                   
+                <td style="text-align:center;">FASIMH_IAR</td>
+               {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000018" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000019" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000020" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >8</td>  
+      
+                   
+                <td style="text-align:center;">FASIMH_IM</td>
+               {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000021" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000022" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000023" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >9</td>  
+      
+                   
+                <td style="text-align:center;">FASIMH_IP</td>
+               {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000015" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000016" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000017" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >10</td>  
+      
+                   
+                <td style="text-align:center;">CPGEM</td>
+               {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000365" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000366" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >11</td>  
+      
+                   
+                <td style="text-align:center;">FPA_PH</td>
+            {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000014" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000071" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+            {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000087" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000088" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+            {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000089" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+    {% for pro in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000090" %}
+           <td style="text-align:center;">{{ pro.etud  }}</td>
+           {% endif %}
+{% endfor %}
+                 
+    
+</tr>
+                        <tr style="background:lightgrey; text-align:center;letter-spacing:1.5px;">
+  
+    <td colspan=6 >Pourcentage par promotion
+</td>
+    </tr>
+                                 <tr>
+                         
+        <td >1</td>  
+      
+                       
+                <td style="text-align:center;">FMA_MG</td>
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM0000001" %}
+                {% if pro_.promotion_code == "PRM0000001" %}
+  <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM0000002" %}
+                {% if pro_.promotion_code == "PRM0000002" %}
+  <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM0000003" %}
+                {% if pro_.promotion_code == "PRM0000003" %}
+             <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM0000004" %}
+                {% if pro_.promotion_code == "PRM0000004" %}
+            <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM0000005" %}
+                {% if pro_.promotion_code == "PRM0000005" %}
+                       <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM0000006" %}
+                {% if pro_.promotion_code == "PRM0000006" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM0000007" %}
+                {% if pro_.promotion_code == "PRM0000007" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+          
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >2</td>  
+      
+                   
+                              <td style="text-align:center;">FMA_MG</td>
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM0000008" %}
+                {% if pro_.promotion_code == "PRM0000008" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM0000009" %}
+                {% if pro_.promotion_code == "PRM0000009" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000010" %}
+                {% if pro_.promotion_code == "PRM00000010" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000011" %}
+                {% if pro_.promotion_code == "PRM00000011" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+///////////////////////////////////////////////////
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000012" %}
+                {% if pro_.promotion_code == "PRM00000012" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000013" %}
+                {% if pro_.promotion_code == "PRM00000013" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+   
+
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >3</td>  
+      
+                   
+                <td style="text-align:center;">ISITS_IST</td>
+              {% for pro in count_global_jr %}
+              {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000024" %}
+                {% if pro_.promotion_code == "PRM00000024" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000025" %}
+                {% if pro_.promotion_code == "PRM00000025" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000026" %}
+                {% if pro_.promotion_code == "PRM00000026" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+              
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >4</td>  
+      
+                   
+                <td style="text-align:center;">FASIMH-CAM </td>
+             {% for pro in count_global_jr %}
+             {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000092" %}
+                {% if pro_.promotion_code == "PRM00000092" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000093" %}
+                {% if pro_.promotion_code == "PRM00000093" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000094" %}
+                {% if pro_.promotion_code == "PRM00000094" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >5</td>  
+      
+                   
+                <td style="text-align:center;">FASIMH-CAM-SIBOP</td>
+               {% for pro in count_global_jr %}
+               {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000095" %}
+                {% if pro_.promotion_code == "PRM00000095" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000096" %}
+                {% if pro_.promotion_code == "PRM00000096" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000097" %}
+                {% if pro_.promotion_code == "PRM00000097" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >6</td>  
+      
+                   
+                <td style="text-align:center;">FASIMH-CAM-SIH</td>
+               {% for pro in count_global_jr %}
+               {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000098" %}
+                {% if pro_.promotion_code == "PRM00000098" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000099" %}
+                {% if pro_.promotion_code == "PRM00000099" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000100" %}
+                {% if pro_.promotion_code == "PRM00000100" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >7</td>  
+      
+                   
+                <td style="text-align:center;">FASIMH_IAR</td>
+               {% for pro in count_global_jr %}
+               {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000018" %}
+                {% if pro_.promotion_code == "PRM00000018" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000019" %}
+                {% if pro_.promotion_code == "PRM00000019" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000020" %}
+                {% if pro_.promotion_code == "PRM00000020" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >8</td>  
+      
+                   
+                <td style="text-align:center;">FASIMH_IM</td>
+               {% for pro in count_global_jr %}
+               {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000021" %}
+                {% if pro_.promotion_code == "PRM00000021" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000022" %}
+                {% if pro_.promotion_code == "PRM00000022" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000023" %}
+                {% if pro_.promotion_code == "PRM00000023" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >9</td>  
+      
+                   
+                <td style="text-align:center;">FASIMH_IP</td>
+               {% for pro in count_global_jr %}
+               {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000015" %}
+                {% if pro_.promotion_code == "PRM00000015" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000016" %}
+                {% if pro_.promotion_code == "PRM00000016" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000017" %}
+                {% if pro_.promotion_code == "PRM00000017" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >10</td>  
+      
+                   
+                <td style="text-align:center;">CPGEM</td>
+               {% for pro in count_global_jr %}
+               {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000365" %}
+                {% if pro_.promotion_code == "PRM00000365" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000366" %}
+                {% if pro_.promotion_code == "PRM00000366" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+
+                 
+    
+</tr>
+                                 <tr>
+                         
+        <td >11</td>  
+      
+                   
+                <td style="text-align:center;">FPA_PH</td>
+            {% for pro in count_global_jr %}
+            {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000014" %}
+                {% if pro_.promotion_code == "PRM00000014" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000071" %}
+                {% if pro_.promotion_code == "PRM00000071" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+            {% for pro in count_global_jr %}
+            {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000087" %}
+                {% if pro_.promotion_code == "PRM00000087" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000088" %}
+                {% if pro_.promotion_code == "PRM00000088" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+            {% for pro in count_global_jr %}
+            {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000089" %}
+                {% if pro_.promotion_code == "PRM00000089" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+
+    {% for pro in count_global_jr %}
+    {% for pro_ in count_global_abs %}
+                {% if pro.promotion_code == "PRM00000090" %}
+                {% if pro_.promotion_code == "PRM00000090" %}
+          <td style="text-align:center;">{% if pro.etud == 0 %} 0 {% else %} {{ (pro_.etud / pro.etud * 100)|number_format(2)}}{% endif %} %</td>
+           {% endif %}
+           {% endif %}
+{% endfor %}
+{% endfor %}
+                 
+    
+</tr>
+  
+    </tbody>
+      </table>

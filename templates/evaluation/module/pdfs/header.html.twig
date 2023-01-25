@@ -1,0 +1,85 @@
+
+<table style="width: 100%;" align="center" cellspacing="0">
+            <tr>
+               
+
+                <td style="width: 45%">
+                    <table cellspacing="0" style="width: 60%; text-align: left; font-size:9px" >
+                        <tr>
+                            <td style="width: 100% ;">
+
+
+                                <table cellspacing="0" style="width:100%; text-align: left; font-size: 10px ; " >
+
+                                    <tr>
+                                        <td style="font-weight: bold;">Année Universitaire </td> 
+                                        <td style="padding: 2px">:</td> 
+                                        <td><label> {{annee.designation}} </label> </td> 
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight: bold">Etablissement </td> 
+                                        <td style="padding: 2px">:</td> 
+                                        <td><label> {{annee.formation.etablissement.designation}}</label> </td> 
+                                    </tr>
+
+                                    <tr>
+                                        <td style="font-weight: bold">Formation </td> 
+                                        <td style="padding: 2px">:</td> 
+                                        <td><label> {{annee.formation.designation}}</label> </td> 
+                                    </tr>
+
+                                    <tr>
+                                        <td style="font-weight: bold">Promotion </td> 
+                                        <td style="padding: 2px">:</td> 
+                                        <td><label> {{module.semestre.promotion.designation}} </label> </td> 
+                                    </tr>
+
+
+
+                                    
+
+
+                                    <tr>
+                                        <td style="font-weight: bold"> Semestre</td> 
+                                        <td style="padding: 2px">:</td> 
+                                        <td><label> {{module.semestre.designation}} </label> </td> 
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight: bold"> Etat de délibération</td> 
+                                        <td style="padding: 2px">:</td> 
+                                        <td><label> Modulaire</label> </td> 
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight: bold"> Type</td> 
+                                        <td style="padding: 2px">:</td> 
+                                        <td>
+                                            <label> 
+                                                {% if affichage == 0 %}
+                                                    Interne
+                                                {% else %}
+                                                    Affichage
+                                                {% endif %}
+                                            </label> 
+                                        </td> 
+                                    </tr>
+
+                                </table> 
+
+
+                            </td> 
+
+                        </tr>
+                    </table> 
+                </td>
+                
+                
+                 <td style="width: 55%" align="right">
+
+                    <img style=" margin-right: auto;margin-left:auto; float: right ; width: 180px;" src="./assets/img/logo/logo_uaiss_bkack.png" alt="Logo">
+                </td>
+            </tr>
+
+        </table>
+
+
+       

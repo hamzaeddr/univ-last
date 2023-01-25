@@ -1,0 +1,53 @@
+            <table id="parlot_datatable_" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%" height="80%">
+                    <thead>
+                          <tr>
+                          <th >
+                          </th>
+                          <th >Seance
+                          </th>
+                          <th >Heure debut
+                          </th>
+                          <th >Heure Fin
+                          </th>
+                          <th >Etablissement
+                          </th>
+                          <th >Formation
+                          </th>
+                          <th >Promotion
+                          </th>
+                          <th >Groupe
+                          </th>
+                          <th >Salle
+                          </th>
+                          <th >Element Module
+                          </th>
+                          <th >Enseignant
+                          </th>
+                        
+                        
+                          
+                          </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for etud in seances %}
+                    {% if etud.exis is null %}
+                <tr>
+                <td><label class="container"><input name='chk' value="{{etud.cod}}" type="checkbox"><span class="checkmark"></span></label></td>
+                <td>{{etud.cod}}</td>
+                <td>{{etud.heur_db}}</td>
+                <td>{{etud.heur_fin}}</td>
+                <td>{{etud.eta}}</td>
+                <td>{{etud.form}}</td>
+                <td>{{etud.pro}}</td>
+                <td>{{etud.groupe}}</td>
+                <td>{{etud.salle}}</td>
+                <td>{{etud.module1}}</td>
+                <td>{{etud.nom}} {{etud.prenom}}</td>
+                
+                </tr>
+                {% endif %}
+                {% endfor %}
+                        
+                    </tbody>
+                    </table>

@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Univ - Groupe Inscriptions{% endblock %}
+
+
+{% block body %}
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+          <h1>Pré-Inscription</h1>
+          <div class="section-header-breadcrumb">
+            {% for operation in operations %}
+                <a href="{{operation.link}}" class="{{operation.classTag}}" id="{{operation.idTag}}"><i class="{{operation.icon}}"></i>  {{operation.designation}}</a>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="section-body">
+        <div class="card">
+            <div class="card-header">
+                <h4>Tableau des Pré-Inscription</h4>
+            </div>
+            <div class="card-body">
+
+            <table id="datables_preinscription" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th width="1">#</th>
+                        <th>Id</th>
+                        <th>Code</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Etablissement</th>
+                        <th>Formation</th>
+                        <th>Categorie</th>
+                        <th>Type de Bac</th>
+                        <th>Note</th>
+                        <th>Statut</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th width="1">#</th>
+                        <th>Id</th>
+                        <th>Code</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Etablissement</th>
+                        <th>Formation</th>
+                        <th>Categorie</th>
+                        <th>Type de Bac</th>
+                        <th>Note</th>
+                        <th>Statut</th>
+                    </tr>
+                </tfoot>
+            </table>
+            </div>
+            
+        </div>
+        </div>
+    </section>
+</div>
+
+
+
+<!--Modal Import Group-->
+{# {% include 'preinscription/modals/valider.html.twig' %}
+{% include 'preinscription/modals/imprimer.html.twig' %}
+{% include 'preinscription/modals/supprimer.html.twig' %}
+{% include 'preinscription/modals/modifier.html.twig' %} #}
+
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+{{ encore_entry_script_tags('preinscription') }}
+
+{# <script src="/assets/js/preinscription/preinscription.js"></script> #}
+
+{% endblock %}
+

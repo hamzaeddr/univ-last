@@ -1,0 +1,132 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Univ - Paramétre - Programmation{% endblock %}
+
+
+{% block body %}
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+          <h1>Programmation</h1>
+          <div class="section-header-breadcrumb">
+              {# <a href="#" class="btn btn-success ml-1" id="modifier"><i class="fas fa-edit"></i>  Modifier</a> #}
+              {# <a href="#" class="btn btn-success ml-1" id="ajouter"><i class="fas fa-plus"></i>  Ajouter</a> #}
+              {# <a href="#" class="btn btn-success ml-1" id="ajouter"><i class="fas fa-plus"></i>  Aouter</a> #}
+              {% for operation in operations %}
+              <a href="{{operation.link}}" class="{{operation.classTag}}" id="{{operation.idTag}}"><i class="{{operation.icon}}"></i>  {{operation.designation}}</a>
+              {% endfor %}
+          </div>
+        </div>
+
+        <div class="section-body">
+        <div class="card">
+            <div class="card-header">
+            <h4>Tableau des Programmations</h4>
+            </div>
+            <div class="card-body">
+            <div class="card-search" style="margin-bottom: 1.5rem;">
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="etablissement">Etablissement:</label>
+                        <select class="form-control" name="etablissement" id="etablissement">
+                            <option value="">Choix etablissement</option>
+                            {% for etablissement in etablissements %}
+                                <option value="{{etablissement.id}}">{{etablissement.designation}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="formation">Formation:</label>
+                        <select class="form-control" name="formation" id="formation">
+                           
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="annee">Annee:</label>
+                        <select class="form-control" name="annee" id="annee">
+                           
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="promotion">Promotion:</label>
+                        <select class="form-control" name="promotion" id="promotion">
+                           
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="semestre">Semestre:</label>
+                        <select class="form-control" name="semestre" id="semestre">
+                           
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="module">Module:</label>
+                        <select class="form-control" name="module" id="module">
+                           
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="module">Element:</label>
+                        <select class="form-control" name="element" id="element">
+                           
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <table id="datatables_gestion_programmation" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>etab</th>
+                        <th>form</th>
+                        <th>Annee</th>
+                        <th>Promotion</th>
+                        <th>Semestre</th>
+                        <th>Module</th>
+                        <th>Element</th>
+                        <th>Nature</th>
+                        <th>Volume</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>id</th>
+                        <th>etab</th>
+                        <th>form</th>
+                        <th>Annee</th>
+                        <th>Promotion</th>
+                        <th>Semestre</th>
+                        <th>Module</th>
+                        <th>Element</th>
+                        <th>Nature</th>
+                        <th>Volume</th>
+                    </tr>
+                </tfoot>
+            </table>
+            </div>
+            
+        </div>
+        </div>
+    </section>
+</div>
+
+
+
+<!--Modal Import Group-->
+{% include 'parametre/programmation/modals/ajouter.html.twig' %}
+{% include 'parametre/programmation/modals/modifier.html.twig' %}
+
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+{{ encore_entry_script_tags('programmation') }}
+
+{# <script src="/assets/js/parametre/formation.js"></script> #}
+
+{% endblock %}
+

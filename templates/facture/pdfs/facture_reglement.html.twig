@@ -1,0 +1,251 @@
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+<style type="text/Css">
+    body{
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+    .titre-reb{
+        width: 100%;
+        background: #1f4f7a;
+        font-size: 9px ;
+        padding:3px 10px;
+        color: #f1f1f1;
+        font-weight: bold
+    }
+    div.zone_over
+    {
+        display: block;
+        width: 40%;
+        word-wrap:break-word !important;
+    }
+    .slh tr td {
+        border-bottom: 1px solid #292929;
+    }
+</style>
+<br>
+<table style="width: 100%;" cellspacing="0">
+    <tbody>
+        <tr>
+            <td style="width:25%; text-align:center"><img style="width:80px;margin: 0 auto;" src="./assets/img/logo/Logo_UIASS_bkack2.png" alt="Logo"></td>
+            <td style="width:1%;"></td>
+            <td style="width:70%;"><p style="margin-left:10px;margin-top:25px;width:5px;text-align:center;font-weight:bold;">UNIVERSITE INTERNATIONALE ABULCASIS DES SCIENCES DE LA SANTE</p></td>
+        </tr>
+    
+    </tbody>
+
+</table>
+<table style="width: 100% ;text-align: center;border: 1px solid #292929; border-bottom: none;" cellspacing="0">
+<tr>
+    <td style="width: 30% ; border-bottom: 1px solid #292929 ;">
+        <table style="width: 100% ;" cellspacing="0">
+            <tr>
+                <th style="width: 100% ; font-size: 13px ;font-weight: 200;font-weight: bold;padding:2px;color:rgb(3, 35, 68);">CODE REGLEMENT </th>
+            </tr>
+            <tr>
+
+                <td style="border-bottom: 1px solid #292929 ;width: 100%"></td>
+            </tr>
+
+            <tr>
+                <td style="width: 100% ; font-size: 11px ;padding:2px;color:rgb(31, 79, 122);">{{reglement.code}}</td>
+            </tr>
+        </table>
+    </td>
+    <td style="width: 40% ;font-size: 20px;font-weight: bold ; border-left: 1px solid #292929 ;border-right: 1px solid #292929; border-bottom: 1px solid #292929 ;color:rgb(3, 35, 68);">QUITTANCE </td>
+    <td style="width: 30% ;border-bottom: 1px solid #292929 ;">
+        <table style="width: 100% ; background: #FFFFFF; text-align: center" cellspacing="0">
+            <tr>
+                <th style="width: 100% ; font-size: 13px ;font-weight: 200;font-weight: bold;padding:2px;color:rgb(3, 35, 68);">DATE</th>
+            </tr>
+            <tr>
+                <td style="border-bottom: 1px solid  #292929 ;width: 100%"></td>
+            </tr>
+
+            <tr>
+                <td style="width: 100% ; font-size: 11px ;padding:2px;color:rgb(3, 35, 68);">{{ reglement.created|date("d/m/Y") }}</td>
+            </tr>
+        </table>
+    </td>
+
+</tr>
+
+
+</table>
+<table style="width: 100%;border-top: 1px solid#292929">
+    <tr>
+        <td style="width: 100% ; height: 10px;"></td>
+    </tr>
+</table>
+
+<table style="width: 100%;">
+
+<tr>
+    <td style="width:16%;border:1px solid #ddd;background:#eee;padding:2px;font-size:8px">ETABLISSEMENT</td>
+    <td style="width:0.67%;"></td>
+    <td style="width:16%;border:1px solid #ddd;background:white;padding:2px;font-size:8px">
+        {{operationcab.preinscription.annee.formation.etablissement.designation}}
+    </td>
+    <td style="width:0.67%;"></td>
+    <td style="width:16%;border:1px solid #ddd;background:#eee;padding:2px;font-size:8px">FORMATION</td>
+    <td style="width:0.67%;"></td>
+    <td style="width:16%;border:1px solid #ddd;background:white;padding:2px;font-size:8px">
+        {{operationcab.annee.formation.designation}}
+    </td>
+    <td style="width:0.67%;"></td>
+    <td style="width:16%;border:1px solid #ddd;background:#eee;padding:2px;font-size:8px">NIVEAU</td>
+    <td style="width:0.67%;"></td>
+    <td style="width:16.67%;border:1px solid #ddd;background:white;padding:2px;font-size:8px">
+        {{promotion}}
+    </td>
+
+</tr>
+
+
+</table>
+
+<table style="width: 100%;margin-top:.5px;">
+<tr>
+    <td style="width:16%;border:1px solid #ddd;background:#eee;padding:5px;font-size:8px">CODE CANDIDAT</td>
+    <td style="width:0.67%;"></td>
+    <td style="width:16%;border:1px solid #ddd;background:white;padding:5px;font-size:8px">
+        {{operationcab.preinscription.etudiant.code}}
+    </td>
+    <td style="width:0.67%;"></td>
+    <td style="width:16%;border:1px solid #ddd;background:#eee;padding:5px;font-size:8px">CODE PRE INSCRIPTION</td>
+    <td style="width:0.67%;"></td>
+    <td style="width:16%;border:1px solid #ddd;background:white;padding:5px;font-size:8px">
+        {{operationcab.preinscription.code}}
+    </td>
+    <td style="width:0.67%;"></td>
+    <td style="width:16%;border:1px solid #ddd;background:#eee;padding:5px;font-size:8px">CODE INSCRIPTION</td>
+    <td style="width:0.67%;"></td>
+    <td style="width:16.67%;border:1px solid #ddd;background:white;padding:5px;font-size:8px">
+        {{inscription}}
+    </td>
+
+</tr>
+
+</table>
+
+
+<table style="width: 100%;margin-top:.5px;">
+<tr>
+    <td style="width:16%;border:1px solid #ddd;background:#eee;padding:5px;font-size:8px">NOM</td>
+    <td style="width:0.67%;"></td>
+    <td style="width:16%;border:1px solid #ddd;background:white;padding:5px;font-size:8px">
+        {{operationcab.preinscription.etudiant.nom}}
+    </td>
+    <td style="width:0.67%;"></td>
+    <td style="width:16%;border:1px solid #ddd;background:#eee;padding:5px;font-size:8px">PRENOM</td>
+    <td style="width:0.67%;"></td>
+    <td style="width:16%;border:1px solid #ddd;background:white;padding:5px;font-size:8px">
+        {{operationcab.preinscription.etudiant.prenom}}
+    </td>
+    <td style="width:0.67%;"></td>
+    <td style="width:16%;border:1px solid #ddd;background:#eee;padding:5px;font-size:8px">DATE</td>
+    <td style="width:0.67%;"></td>
+    <td style="width:16.67%;border:1px solid #ddd;background:white;padding:5px;font-size:8px"></td>
+
+</tr>
+
+</table>
+
+<table style="width: 100%;margin-top:.5px;">
+<tr>
+    <td style="width:16%;border:1px solid #ddd;background:#eee;padding:5px;font-size:8px">REFERENCE FACTURE</td>
+    <td style="width:0.67%;"></td>
+    <td style="width:32.80%;border:1px solid #ddd;background:white;padding:5px;font-size:8px">
+        {{operationcab.code}}
+    </td>
+    {# /////////////////////////////// #}
+    <td style="width:0.67%;"></td>
+    <td style="width:16%;border:1px solid #ddd;background:#eee;padding:5px;font-size:8px">TYPE ORGANISME</td>
+    <td style="width:0.67%;"></td>
+    {% if reglement.payant == 1 %}
+        <td style="width:33.3%;border:1px solid #ddd;background:white;padding:5px;font-size:8px">PAYANT</td>
+    {% else %}
+        <td style="width:33.3%;border:1px solid #ddd;background:white;padding:5px;font-size:8px">ORGANISME</td>
+    {% endif %}
+    
+    {# /////////////////////////////// #}
+
+</tr>
+
+</table>
+
+
+<table style="width: 100%;margin-top:.5px;">
+<tr>
+    <td style="width:16%;border:1px solid #ddd;background:#eee;padding:5px;font-size:8px">DATE DE REGLEMENT</td>
+    <td style="width:0.67%;"></td>
+    <td style="width:83.33%;border:1px solid #ddd;background:white;padding:5px;font-size:8px">
+        {{reglement.DateReglement|date("d/m/Y")}}
+    </td>
+
+</tr>
+
+</table>
+<table style="width: 100%;margin-top:.5px;">
+<tr>
+    <td style="width:16%;border:1px solid #ddd;background:#eee;padding:5px;font-size:8px">TYPE DE PAIEMENT</td>
+    <td style="width:0.67%;"></td>
+    <td style="width:83.33%;border:1px solid #ddd;background:white;padding:5px;font-size:8px">
+        {{reglement.paiement.designation}}
+    </td>
+
+</tr>
+
+</table>
+<table style="width: 100%;margin-top:.5px;">
+<tr>
+    <td style="width:16%;border:1px solid #ddd;background:#eee;padding:5px;font-size:8px">BANQUE</td>
+    <td style="width:0.67%;"></td>
+    <td style="width:83.33%;border:1px solid #ddd;background:white;padding:5px;font-size:8px">
+        {{reglement.banque.designation}}
+    </td>
+
+</tr>
+
+</table>
+<table style="width: 100%;margin-top:.5px;">
+<tr>
+    <td style="width:16%;border:1px solid #ddd;background:#eee;padding:5px;font-size:8px">MONTANT A PAYER</td>
+    <td style="width:0.67%;"></td>
+    <td style="width:83.33%;border:1px solid #ddd;background:white;padding:5px;font-size:8px">
+        {{operationTotal | first}}
+    </td>
+
+</tr>
+
+</table>
+<table style="width: 100%;margin-top:.5px;">
+<tr>
+    <td style="width:16%;border:1px solid #ddd;background:#eee;padding:5px;font-size:8px">MONTANT REGLE</td>
+    <td style="width:0.67%;"></td>
+    <td style="width:83.33%;border:1px solid #ddd;background:white;padding:5px;font-size:8px">
+        {{reglement.montant}}
+    </td>
+
+</tr>
+
+</table>
+<table style="width: 100%;margin-top:.5px;">
+<tr>
+    <td style="width:16%;border:1px solid #ddd;background:#eee;padding:5px;font-size:8px">REFERENCE DE CHEQUE</td>
+    <td style="width:0.67%;"></td>
+    <td style="width:83.33%;border:1px solid #ddd;background:white;padding:5px;font-size:8px">
+        {{reglement.reference}}
+    </td>
+
+</tr>
+
+</table>
+
+<table style="width: 100%;margin-top:.5px;">
+<tr>
+<td style="width:100%;border:1px solid #ddd;background:white;padding:5px;font-size:7px;text-align:justify;font-weight:bold">
+    NB:ll est à noter que le seuil de dépôt de dossier défini annuellement par l'Université ne constitue en aucun cas une convocation au concours d'accès. En cas d'absence de convocation, les frais engagés ne sont pas remboursables.
+</td>
+
+</tr>
+
+</table>

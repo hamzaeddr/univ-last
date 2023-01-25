@@ -1,0 +1,35 @@
+<div class="modal" role="dialog" id="modifier_org-modal" aria-modal="true"> 
+<div class="modal-dialog modal-md modal_modifier_org-facture" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Données Réglement</h5>
+        </hr>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+        <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {# <form id="modifier_org-form"> #}
+            <div class="col-md-12 row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="org">Organisme (*) :</label>
+                        <select class="form-control" name="org" id="org">
+                            {# <option value="">Choix Organisme</option>
+                            {% for organisme in organismes %}
+                                <option value="{{organisme.id}}">{{organisme.designation}}</option>
+                            {% endfor %} #}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" id="modifier_org"><i class="fas fa-check-circle"></i> Modifier</button>
+            </div>
+        {# </form> #}
+      </div>
+
+
+    </div>
+  </div>
+</div>

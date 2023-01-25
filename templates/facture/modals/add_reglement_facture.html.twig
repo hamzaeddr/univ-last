@@ -1,0 +1,90 @@
+<div class="modal" role="dialog" id="ajouter_modal" aria-modal="true"> 
+<div class="modal-dialog modal-md modal-facture" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Données Réglement</h5>
+        </hr>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+        <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="new_facture-form">
+            <div class="col-md-12 row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="d_reglement" style="margin-top: 1rem;">date de Reglement (*):</label>
+                        <input type="date"  class="form-control" name="d_reglement" id="d_reglement" >
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="montant_facture" style="margin-top: 1rem;">Montant :</label>
+                        <input type="text" class="form-control" name="montant_facture" id="montant_facture" value="" disabled>
+                    </div>
+                </div> 
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="montant_provisoir" style="margin-top: 1rem;">Montant provisoir:</label>
+                        <input type="text" class="form-control" name="montant_provisoir" id="montant_provisoir" value="">
+                    </div>
+                </div> 
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="montant_devis" style="margin-top: 1rem;">Montant en devise:</label>
+                        <input type="text" class="form-control" name="montant_devis" id="montant_devis" value="">
+                    </div>
+                </div> 
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="montant" style="margin-top: 1rem;">Regle (*) :</label>
+                        <input type="text" class="form-control" name="montant" id="montant" value="">
+                        <input type="text" name="montant2" id="montant2" value="" hidden>
+                    </div>
+                </div> 
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="banque">Banque (*) :</label>
+                        <select class="form-control" name="banque" id="banque">
+                            <option value="">Choix Banque</option>
+                            {% for banque in banques %}
+                                <option value="{{banque.id}}">{{banque.designation}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="paiement">Paiement (*) :</label>
+                        <select class="form-control" name="paiement" id="paiement">
+                            <option value="">Choix Type De Paiement</option>
+                            {% for paiement in paiements %}
+                                <option value="{{paiement.id}}">{{paiement.designation}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div> 
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="reference">Référence (*) :</label>
+                        <input type="text" class="form-control" name="reference" id="reference">
+                    </div>
+                </div> 
+                <div class="col-md-4">
+                      <label> Type Organisme:</label><br> 
+                      <input type="radio" name="organisme" id="organ" value="1" checked=""> 
+                      <label style="margin:5px" for="organ"> Payant </label>  
+                      <input type="radio" name="organisme" id="norgan" value="0"> 
+                      <label style="margin: 0px 5px 0px 0px;"  for="norgan"> Organisme </label>  
+                  </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" id="save_reglement"><i class="fas fa-check-circle"></i> Enregistre</button>
+            </div>
+        </form>
+      </div>
+
+
+    </div>
+  </div>
+</div>

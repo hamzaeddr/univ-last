@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Univ - Element{% endblock %}
+
+
+{% block body %}
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+          <h1>Evaluation Des Elements</h1>
+          <div class="section-header-breadcrumb">
+              {% for operation in operations %}
+                <button class="{{operation.classTag}}" id="{{operation.idTag}}"><i class="{{operation.icon}}"></i>  {{operation.designation}}</button>
+              {% endfor %}
+              <button class="btn btn-primary ml-1" id="get_list_etudiant"><i class="fas fa-search" ></i>  Recherche</button>
+
+          </div>
+        </div>
+
+        <div class="section-body">
+        <div class="card">
+            
+            <div class="card-body">
+            <div class="card-search" style="margin-bottom: 1.5rem;">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label for="etablissement">Etablissement:</label>
+                            <select class="form-control" name="etablissement" id="etablissement">
+                                <option value="">Choix etablissement</option>
+                                {% for etablissement in etablissements %}
+                                    <option value="{{etablissement.id}}">{{etablissement.designation}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="formation">Formation:</label>
+                            <select class="form-control" name="formation" id="formation">
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="promotion">Promotion:</label>
+                            <select class="form-control" name="promotion" id="promotion">
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="semestre">Semestre:</label>
+                            <select class="form-control" name="semestre" id="semestre">
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="module">Module:</label>
+                            <select class="form-control" name="module" id="module">
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="element">Element:</label>
+                            <select class="form-control" name="element" id="element">
+                            </select>
+                        </div>
+                        
+                      
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label for="order">Order By:</label>
+                            <select class="form-control"  name="order" id="order" >
+                                <option value="0">Choix Order (optionnel)</option>
+                                <option value="1"> De A à Z</option>
+                                <option value="2"> De Z à A</option>
+                                <option value="3"> De 20 à 0</option>
+                                <option value="4"> De 0 à 20</option>
+                                
+                            </select>
+                        </div>
+
+                        <div class="col-md-2">
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <table id="list_epreuve_normal"  class="table table-striped" style="width:100%">
+                </table>
+                
+            </div>
+            
+        </div>
+        </div>
+    </section>
+</div>
+
+
+
+<!--Modal Import Group-->
+{% include 'evaluation/element/modals/statut.html.twig' %}
+{% include 'evaluation/element/modals/imprimer.html.twig' %}
+
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+{{ encore_entry_script_tags('evaluationElement') }}
+
+{# <script src="/assets/js/evaluation/element.js"></script> #}
+
+{% endblock %}
+

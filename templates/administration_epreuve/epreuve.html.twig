@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Univ - Epreuves{% endblock %}
+
+
+{% block body %}
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+          <h1>Adminstration Des Epreuves</h1>
+          <div class="section-header-breadcrumb">
+              {% for operation in operations %}
+                <a href="{{operation.link}}" class="{{operation.classTag}}" id="{{operation.idTag}}"><i class="{{operation.icon}}"></i>  {{operation.designation}}</a>
+              {% endfor %}
+          </div>
+        </div>
+
+        <div class="section-body">
+        <div class="card">
+            <div class="card-header">
+                <ul class="nav nav-pills">                
+                    <li class="nav-item mr-2">
+                        <a href="#normal" class="nav-link active">Session normal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#rattrapage" class="nav-link">Session rattrapage</a>
+                    </li>                
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="normal">
+                       {% include 'administration_epreuve/pages/list_epreuve_normal.html.twig' %}                     
+                    </div>
+                    <div class="tab-pane fade" id="rattrapage">
+                       {% include 'administration_epreuve/pages/list_epreuve_rattrapage.html.twig' %}                            
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+        </div>
+    </section>
+</div>
+
+
+
+<!--Modal Import Group-->
+{% include 'administration_epreuve/modals/affilier.html.twig' %}
+{% include 'administration_epreuve/modals/import.html.twig' %}
+{% include 'administration_epreuve/modals/ajouter_epreuve.html.twig' %}
+{% include 'administration_epreuve/modals/modifier_epreuve.html.twig' %}
+{% include 'administration_epreuve/modals/imprimer.html.twig' %}
+
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+{{ encore_entry_script_tags('epreuve') }}
+
+{# <script src="/assets/js/administration/epreuve.js"></script> #}
+
+{% endblock %}
+

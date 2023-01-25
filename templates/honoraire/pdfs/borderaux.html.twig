@@ -1,0 +1,182 @@
+<style type="text/Css">
+    body{
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+    .titre-reb{
+        width: 100%;
+        background: #1f4f7a;
+        font-size: 9px ;
+        padding:3px 10px;
+        color: #f1f1f1;
+        font-weight: bold;
+
+    }
+
+    .slh tr td {
+        border-bottom: 0.5px solid #292929;
+    }
+
+    .inf tr {
+        height: 0px ;padding: 0 ; margin:0 ;
+    }
+
+    .inf td {
+        padding: 0 ; margin:0 ;
+    }
+
+
+</style>
+
+    <br/><br/>
+    
+    <h3 style="text-align: center ; margin-bottom: 5px">ETAT DES HONORAIRES PAR PROFESSEUR</h3>
+    <p style="text-align: center ; margin: 0px ; font-size: 14px ; font-weight: bold"> {{honenss|first.seance.programmation.element.module.semestre.promotion.formation.etablissement.designation}} </p>
+    <p style="text-align: center ; margin: 0px ; font-size: 14px ;">{{honenss|first.seance.programmation.element.module.semestre.promotion.formation.designation}}</p>
+    <p style="text-align: center ; margin: 0px ; font-size: 14px ;">{{honenss|first.seance.programmation.element.module.semestre.promotion.designation}}</p>
+
+    <table class="inf" style="width: 100%; text-align: left; font-size:10px ; font-weight:bold ; font-size: 12px">
+        <tr>
+            <td style="width: 50% ;border-bottom: 1px solid black; padding-bottom: 10px;">ID_BE : {{borderaux.code}}</td>  
+            <td style="width: 50%"></td> 
+        </tr>
+        <tr>
+            <td style="border-bottom: 1px solid black; padding-bottom: 10px;">DATE_BE : {{borderaux.created | date('Y-m-j')}}</td>
+        </tr>
+        <tr>
+            <td style="border-bottom: 1px solid black; padding-bottom: 10px;">NIVEAU :</td>
+        </tr>
+        <tr>
+            <td style="border-bottom: 1px solid black; padding-bottom: 10px;">Semaine {{borderaux.semaine.nsemaine}} de : {{borderaux.semaine.datedebut | date('j-m')}} à {{borderaux.semaine.datefin | date('j-m')}} {{borderaux.semaine.anneeS}}</td> 
+        </tr>
+    </table>
+    <table style="width: 100%;">
+        <tr>
+            <td>
+                <table style="width: 75%; background: white;font-size: 9.2px; float: left;" cellspacing="0" class="slh">
+                    <thead>
+                        <tr style="background-color: black;">
+                            <th style="padding:3px;border-right:1px solid white;font-weight: bold;width:55px;color:white;font-size: 16px;">N°</th>
+                            <th style="padding:3px;border-right:1px solid white;font-weight: bold;width:200px;color:white;font-size: 16px;">PROFESSEUR</th>
+                            <th style="padding:3px;border-right:1px solid white;font-weight: bold;width:200px;color:white;font-size: 16px;">NOM</th>
+                            <th style="padding:3px;border-right:1px solid white;font-weight: bold;width:200px;color:white;font-size: 16px;">PRENOM</th>
+                            <th style="padding:3px;border-right:1px solid white;font-weight: bold;width:300px;color:white;font-size: 16px;">GRADE</th>
+                            <th style="padding:3px;border-right:1px solid white;font-weight: bold;width:200px;color:white;font-size: 16px;">MONTANT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% set somme = 0 %}
+                    {% for honens in honenss %}
+                        <tr>
+                            <td style="padding:3px;border-right:1px solid white;text-align: left;font-size: 14.5px;">{{loop.index}}</td>
+                            <td style="padding:3px;border-right:1px solid white;text-align: left;font-size: 14.5px;">{{honens.enseignant.code}}</td>
+                            <td style="padding:3px;border-right:1px solid white;text-align: left;font-size: 14.5px;">{{honens.enseignant.nom}}</td>
+                            <td style="padding:3px;border-right:1px solid white;text-align: right;font-size: 14.5px;">{{honens.enseignant.prenom}}</td>
+                            <td style="padding:3px;border-right:1px solid white;text-align: right;font-size: 14.5px;">{{honens.enseignant.grade.designation}}</td>
+                            <td style="padding:3px;border-right:1px solid white;text-align: right;font-size: 14.5px;">{{honens.montant|number_format(2, ',', ' ')}}</td>
+                        </tr>
+                        {% set somme = somme + honens.montant %}
+                    {% endfor %}
+                        <tr>
+                            <td style="padding:3px;border-right:1px solid white;text-align: left;"></td>
+                            <td style="padding:3px;border-right:1px solid white;text-align: left;"></td>
+                            <td style="padding:3px;border-right:1px solid white;text-align: left;"></td>
+                            <td style="padding:3px;border-right:1px solid white;text-align: right;"></td>
+                            <td style="padding:3px;border-right:1px solid white;text-align: right;"></td>
+                            <td style="padding:3px;border-right:1px solid white;text-align: right; font-weight: bold;font-size: 12px">{{somme|number_format(2, ',', ' ')}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td> 
+                <table style="background: #FFFFFF;">
+                    <tr>
+                        <td style="padding: 5px">signature :</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid ;width: 230px ;height: 130px ; padding: 10px;"></td>
+                    </tr>
+
+                </table>   
+            </td>
+        </tr>
+    </table>
+    
+    <br/><br/>
+    
+    <table style="width: 100% ; background: #FFFFFF;font-size: 9.2px" cellspacing="0" class="slh">
+        <thead>
+            <tr style="background-color: black;color:white;font-size: 9px;">
+                <th style="padding:3px;border-right:1px solid white;font-weight: bold; width: 5px;color:white;font-size: 11px;">N°</th>
+                <th style="padding:3px;border-right:1px solid white;font-weight: bold; width: 80px;color:white;font-size: 11px;">ID_COURS</th>
+                <th style="padding:3px;border-right:1px solid white;font-weight: bold; width: 100px;color:white;font-size: 11px;">PROFESSEUR</th>
+                <th style="padding:3px;border-right:1px solid white;font-weight: bold;width: 30px;color:white;font-size: 11px;">D_SEANCE</th>
+                <th style="padding:3px;border-right:1px solid white;font-weight: bold;width: 25px;color:white;font-size: 11px; ">DUREE</th>
+                <th style="padding:3px;border-right:1px solid white;font-weight: bold;width: 25px;color:white;font-size: 11px;">HR_D</th>
+                <th style="padding:3px;border-right:1px solid white;font-weight: bold;width: 25px;color:white;font-size: 11px;">HR_F</th>
+                <th style="padding:3px;border-right:1px solid white;font-weight: bold;width: 30px;color:white;font-size: 11px;">CLS_GRP</th>
+                <th style="padding:3px;border-right:1px solid white;font-weight: bold;width: 320px;color:white;font-size: 11px;">MODULE/MATIERE</th>
+                <th style="padding:3px;border-right:1px solid white;font-weight: bold;width: 20px;color:white;font-size: 11px;">TYPE</th>
+                <th style="padding:3px;border-right:1px solid white;font-weight: bold;width: 20px;color:white;font-size: 11px;">GENRE</th>
+                <th style="padding:3px;border-right:1px solid white;font-weight: bold;width: 30px;color:white;font-size: 11px;">EFFECTIVE</th>
+                <th style="padding:3px;border-right:1px solid white;font-weight: bold;width: 20px;color:white;font-size: 11px;">MT</th>
+            </tr>
+        </thead>
+        <tbody>
+        
+        {% set number = 0 %}
+        {% for honens in honenss %}
+            <tr>
+                <td style="padding:3px;border-right:1px solid white;text-align: left;font-size: 9px;">{{loop.index}}</td>
+                <td style="padding:3px;border-right:1px solid white;text-align: left;font-size: 9px;">{{honens.seance.code}}</td>
+                <td style="padding:3px;border-right:1px solid white;text-align: left;font-size: 9px;">{{honens.enseignant.nom}} {{honens.enseignant.prenom}}</td>
+                <td style="padding:3px;border-right:1px solid white;text-align: right;font-size: 9px;">{{honens.seance.start | date('Y-m-j')}}</td>
+                <td style="padding:3px;border-right:1px solid white;text-align: right;font-size: 9px;">duree</td>
+                <td style="padding:3px;border-right:1px solid white;text-align: right;font-size: 9px;">{{honens.seance.start | date('H:m')}}</td>
+                <td style="padding:3px;border-right:1px solid white;text-align: left;font-size: 9px;">{{honens.seance.end | date('H:m')}}</td>
+                <td style="padding:3px;border-right:1px solid white;text-align: left;font-size: 9px;"></td>
+                <td style="padding:3px;border-right:1px solid white;text-align: left;font-size: 9px;">{{honens.seance.programmation.element.designation}}</td>
+                <td style="padding:3px;border-right:1px solid white;text-align: right;font-size: 9px;">{{honens.seance.programmation.natureepreuve.designation}}</td>
+                <td style="padding:3px;border-right:1px solid white;text-align: right;font-size: 9px;">{{honens.seance.programmation.element.nature.designation}}</td>
+                <td style="padding:3px;border-right:1px solid white;text-align: right;font-size: 9px;"></td>
+                <td style="padding:3px;border-right:1px solid white;text-align: right;font-size: 9px;"> 
+            </tr>
+            {% set number = loop.index %}
+        {% endfor %}
+{# 
+<?php
+$sc = array();
+foreach ($list_details as $key => $value) {
+
+    $sc[] = $value->code_emplois;
+    ?> #}
+                {# <tr>
+                    <td style="padding:3px;border-right:1px solid white;text-align: left;"><?php echo ++$key; ?></td>
+                    <td style="padding:3px;border-right:1px solid white;text-align: left;"> <?php echo $value->code_emplois; ?></td>
+                    <td style="padding:3px;border-right:1px solid white;text-align: left;"><?php echo $value->nom . ' ' . $value->prenom; ?></td>
+                    <td style="padding:3px;border-right:1px solid white;text-align: right;"><?php echo $value->date ?></td>
+                    <td style="padding:3px;border-right:1px solid white;text-align: right;"><?php echo $value->nbr_heures ?></td>
+                    <td style="padding:3px;border-right:1px solid white;text-align: right;"><?php echo $value->heur_db ?></td>
+                    <td style="padding:3px;border-right:1px solid white;text-align: left;"><?php echo $value->heur_fin ?></td>
+                    <td style="padding:3px;border-right:1px solid white;text-align: left;"><?php echo "" ?></td>
+                    <td style="padding:3px;border-right:1px solid white;text-align: left;"><?php echo $value->designation_element ?></td>
+                    <td style="padding:3px;border-right:1px solid white;text-align: right;"><?php echo $value->designation_nature_epreuve ?></td>
+                    <td style="padding:3px;border-right:1px solid white;text-align: right;"><?php echo $value->genre ?></td>
+                    <td style="padding:3px;border-right:1px solid white;text-align: right;"><?php echo "" ?></td>
+                    <td style="padding:3px;border-right:1px solid white;text-align: right;"> 
+                    <?php echo number_format($value->montant, 2, ',', ' '); ?></td>
+                </tr> #}
+
+
+        </tbody>
+
+    </table>
+        <br/><h5> Nombre des séances : {{number}} </h5>
+
+
+    <br><br>
+
+
+
+
+
+</page>

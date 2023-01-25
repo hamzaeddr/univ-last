@@ -1,0 +1,34 @@
+<div
+  class="modal"
+  role="dialog"
+  id="imprimer_list"
+  aria-modal="true"
+>
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        {# <h5 class="modal-title">Epreuve: <span class="epreuve_title">15896</span></h5> #}
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="etudiant_info" style="display: block;">
+          
+         
+        </div>
+        <div class="actions text-center">
+          <a href="{{path('administration_epreuve_impression', {type: 'normal'})}}" target="_blank" class="btn btn-primary mt-3" id="impression_clair">Impression Liste</a>
+          <a href="{{path('administration_epreuve_impression', {type: 'clair'})}}" target="_blank" class="btn btn-primary mt-3" id="impression_clair">Impression Clair</a>
+          <a href="{{path('administration_epreuve_impression', {type: 'anonymat'})}}" target="_blank" class="btn btn-secondary mt-3" id="impression_anonymat">Impression Anonymat</a>
+          <a href="{{path('administration_epreuve_impression', {type: 'rat'})}}" target="_blank" class="btn btn-warning mt-3" id="impression_">Impression Liste Rattrapage</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

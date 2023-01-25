@@ -1,0 +1,14 @@
+html {
+    font-size: 62.5%;
+}
+.activeSecondUrl {
+    color: #6777ef !important;
+}
+
+@import "~bootstrap/scss/bootstrap";
+@import "../styles/components/dashboard/dashboard";
+@import "../styles/components/datatable";
+@import "../styles/components/multiselect";
+table {
+    font-size: 1.1rem !important;
+}

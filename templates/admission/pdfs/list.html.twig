@@ -1,0 +1,135 @@
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+<style type="text/Css">
+   
+    body{
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+    
+
+</style>
+<br/>
+<br/>
+<br/>
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 12px" >
+    <tr>
+        <td style="width: 100% ;background: rgb(31, 79, 122); color: #fff ;height: 17px;padding: 4px ;font-weight: bold;padding-left: 15px;"> Informations sur la Formation</td> 
+    </tr>
+    <tr>
+
+    </tr>
+
+
+</table>
+
+<table style="width: 65%; text-align: left; font-size:12px">
+    <tr style="width: 100%"> 
+        <td>
+            <table style="width: 100% ;">
+                <tr>
+                    <td style="width: 25% ;">
+                        <table style="width: 100% ; ">
+                            <tr>
+                                <td style="width: 100%;font-weight: bold;">Etablissement   : </td>
+                            </tr>
+                        </table>
+                    </td>
+
+                    <td style="width: 65%;">
+                        <table style="width: 100% ;">
+                            <tr>
+                                <td style="width: 100%">{{annee.formation.etablissement.designation}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td style="width: 35% ;font-weight: bold;">
+                        <table style="width: 100% ; ">
+                            <tr>
+                                <td style="width: 100%;font-weight: bold;">Formation          :</td>
+                            </tr>
+                        </table>
+                    </td>
+
+                    <td style="width: 65%;">
+                        <table style="width: 100% ;">
+                            <tr>
+                                <td style="width: 100%">{{annee.formation.designation}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td style="width: 35% ;font-weight: bold;">
+                        <table style="width: 100% ; ">
+                            <tr>
+                                <td style="width: 100%;font-weight: bold;">Année Universitaire                : </td>
+                            </tr>
+                        </table>
+                    </td>
+
+                    <td style="width: 70%;">
+                        <table style="width: 100% ;">
+                            <tr>
+                                <td style="width: 100%">{{annee.designation}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+
+
+
+
+
+
+
+
+            </table>
+        </td>
+
+
+    </tr>   
+</table>
+
+<br/><br/>
+<!--End III-  Détails commande-->
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 12px" >
+    <tr>
+        <td style="width: 100% ;background: rgb(31, 79, 122); color: #fff ;height: 17px;padding: 4px ;font-weight: bold;padding-left: 15px;"> Liste Etudiants </td> 
+    </tr>
+    <tr>
+
+    </tr>
+
+
+</table>
+<br/>
+<table style="width: 100% ; background: #FFFFFF;font-size: 12px" cellspacing="0" class="slh">
+    <thead>
+        <tr style="background-color: rgb(31, 79, 122);font-size: 10px;">
+            <th style="width: 7%;text-align: left; padding:6px;border-right:1px solid white;font-weight: bold;color: white;font-size: 10px">ORD</th>
+            <th style="width: 23%;text-align: left; padding:6px;border-right:1px solid white;font-weight: bold;color: white;font-size: 10px">Code Admission</th>
+            <th style="width: 20%;text-align: left; padding:6px;border-right:1px solid white;font-weight: bold;color: white;font-size: 10px">Nom</th>
+            <th style="width: 20%;text-align: left; padding:6px;border-right:1px solid white;font-weight: bold;color: white;font-size: 10px">Prénom</th>
+            <th style="width: 15%;text-align: left; padding:6px;border-right:1px solid white;font-weight: bold;color: white;font-size: 10px">CIN</th>
+            <th style="width: 15%;text-align: left; padding:6px;border-right:1px solid white;font-weight: bold;color: white;font-size: 10px">CNE</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for admission in admissions %}
+        <tr>
+            <td style="padding:6px;border-right:1px solid white;text-align: left;">{{loop.index}}</td>
+            <td style="padding:6px;border-right:1px solid white;text-align: left;">{{admission.code}}</td>
+            <td style="padding:6px;border-right:1px solid white;text-align: left;">{{admission.preinscription.etudiant.nom}}</td>
+            <td style="padding:6px;border-right:1px solid white;text-align: left;">{{admission.preinscription.etudiant.prenom}}</td>
+            <td style="padding:6px;border-right:1px solid white;text-align: left;">{{admission.preinscription.etudiant.cin}}</td>
+            <td style="padding:6px;border-right:1px solid white;text-align: left;">{{admission.preinscription.etudiant.cne}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

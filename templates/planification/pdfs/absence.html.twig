@@ -1,0 +1,122 @@
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+<style type="text/Css">
+   
+    body{
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+    .slh tr td {
+        border-bottom: 1px solid #292929;
+        text-align: left;
+    }
+    .titre-reb{
+        width: 100%;
+        background: #1f4f7a;
+        font-size: 9px ;
+        padding:3px 10px;
+        color: #f1f1f1;
+        font-weight: bold
+    }
+    div.zone_over
+    {
+        display: block;
+        width: 40%;
+        word-wrap:break-word !important;
+    }
+
+</style>
+<div style="text-align: center; margin-bottom: 60px !important;">
+    <img src="./assets/img/logo/pdf-logo.png" style=" width: 350px; margin: 0 auto;">
+</div>
+<br/>
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 11px" >
+    <tr>
+        <td style="width: 100% ;background: rgb(31, 79, 122); color: #fff ;height: 17px;padding: 4px ;font-weight: bold;padding-left: 15px;"> Informations Etablissement</td> 
+    </tr>
+</table>
+<table style="width:100%">
+    <tr style="width:100%"> 
+        <td style="width:33.33%"><b>Date : </b>{{seance.start | date('j-m-Y')}} </td>
+        <td style="width:33.33%"><b>Heure début  : </b>{{seance.start | date('H:m')}} </td>
+        <td style="width:33.33%"><b>Heure fin : </b>{{seance.start | date('H:m')}} </td>
+    </tr>
+    <tr style="width:100%"> 
+        <td style="width:50%"><b>Etablissement : </b>{{seance.programmation.element.module.semestre.promotion.formation.etablissement.designation}} </td>
+        <td style="width:50%"><b>Formation : </b>{{seance.programmation.element.module.semestre.promotion.formation.designation}} </td>
+    </tr>
+    <tr style="width:100%"> 
+        <td style="width:50%"><b>Année Universitaire : </b>{{annee.designation}} </td>
+        <td style="width:50%"><b>Promotion : </b>{{seance.programmation.element.module.semestre.promotion.designation}} </td>
+    </tr>
+    <tr style="width:100%"> 
+        <td style="width:50%"><b>Semestre : </b>{{seance.programmation.element.module.semestre.designation}} </td>
+        <td style="width:50%"><b>Module : </b>{{seance.programmation.element.module.designation}} </td>
+    </tr>
+    <tr style="width:100%"> 
+        <td style="width:50%"><b>Elément : </b>{{seance.programmation.element.designation}} </td>
+        <td style="width:50%"><b>Epreuve : </b>{{seance.programmation.natureepreuve.designation}} </td>
+    </tr>
+</table>
+<br/>
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 11px" >
+    <tr>
+        <td style="width: 100% ;background: rgb(31, 79, 122); color: #fff ;height: 17px;padding: 4px ;font-weight: bold;padding-left: 15px;"> La Liste Des Enseignants</td> 
+    </tr>
+</table>
+{% if emptimenss != NULL %}
+    <table style="width: 100% ; background: #FFFFFF;font-size: 12px" cellspacing="0" class="slh">
+        <thead>
+            <tr style="background-color: rgb(31, 79, 122);color:white;font-size: 9px;">
+                <th style="width:30px;padding:3px;border-right:1px solid white;color:white;">ORDRE</th>
+                <th style="width:30px;padding:3px;border-right:1px solid white;color:white;">Nom</th>
+                <th style="width:30px;padding:3px;border-right:1px solid white;color:white;">Prénom</th>
+                <th style="width:85px;padding:6px;border-right:1px solid white;color:white;;font-weight: bold;">Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% set key = 1 %}
+            {% for emptimens in emptimenss %}
+                <tr style="font-size: 10px;">
+                    <td style="padding:6px;border-right:1px solid white;text-align: left;">{{key}}</td>
+                    <td style="padding:6px;border-right:1px solid white;text-align: left;">{{emptimens.enseignant.nom}}</td>
+                    <td style="padding:6px;border-right:1px solid white;text-align: left;">{{emptimens.enseignant.prenom}}</td>
+                    <td style="padding:6px;border-right:1px solid white;text-align: left;">{{emptimens.enseignant.grade.designation}}</td>  
+                </tr>
+            {% set key = key + 1 %}
+            {% endfor %}      
+        </tbody>
+    </table>
+{% endif %}
+<br/>
+<br/>
+<br/>
+<br/>
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 11px" >
+    <tr>
+        <td style="width: 100% ;background: rgb(31, 79, 122); color: #fff ;height: 17px;padding: 4px ;font-weight: bold;padding-left: 15px;"> La Liste Des Etudiants</td> 
+    </tr>
+</table>
+<table style="width: 100% ; background: #FFFFFF;font-size: 12px" cellspacing="0" class="slh">
+        <thead>
+            <tr style="background-color: rgb(31, 79, 122);color:white;font-size: 9px;">
+                <th style="width:30px;padding:6px;border-right:1px solid white;font-weight: bold;color:white;">ORDRE</th>
+                <th style="width:170px;padding:6px;border-right:1px solid white;font-weight: bold;;color:white;">Nom</th>
+                <th style="width:170px;padding:6px;border-right:1px solid white;font-weight: bold;;color:white;">Prénom</th>
+                <th style="width:85px;padding:6px;border-right:1px solid white;font-weight: bold;;color:white;">présent</th>
+                <th style="width:170px;padding:6px;border-right:1px solid white;font-weight: bold;;color:white;">Remarques</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% set key = 1 %}
+            {% for inscription in inscriptions %}
+                <tr style="font-size: 10px;">
+                    <td style="padding:6px;border-right:1px solid white;text-align: left;">{{key}}</td>
+                    <td style="padding:6px;border-right:1px solid white;text-align: left;">{{inscription.admission.preinscription.etudiant.nom}}</td>
+                    <td style="padding:6px;border-right:1px solid white;text-align: left;">{{inscription.admission.preinscription.etudiant.prenom}}</td>
+                    <td style="padding:6px;border-right:1px solid white;text-align: left;">  </td>
+                    <td style="padding:6px;text-align: left;">  </td>
+                </tr>
+            {% set key = key + 1 %}
+            {% endfor %}      
+        </tbody>
+    </table>
+

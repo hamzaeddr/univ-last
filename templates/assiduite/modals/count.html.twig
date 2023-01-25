@@ -1,0 +1,45 @@
+                     
+
+
+  <span>Categorie</span>
+  <span>A</span>
+  <span>B</span>
+  <span>C</span> 
+  <span>D</span> 
+  <span></span>
+  <span>AD</span>
+  <span>BD</span> 
+	
+	
+	
+	
+  
+  <span class="row-label">Nbre Etudiants</span>
+  {% set A = "0" %}
+  {% set B = "0" %}
+  {% set C = "0" %}
+  {% set D = "0" %}
+
+  {% for count in counts %}
+  {% if count.A != '0'  %}
+  {% set A = count.A %}
+  {% endif %}
+  {% if count.B != '0'  %}
+  {% set B = count.B %}
+  {% endif %}
+  {% if count.C != '0'  %}
+  {% set C = count.C %}
+  {% endif %}
+  {% if count.D != '0'  %}
+  {% set D = count.D %}
+  {% endif %}
+  {% endfor %}
+  
+  <div class="box"> {{A}} </div>
+  <div class="box">{{ B }}</div>
+  <div class="box">{{ C }}</div>
+  <div class="box">{{ D }}</div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+   

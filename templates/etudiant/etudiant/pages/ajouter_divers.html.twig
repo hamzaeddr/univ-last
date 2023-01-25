@@ -1,0 +1,62 @@
+<div style="margin-left:30px">
+    <div class="col-md-2">
+        <div class="form-group">
+            <label> Bourse :</label><br> 
+            <input type="radio" name="bourse" id="nbourse" value="0" checked=""> 
+            <label style="margin: 0px 10px 0px 0px;"  for="nbourse"> Non </label>   
+            <input type="radio" name="bourse" id="bourse" value="1"> 
+            <label style="margin:10px" for="bourse"> Oui </label>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label> Logement :</label><br>
+            <input type="radio" name="logement" id="nlogement" value="0" checked=""> 
+            <label style="margin: 0px 10px 0px 0px;"  for="nlogement"> Non </label>   
+            <input type="radio" name="logement" id="logement" value="1"> 
+            <label style="margin:10px" for="logement"> Oui </label> 
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label> Parking :</label><br>
+            <input type="radio" name="parking" id="nparking" value="0" checked=""> 
+            <label style="margin: 0px 10px 0px 0px;"  for="nparking"> Non </label>   
+            <input type="radio" name="parking" id="parking" value="1"> 
+            <label style="margin:10px" for="parking"> Oui </label>            
+        </div>
+    </div>
+    {# <div class="col-md-3">
+        <div class="form-group">
+            <label>Nombre des freres : </label>
+            <input class="form-control" type="nombre" name="freres" placeholder="Nombre des freres" value=""> 
+        </div>
+    </div>  #}
+    <div class="col-md-3">
+        <div class="form-group">
+            <label> catégorie préinscription (*) :</label>
+            <select class="form-control chosen-select" name="categorie_preinscription">
+                <option value="" selected>Choix Categorie Preins</option>
+                <option value="NOUVELLE PRE-INSCRIPTION">NOUVELLE PRE-INSCRIPTION</option>
+                <option value="TRANSFERT">TRANSFERT</option>
+                <option value="PASSERELLE">PASSERELLE</option>
+                <option value="RESIDANAT">RESIDANAT</option>
+            </select>
+
+            {# <input class="form-control" type="text" name="categorie_preinscription" placeholder="Catégorie Préinscription" value="{{etudiant.categoriePreinscription}}">  #}
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="form-group">
+            <label>Nature De Demande (*) :</label>
+            <select class="form-control chosen-select" name="nat_demande">
+                <option value="" disabled selected>Choix Nature</option>
+                {% for natureDemande in natureDemandes %}
+                    <option value="{{natureDemande.id}}">{{natureDemande.designation}}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+</div>
+<button type="submit" class="btn btn-primary mt-4 float-right mr-5" ><i class="fas fa-plus"></i> Ajouter</button>

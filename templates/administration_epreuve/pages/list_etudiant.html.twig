@@ -1,0 +1,31 @@
+<thead>
+    <tr style= "background-color:white; position: sticky; top: 0;">
+        <th>#</th>
+        <th>inscription</th>
+        <th>Nom</th>
+        <th>Prenom</th>                
+        <th>Etablissement</th>         
+        <th>Formation</th>         
+        <th>Promotion</th>         
+        <th>Salle</th>  
+        <th>Anonymat S1</th>  
+        <th>Anonymat S2</th>  
+    </tr>
+</thead>
+<tbody>
+    {% for inscription in inscriptions %}
+    {% set salle = inscription.salle|split("-") %}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{inscription.id}}</td>
+            <td>{{inscription.admission.preinscription.etudiant.nom}}</td>
+            <td>{{inscription.admission.preinscription.etudiant.prenom}}</td>                          
+            <td>{{inscription.annee.formation.etablissement.designation}}</td>                          
+            <td>{{inscription.annee.formation.designation}}</td>                          
+            <td>{{inscription.promotion.designation}}</td>                          
+            <td>{{salle[0]}} {{salle[1]}}</td>                          
+            <td>{{inscription.codeAnonymat}}</td>                          
+            <td>{{inscription.codeAnonymatRat}}</td>                          
+        </tr>
+    {% endfor %}
+</tbody>

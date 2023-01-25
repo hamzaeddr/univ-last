@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Univ - Paramétre - Etablissements{% endblock %}
+
+
+{% block body %}
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+          <h1>Etablissements</h1>
+          <div class="section-header-breadcrumb">
+              {# <a href="#" class="btn btn-success ml-1" id="modifier"><i class="fas fa-edit"></i>  Modifier</a>
+              <a href="#" class="btn btn-success ml-1" id="ajouter"><i class="fas fa-plus"></i>  Aouter</a> #}
+              {# <a href="#" class="btn btn-success ml-1" id="ajouter"><i class="fas fa-plus"></i>  Aouter</a> #}
+              {% for operation in operations %}
+                <a href="{{operation.link}}" class="{{operation.classTag}}" id="{{operation.idTag}}"><i class="{{operation.icon}}"></i>  {{operation.designation}}</a>
+              {% endfor %}
+          </div>
+        </div>
+
+        <div class="section-body">
+        <div class="card">
+            <div class="card-header">
+            <h4>Tableau des etablissements</h4>
+            </div>
+            <div class="card-body">
+            
+            <table id="datatables_gestion_etablissement" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>etablissement</th>
+                        <th>abreviation</th>
+                        <th>nature</th>
+                        <th>date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>id</th>
+                        <th>etablissement</th>
+                        <th>abreviation</th>
+                        <th>nature</th>
+                        <th>date</th>
+
+                    </tr>
+                </tfoot>
+            </table>
+            </div>
+            
+        </div>
+        </div>
+    </section>
+</div>
+
+
+
+<!--Modal Import Group-->
+{% include 'parametre/etablissement/modals/ajouter.html.twig' %}
+{% include 'parametre/etablissement/modals/modifier.html.twig' %}
+
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+{{ encore_entry_script_tags('etablissement') }}
+
+{# <script src="/assets/js/parametre/etablissement.js"></script> #}
+
+{% endblock %}
+

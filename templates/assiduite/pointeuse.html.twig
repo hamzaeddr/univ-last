@@ -1,0 +1,258 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Service Assiduite{% endblock %}
+
+{% block body %}
+<style>
+.col-md-2 {
+    flex: 0 0 16.6666666667%;
+    max-width: 14%;
+}
+.section .section-header .btn {
+    font-size: 1.2rem;
+}
+
+{# @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital@0;1&display=swap'); #}
+
+{# * {
+	box-sizing: border-box;
+} #}
+
+.grid {
+	display: grid;
+	font-size: calc(0.4rem + 0.5vw);
+	margin: 0;
+	color: #333;
+	
+	
+}
+
+h1 {
+	grid-column: 2 / -1;
+	font-weight: normal;
+	border-bottom: 1px solid #999;
+}
+
+.grid {
+	display: grid;
+  grid-template-columns: auto repeat(7, 1fr);
+  grid-template-rows: auto auto repeat(7, 1fr);
+ 
+  gap: 1em;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	max-width: 46em;
+        margin-left: 300px;
+
+}
+
+.box {
+	padding: 0.5em;
+
+  border: 2px solid;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-style: italic;
+	background: #f0f0f0;
+	
+	
+}
+
+.row-label {
+	text-align: right;
+}
+
+tr.highlighty{
+  background-color: rgb(220 245 255 / 73%) !important ;
+  color: black;
+}
+tr.highlightysuccess{
+  background-color: rgb(136 225 155 / 73%) !important ;
+  color: black;
+}
+tr.highlightyerror{
+  background-color: rgb(255 43 43 / 73%) !important ;
+  color: black;
+}
+.odd{background-color:none;}
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid grey;
+  width: 20px;
+  height: 20px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  margin-left: 778px;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+} 
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.notraiter{
+  background:linear-gradient(90deg, transparent 23.6018%, #add8e6 23.6018%) left center / 30% 80%  no-repeat !important;
+}
+.traiter{
+  background:linear-gradient(90deg, transparent 23.6018%, #90ee90 23.6018%) left center / 30% 80%  no-repeat !important;
+
+}
+.Verouiller{
+  background:linear-gradient(90deg, transparent 23.6018%, #dc143c 23.6018%) left center / 30% 80%  no-repeat !important;
+
+}
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 400px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+</style>
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+          <h1>Assiduite</h1>
+          <div class="section-header-breadcrumb" style="gap:1rem;">
+              {% for operation in operations %}
+                <button class="{{operation.classTag}}" id="{{operation.idTag}}"><i class="{{operation.icon}}"></i>  {{operation.designation}}</button>
+              {% endfor %}
+
+          </div>
+        </div>
+
+        <div class="section-body">
+        <div class="card">
+        <div class="card-header">
+                <h4>Traitement</h4>
+            </div>
+           <div class="row" style="width: 100%; margin: 0;">
+               <div class="col-md" style="padding-left: 0;">
+                    <div class="card" style="padding: 10px; height:50rem;">
+                      <br/>
+                         <div class="row">
+                        
+                        <div class="col-md-2" >
+                            <label for="etablissement">Choix Salle:</label>
+                            <select class="form-control" name="salle_pointeuse"  id="salle_pointeuse" class="selectdata form-control custom-select">
+                                 <option value="0"> Select Salle</option>
+                                {% for salle in salles %}
+                                    <option value="{{salle.code}}">{{salle.abreviation}}</option>
+                                {% endfor %} 
+                            </select>
+                        </div>
+                       
+                      
+                        <div class="col-md-2" >
+                            <label for="etablissement">Date:</label>
+                            <input class="form-control" type="date" id="datetime_pointeuse" value="">
+
+                        </div>
+                       
+                      
+                     
+                        <div class="col-md-2">
+
+                        </div>
+                    </div>
+                   </br><div class="row">
+  <div class="column" >
+     <table id="dtDynamicVerticalScrollExample_pointeuse" class="table table-striped table-bordered table-sm" cellspacing="0"  width="100%" height="100%">
+
+  <thead>
+    <tr>
+    
+      <th >Salle
+      </th>
+      <th >Sn
+      </th>
+      <th >Ip 
+      </th>
+
+    </tr>
+  </thead>
+  <tbody>
+ 
+    
+  </tbody>
+ 
+</table>
+  </div>
+  <div class="column" style="background-color:#edf3f5;">
+    <table id="dtDynamicVerticalScrollExample_pointeuse2" class="table table-striped table-bordered table-sm" cellspacing="0"  width="100%" height="100%">
+
+  <thead>
+    <tr>
+      <th >Statut
+      </th>
+      <th >Seance
+      </th>
+      <th >Nature
+      </th>
+      <th >Salle
+      </th>
+
+    </tr>
+  </thead>
+  <tbody>
+ 
+    
+  </tbody>
+ 
+</table>
+  </div>
+</div>
+                  
+<div class="loader" hidden></div>
+
+                      
+                    </div>
+                 
+
+                       
+                       
+
+               </div>
+
+                   
+ {# /////////////////////////////////////////////////////////////////////////////////////////////////////////////               #}
+ 
+
+           </div>
+            
+        </div>
+        </div>
+        </div>
+    </section>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+</script>
+{% include 'assiduite/modals/etudiant.html.twig' %}
+{% include 'assiduite/modals/parlot.html.twig' %}
+{% include 'assiduite/modals/etudiant_det.html.twig' %}
+
+{% endblock %}
+{% block javascripts %}
+{{parent()}}
+{{ encore_entry_script_tags('pointeuse') }}
+
+
+{% endblock %}

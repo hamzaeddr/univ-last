@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Univ - Recherche Avance{% endblock %}
+
+
+{% block body %}
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+          <h1>Recherche Avance</h1>
+          <div class="section-header-breadcrumb">
+              {% for operation in operations %}
+                <button class="{{operation.classTag}}" id="{{operation.idTag}}"><i class="{{operation.icon}}"></i>  {{operation.designation}}</button>
+              {% endfor %}
+
+          </div>
+        </div>
+
+        <div class="section-body">
+           <div class="row" style="width: 100%; margin: 0;">
+               <div class="col-md-9" style="padding-left: 0;">
+                    <div class="card">
+                        <div class="row" style="margin: 0;">
+                            <div class="col-md-5" style="position: relative;">
+                                <label for="etudiant">Etudiant:</label>
+                                <select name="etudiant" id="etudiant">
+
+                                </select>
+                            
+                            </div>
+                            <div class="col-md-3">
+                                <label for="annee">Année:</label>
+                                <select class="form-control" name="annee" id="annee">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="card-header">
+                            <ul class="nav nav-pills">                
+                                <li class="nav-item mr-2">
+                                    <a href="#administratif" class="nav-link active">Administratif</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#academique" class="nav-link">Académique</a>
+                                </li>                
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="administratif">
+                                        
+                                </div>
+                                <div class="tab-pane fade" id="academique">
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                        {# <table id="list_epreuve_normal"  class="table table-striped" style="width:100%">
+                        </table> #}
+                    </div>
+               </div>
+               <div class="col-md-3" style="padding: 0;">
+                   <div class="card">
+                    <div class="image-information">
+                        <img
+                            alt="image"
+                            src="{{asset('assets/img/avatar/avatar-1.png')}}"
+                            class="rounded-circle mr-1"
+                        />
+                    </div>
+                    <div class="card-body information">
+                        
+                    </div>
+                   </div>
+               </div>
+           </div>
+            
+        </div>
+        </div>
+    </section>
+</div>
+
+
+
+<!--Modal Import Group-->
+{# {% include 'evaluation/epreuve/modals/affilier.html.twig' %}
+{% include 'evaluation/epreuve/modals/import.html.twig' %}
+{% include 'evaluation/epreuve/modals/imprimer.html.twig' %} #}
+
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+{{ encore_entry_script_tags('rechercheavance') }}
+
+{# <script src="/assets/js/etudiant/rechercheavance.js"></script> #}
+
+{% endblock %}
+

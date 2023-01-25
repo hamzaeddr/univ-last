@@ -1,0 +1,149 @@
+<div class="col-md-6" style="border-right: 1px solid #eee;">
+    <fieldset>
+        <legend>Informations sur le pere </legend>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Situation des Parents :</label>
+                <select class="form-control " style="width: 100%" name="situation_parents">
+                    <option value="" disabled selected>Choix de situation</option>
+                        {% for situation in situations %}
+                            <option value="{{situation.id}}">{{situation.designation}}</option>
+                        {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>  Nom pere  :</label>
+                <input class="form-control" type="text" name="nom_p" placeholder="Nom pere" value=""> 
+            </div>
+        </div> 
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>  Prénom pere  :</label>
+                <input class="form-control" type="text" name="prenom_p" placeholder="Prénom pere" value=""> 
+            </div>
+        </div> 
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>  Nationalité pere  :</label>
+                <input class="form-control" type="text" name="nationalite_p" placeholder="Nationalité pere" value=""> 
+            </div>
+        </div> 
+
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>  Profession pere  :</label>
+                <input class="form-control" type="text" name="profession_p" placeholder="Profession pere" value=""> 
+            </div>
+        </div> 
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>  Employé pere  :</label>
+                <input class="form-control" type="text" name="employe_p" placeholder="Employé pere" value=""> 
+            </div>
+        </div> 
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>  Catégorie pere  :</label>
+                <input class="form-control" type="text" name="categorie_p" placeholder="Catégorie pere" value=""> 
+            </div>
+        </div> 
+
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>  Téléphone pere  :</label>
+                <input class="form-control" type="text" name="tel_p" placeholder="Téléphone pere" value=""> 
+            </div>
+        </div> 
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>  Mail pere  :</label>
+                <input class="form-control" type="text" name="mail_p" placeholder="Mail pere" value=""> 
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>  Salaire pere  :</label>
+                <input class="form-control" type="text" name="salaire_p" placeholder="Salaire pere" value=""> 
+            </div>
+        </div>
+    </fieldset>
+</div>
+<div class="col-md-6 parents-tab" style="border-left: 1px solid #eee;">
+    <fieldset>
+        <legend>Informations sur la mere </legend>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>  Nom mere  :</label>
+                <input class="form-control" type="text" name="nom_m" placeholder="Nom mere" value=""> 
+            </div>
+        </div> 
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>  Prénom mere  :</label>
+                <input class="form-control" type="text" name="prenom_m" placeholder="Prénom mere" value=""> 
+            </div>
+        </div> 
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>  Nationalité mere  :</label>
+                <input class="form-control" type="text" name="nationalite_m" placeholder="Nationalité mere" value=""> 
+            </div>
+        </div> 
+
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>  Profession mere  :</label>
+                <input class="form-control" type="text" name="profession_m" placeholder="Profession mere" value=""> 
+            </div>
+        </div> 
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>  Employé mere  :</label>
+                <input class="form-control" type="text" name="employe_m" placeholder="Employé mere" value=""> 
+            </div>
+        </div> 
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>  Catégorie mere  :</label>
+                <input class="form-control" type="text" name="categorie_m" placeholder="Catégorie mere" value=""> 
+            </div>
+        </div> 
+
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>  Téléphone mere  :</label>
+                <input class="form-control" type="text" name="tel_m" placeholder="Téléphone mere" value=""> 
+            </div>
+        </div> 
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>  Mail mere  :</label>
+                <input class="form-control" type="text" name="mail_m" placeholder="Mail mere" value=""> 
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>  Salaire mere  :</label>
+                <input class="form-control" type="text" name="salaire_m" placeholder="Salaire mere" value=""> 
+            </div>
+        </div> 
+
+    </fieldset>      
+</div> 

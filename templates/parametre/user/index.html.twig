@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Univ - Paramétre - Users{% endblock %}
+
+
+{% block body %}
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+          <h1>Users</h1>
+          <div class="section-header-breadcrumb">
+              <a href="#" class="btn btn-success ml-1" id="privillege"><i class="fas fa-plus"></i>  Privilége</a>
+              
+          </div>
+        </div>
+
+        <div class="section-body">
+        <div class="card">
+            <div class="card-header">
+            <h4>Tableau des users</h4>
+            </div>
+            <div class="card-body">
+            
+            <table id="datatables_gestion_users" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Login</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Role</th>
+                        <th>Active</th>
+                        <th>Reinitialiser MDP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>id</th>
+                        <th>Login</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Role</th>
+                        <th>Active</th>
+                        <th>Reinitialiser MDP</th>
+                    </tr>
+                </tfoot>
+            </table>
+            </div>
+            
+        </div>
+        </div>
+    </section>
+</div>
+
+
+
+<!--Modal Import Group-->
+{% include 'parametre/user/modals/privilege.html.twig' with {'modules': modules}%}
+{# {% include 'inscription/modals/frais.html.twig' %} #}
+
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+{{ encore_entry_script_tags('user') }}
+
+{# <script src="/assets/js/parametre/user.js"></script> #}
+
+{% endblock %}
+

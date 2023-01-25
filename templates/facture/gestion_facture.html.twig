@@ -1,0 +1,136 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Univ - Gestions Factures{% endblock %}
+
+
+{% block body %}
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+          <h1>Gestions Des Factures</h1>
+          <div class="section-header-breadcrumb">
+            {% for operation in operations %}
+                {% if operation.designation == 'Ajouter' %}
+                    <a href="{{operation.link}}" class="{{operation.classTag}}" id="{{operation.idTag}}" disabled><i class="{{operation.icon}}"></i>  {{operation.designation}}</a>
+                  {% else %}
+                    <a href="{{operation.link}}" class="{{operation.classTag}}" id="{{operation.idTag}}"><i class="{{operation.icon}}"></i>  {{operation.designation}}</a>
+                {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        <div class="section-body">
+        <div class="card">
+            <div class="card-header">
+                <h4>Tableau des Factures</h4>
+            </div>
+            <div class="card-body">
+                <div class="card-search" style="margin-bottom: 1.5rem;">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label for="etablissement">Etablissement:</label>
+                            <select class="form-control" name="etablissement" id="etablissement">
+                                <option value="">Choix Etablissement</option>
+                                {% for etablissement in etablissements %}
+                                    <option value="{{etablissement.id}}">{{etablissement.designation}}</option>
+                                {% endfor %} 
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="formation">Formation:</label>
+                            <select class="form-control" name="formation" id="formation">
+                                <option value="">Choix Formation</option>
+                            </select>
+                        </div>
+                        {% if reglements|length > 0 %}
+                            <div class="col-md-2">
+                                <label for="reglement">Reglement:</label>
+                                <select class="form-control" name="reglement" id="reglement">
+                                    <option value="">Choix Reglement</option>
+                                    <option value="SD">Soldée</option>
+                                    <option value="SE">Sur Ens</option>
+                                    <option value="SON">Sous Ens</option>
+                                </select>
+                            </div>
+                        {% endif %}
+                        <div class="col-md-2">
+                            <label for="organisme">Organisme:</label>
+                            <select class="form-control" name="organisme" id="organisme">
+                                <option value="">Choix Organisme</option>
+                                {% for organisme in organismes %}
+                                    <option value="{{organisme.id}}">{{organisme.designation}}</option>
+                                {% endfor %} 
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            <table id="datables_facture" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Ord</th>
+                        <th>Code</th>
+                        <th>Code Pré-inscription</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Cin</th>
+                        <th>Etablissement</th>
+                        {# <th>Formation</th> #}
+                        <th>Statut</th>
+                        {# <th>Catégorie</th> #}
+                        <th>Nationalite</th>
+                        <th>Source</th>
+                        <th>M-Facture</th>
+                        <th>M-Régle</th>
+                        <th>Diff</th>
+                        <th>Org</th>
+                        <th>Active</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Ord</th>
+                        <th>Code</th>
+                        <th>Code Pré-inscription</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Cin</th>
+                        <th>Etablissement</th>
+                        {# <th>Formation</th> #}
+                        <th>Statut</th>
+                        {# <th>Catégorie</th> #}
+                        <th>Nationalite</th>
+                        <th>Source</th>
+                        <th>M-Facture</th>
+                        <th>M-Régle</th>
+                        <th>Diff</th>
+                        <th>Org</th>
+                        <th>Active</th>
+                    </tr>
+                </tfoot>
+            </table>
+            </div>
+            
+        </div>
+        </div>
+    </section>
+</div>
+
+
+
+<!--Modal Import Group-->
+{% include 'facture/modals/add_reglement_facture.html.twig' %}
+{% include 'facture/modals/modifier_organisme.html.twig' %}
+{% include 'facture/modals/detail_facture.html.twig' %}
+{% include 'facture/modals/annee_extraction_frais.html.twig' %}
+
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+{# <script src="/assets/js/facture/facture.js"></script> #}
+{{ encore_entry_script_tags('facture') }}
+
+{% endblock %}
+

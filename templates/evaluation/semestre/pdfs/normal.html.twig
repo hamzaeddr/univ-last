@@ -1,0 +1,223 @@
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
+<style type="text/Css">
+   body{
+        font-family: 'Source Sans Pro', sans-serif;
+       
+    }
+    .footer_style {
+        position: relative;
+        left: 5%;width:90%;
+        /*border-top:1px solid graytext;*/
+        padding:0px 5px ;
+        text-align: center;
+        font-size: 9px;
+        line-height:14px
+    }
+    .titre-reb{
+        width: 100%;
+        background: #1f4f7a;
+        font-size: 9px ;
+        padding:3px 10px;
+        color: #f1f1f1;
+        font-weight: bold
+    }
+    div.zone_over
+    {
+        display: block;
+        width: 40%;
+       
+    }
+    .slh tr td {
+        border-bottom: 1px solid #292929;
+    }
+/*    .head-file {
+        width: 100% ; 
+
+    }*/
+
+
+
+
+    .head-file p{
+        font-size: 10px;
+        width: 100%;
+        margin: 3px 0px 3px 5px;
+    }
+    .head-file b{
+
+    }
+    h2{
+        font-size: 13px; 
+        margin: 5px
+    }
+
+    .brd td{
+        border: 0.1px solid #555 ;   
+    }
+
+
+
+</style>
+<table style="width:100% ">
+    <thead style="">
+        <tr style="background: #6777ef; color: white ; text-align: center;  font-size: 10px">
+            <th style="padding: 5px;width:60%;color: white; text-align: center;  font-size: 12px" >Statuts</th>
+            <th style="padding: 5px;width: 40%;color: white;text-align: center;  font-size: 12px">Modules</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <h2 >MODULE</h2>
+                <table cellspacing="0" style="width:55%; text-align: left; font-size: 9px ; " >
+                    <tr>
+                        <td style=" font-weight: bold ; color:#525252; font-size: 11px ; padding: 5px 0px">Abréviation </td> 
+                        <td style="font-weight: bold ; color:#525252;font-size: 11px; padding: 5px 0px">Désignation</td> 
+                    </tr>
+                    {% for statut in statutModules %}
+                    <tr>
+                        <td style="font-weight: bold; padding: 0px 20px 0px 0px " >{{statut.abreviation}}</td> 
+                        <td >{{statut.designation}}</td> 
+                    </tr>
+                    {% endfor %}
+                </table> 
+                <br>
+            </td>
+            <td>
+            <br>
+                <table cellspacing="0" style="width:100%">
+                    <tr>
+                        <td style="padding: 0px 20px 0px 0px; width: 100%">
+
+                            
+
+                            <table cellspacing="0" style="width: 100%; padding:0: 20px; text-align: left; font-size: 11px" >
+                                <tr style="border-bottom: 1px solid">
+                                    <td style="width: 70px ; font-weight: bold ; font-size: 11px ;  padding: 5px 0px">Code </td> 
+                                    <td style="width: 370px ;font-weight: bold ; font-size: 11px ;  padding: 5px 0px ">Désignation</td> 
+                                    <td style="width: 100px ;font-weight: bold ;font-size: 11px ;  padding: 5px 0px ">Signature</td> 
+                                </tr>
+
+
+
+                                {% for module in modules %}
+                                <tr >
+                                    <td style="font-weight: bold; padding: 10px 20px 10px 0px ;border-top: 1px solid" >MOD{{module.id}}</td> 
+                                    <td style=" padding: 10px 20px 10px 0px ;border-top: 1px solid">{{module.designation}}</td> 
+                                    <td style="width: 100%; padding: 10px 20px 10px 0px ;border-top: 1px solid"></td>
+                                </tr>
+                                {% endfor %}
+                                
+
+                            </table>   
+
+                        </td>
+                        
+                    </tr>
+                </table>
+            </td>
+
+        </tr>
+                
+        <tr>
+
+
+                <td>
+                <h2>SEMESTRE</h2>
+                <table cellspacing="0" style="width:100%; text-align: left; font-size: 9px ; " >
+                    <tr>
+                        <td style=" font-weight: bold ; color:#525252; font-size: 11px ; padding: 5px 0px">Abréviation </td> 
+                        <td style="font-weight: bold ; color:#525252 ;; font-size: 11px; padding: 5px 0px">Désignation</td> 
+                        
+                    </tr>
+                    {% for statut in statutSemestres %}
+                    <tr>
+                        <td style="font-weight: bold; padding: 0px 20px 0px 0px " >{{statut.abreviation}}</td> 
+                        <td >{{statut.designation}}</td> 
+                    </tr>
+                    {% endfor %}
+                </table> 
+                
+                <br>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<br>
+
+<pagebreak />
+
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 12px" >
+    <tr>
+        <td style="width: 100% ;background: #6777ef; color: #fff ;height: 17px;padding: 8px ;font-weight: bold;padding-left: 15px;">Liste des étudiants</td> 
+    </tr>
+    <tr>
+
+    </tr>
+</table>
+<br>
+<table align="center" style=" background: #FFFFFF;font-size: 11px" cellspacing="0" class="slh">
+    <thead>
+        <tr style="background-color: #bfbfbf;font-size: 9px;text-align: center">
+
+
+            <th style="width:50px;text-align: center;padding: 8px; font-weight: 600">ord</th>
+            <th style="width:60px;text-align: left;font-weight: 400">Code</th>
+            <th style="width:120px; text-align: left;font-weight: 600">Nom</th>
+            <th style="width:120px;text-align: left;font-weight: 600">Prénom</th>
+            {% for module in modules %}
+                <th style="width:100px;text-align: left;font-weight: 600">MOD{{module.id}}</th>  
+            {% endfor %} 
+            <th style="width:80px; background-color: #525252;color: white; text-align: center;font-weight: 800">Moyenne Validation</th>
+            <th style="width:80px; background-color: #525252;color: white; text-align: center;font-weight: 800">Moyenne Classement</th>
+            <th style="width:80px; background-color: #525252;color: white; text-align: center;font-weight: 800">Statut</th>
+
+        </tr>
+
+
+    </thead>
+    <tbody>
+        {% for data in dataSaved %}
+            <tr style="font-size: 9px;padding: 5px ;">
+                <td style="font-size: 9px; padding-top: 3px; text-align:center; padding-bottom: 3px">{{loop.index}}</td>
+                <td style="font-size: 9px; padding-top: 3px; text-align:left; padding-bottom: 3px">{{data.inscription.id}}</td>
+                <td style="font-size: 9px; text-align: left">{{data.inscription.admission.preinscription.etudiant.nom}}</td>
+                <td style="font-size: 9px; text-align: left">{{data.inscription.admission.preinscription.etudiant.prenom}}</td>
+                {% for noteModule in data.noteModules %}
+                    {% if affichage == 0 %} 
+                        <td style="font-size: 9px; text-align: left">{{noteModule.note}} {{noteModule.statut.abreviationDef}}</td>  
+
+                        
+                    {% elseif affichage == 1 %}
+                        <td style="font-size: 9px; text-align: left">{{noteModule.note}} {{noteModule.statut.abreviationAff}}</td>  
+                    {% endif %}
+                {% endfor %}
+                <td style="font-size: 9px; background: #d8d8d8; text-align: center ; color: #000; font-weight: bold;"> 
+                    {{data.moyenneNormal|number_format(2, '.', ',') }}
+                </td>
+                <td style="font-size: 9px; background: #d8d8d8; text-align: center ; color: #000; font-weight: bold;"> 
+                    {{data.moyenneSec|number_format(2, '.', ',') }}
+                </td>
+                <td style="font-size: 9px; background: #d8d8d8; text-align: center ; color: #000; font-weight: bold;"> 
+                    {% if affichage == 0 %} 
+                        {{ render(controller(
+                            'App\\Controller\\Evaluation\\SemestreController::getStatut', { inscription: data.inscription, semestre: semestre, statut: "statutDef" }
+                        )) }}
+                    {% elseif affichage == 1 %}
+                        {{ render(controller(
+                            'App\\Controller\\Evaluation\\SemestreController::getStatut', { inscription: data.inscription, semestre: semestre, statut: "statutAff" }
+                        )) }}
+                    {% else %}
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+

@@ -1,0 +1,42 @@
+ <table id="dtDynamicVerticalScrollExample_bord" class="table table-striped table-bordered table-sm" cellspacing="0"  width="100%" height="100%">
+
+  <thead>
+    <tr>
+    
+      <th >Etablisement
+      </th>
+      <th >Formation
+      </th>
+      <th >Promotion 
+      </th>
+      <th >Code Seance
+      </th>
+      <th >Date Seance 
+      </th>
+      <th >Hd
+      </th>
+      <th >Hf
+      </th>
+      <th >Grp
+      </th>
+
+    </tr>
+  </thead>
+  <tbody>
+   {% for etud in seances %}
+                <tr>
+                <td>{{etud.eta}}</td>
+                <td>{{etud.form}}</td>
+                <td>{{etud.pro}}</td>  
+                <td>{{etud.ID_Séance}}</td>
+                <td>{{etud.Date_Séance}}</td>
+                <td>{{etud.Heure_Debut}}</td>
+                <td>{{etud.Heure_Fin}}</td>
+                <td>{{etud.Groupe}}</td>
+                
+                </tr>
+                {% endfor %}
+    
+  </tbody>
+ 
+</table>

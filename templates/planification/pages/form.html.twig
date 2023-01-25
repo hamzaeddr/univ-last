@@ -1,0 +1,104 @@
+<div class="plannification_info modal-box">
+        <p><span>Etablissement</span> : {{semestre.promotion.formation.etablissement.designation}} </p>
+        <p><span>Formation</span> : {{semestre.promotion.formation.designation}} </p>
+        <p><span>Annee</span> :  {{annee.designation}}</p>
+        <p><span>Promotion</span> : {{semestre.promotion.designation}} </p>
+        <p><span>Semestre</span> : {{semestre.designation}} </p>
+</div>
+<div class="seance_info modal-box">
+    {# <div class="card"> #}
+        <div class="card-header">
+            <ul class="nav nav-pills">                
+                <li class="nav-item mr-2">
+                    <a href="#planification_infos" class="nav-link active">Planification</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#enseignants_infos" class="nav-link">Enseignants</a>
+                </li>              
+            </ul>
+        </div>
+        <div class="card-body">
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="planification_infos">
+                    <div class="col-md-12 row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="description">Description :</label>
+                                <input class="form-control" type="text" placeholder="description" name="description" value=""> 
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="col-md-12 row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="h_debut">Heure de début  :</label>
+                                <input class="form-control" type="text" name="h_debut" id="h_debut" value="" readonly> 
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="h_fin">Heure de fin  :</label>
+                                <input class="form-control" type="text" name="h_fin" id="h_fin" value="" readonly> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="salle">Salle :</label>
+                                <select class="form-control chosen-select" name="salle">
+                                    <option value="">Choix Salle</option>
+                                    {% for salle in salles %}
+                                        <option value="{{salle.id}}">{{salle.designation}}</option>                                        
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="nature_seance">Nature Seance :</label>
+                                <select class="form-control chosen-select" name="nature_seance" id="nature_seance">
+                                    <option value="">Choix Nature Seance</option>
+                                    {% for natureepreuve in natureepreuves %}
+                                        <option value="{{natureepreuve.id}}">{{natureepreuve.designation}}</option>                                        
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="module">Module :</label>
+                                <select class="form-control chosen-select" name="module" id="module">
+                                    <option value="">Choix Module</option>
+                                    {# {% for module in modules %}
+                                        <option value="{{module.id}}">{{module.designation}}</option>                                        
+                                    {% endfor %} #}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="element">Element :</label>
+                                <select class="form-control chosen-select" name="element" id="element">
+                                    <option value="">Choix Element</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="enseignants_infos">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="enseignant">Enseignant :</label>
+                            <select class="form-control chosen-select" name="enseignant[]" id="enseignant" multiple="multiple">
+                                <option value="" disabled="disabled">Choix Enseignant</option>
+                            </select>
+                        </div>
+                    </div>              
+                </div>
+            </div>
+        </div>
+    {# </div> #}
+</div>

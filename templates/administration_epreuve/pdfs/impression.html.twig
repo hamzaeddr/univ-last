@@ -1,0 +1,45 @@
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
+<style type="text/Css">
+    table{
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        font-size: 12px;
+        display: table-cell; /* comportement visuel de cellule */
+        vertical-align: middle;
+
+        ;
+    }
+
+    html { margin: 0px}
+    body { margin: 0px}
+
+</style>
+<page backtop="0mm" backbottom="0mm" backleft="0mm" backright="0mm">
+
+    <table style="width: 100%; height:100%;  margin: 0px 0px 0px 0px;" >
+          <tr>
+                {% set count = 0 %}
+                {% for inscription in inscriptions %}
+                    {% set salle = inscription.salle|split("-") %}
+                    {% for i in 0..23 %}
+                    {% if count == 3 %}
+                        </tr><tr>
+                        {% set count = 1 %}
+                    {% else %}
+                        {% set count = count + 1 %}
+                    {% endif %}
+                    <td style="border : 1px solid #fff;margin-left : 0px !important;width: 34%; text-align: center;display:block; font-size: 9px; height: 130px">
+                        {{inscription.admission.preinscription.etudiant.nom}} {{inscription.admission.preinscription.etudiant.prenom}} <br/>
+                        {{inscription.id}}
+                        <br/>
+                        <barcode code="{{inscription.id}}" type="C128A" height="0.7" size="1.5" />
+                        <br>
+                        <p style="font-weight:bold;  font-size:8px  ;">
+                            {{salle[0]}} {{salle[1]}}</p>
+                    </td>
+                            
+                    {% endfor %}
+                {% endfor %}
+            </tr>
+    </table>
+</page>

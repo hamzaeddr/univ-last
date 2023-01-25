@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Univ - Impression étiquettes{% endblock %}
+
+
+{% block body %}
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+          <h1>Impression étiquettes</h1>
+          <div class="section-header-breadcrumb">
+              {% for operation in operations %}
+                <button class="{{operation.classTag}}" id="{{operation.idTag}}"><i class="{{operation.icon}}"></i>  {{operation.designation}}</button>
+              {% endfor %}
+              <a href="#" class="btn btn-primary ml-1" id="get_list_etudiant"><i class="fas fa-search" ></i>  Recherche</a>
+
+          </div>
+        </div>
+
+        <div class="section-body">
+        <div class="card">
+            
+            <div class="card-body">
+            <div class="card-search" style="margin-bottom: 1.5rem;">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label for="etablissement">Etablissement:</label>
+                            <select class="form-control" name="etablissement" id="etablissement">
+                                <option value="">Choix etablissement</option>
+                                {% for etablissement in etablissements %}
+                                    <option value="{{etablissement.id}}">{{etablissement.designation}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="formation">Formation:</label>
+                            <select class="form-control" name="formation" id="formation">
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="promotion">Promotion:</label>
+                            <select class="form-control" name="promotion" id="promotion">
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="salle">Salle:</label>
+                            <select class="form-control" name="salle" id="salle">
+                            </select>
+                        </div>  
+                        <div class="col-md-2">
+                            <label for="order">Order By:</label>
+                            <select class="form-control"  name="order" id="order" >
+                                <option value="0">Choix Order (optionnel)</option>
+                                <option value="1">Nom De A à Z</option>
+                                <option value="2">Nom De Z à A</option>
+                                <option value="3">Prenom De A à Z</option>
+                                <option value="4">Prenom De Z à A</option>
+                                <option value="5">Inscription De 0 à 9</option>
+                                <option value="6">Inscription De 9 à 0</option>
+                            </select>
+                        </div>                    
+                    </div>
+                </div>
+                
+                <table id="list_etudiants"  class="table table-striped" style="width:100%; overflow:scroll">
+                </table>
+                
+            </div>
+            
+        </div>
+        </div>
+    </section>
+</div>
+
+
+
+<!--Modal Import Group-->
+{# {% include 'evaluation/simulation_deliberation/modals/note.html.twig' %} #}
+{% include 'administration_epreuve/modals/impression.html.twig' %}
+
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+{{ encore_entry_script_tags('impression') }}
+
+{# <script src="/assets/js/administration/impression.js"></script> #}
+
+{% endblock %}
+

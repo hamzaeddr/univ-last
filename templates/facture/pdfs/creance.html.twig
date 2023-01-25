@@ -1,0 +1,136 @@
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
+<style type="text/Css">
+    body{
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+    .footer_style {
+        position: relative;left: 5%;width:90%;border-top:1px solid graytext;padding:5px;text-align: center;font-size: 11px;line-height:14px
+    }
+    .titre-reb{
+        width: 100%;
+        background: #1f4f7a;
+        font-size: 9px ;
+        padding:3px 10px;
+        color: #f1f1f1;
+        font-weight: bold
+    }
+    div.zone_over
+    {
+        display: block;
+        width: 40%;
+        word-wrap:break-word !important;
+    }
+    .slh tr td {
+        border-bottom: 1px solid #292929;
+    }
+    .head-file {
+        width: 100% ; 
+
+    }
+    .head-file p{
+        font-size: 10px;
+        width: 100%;
+        margin: 3px 0px 3px 5px;
+    }
+    .head-file b{
+
+    }
+    h2{
+        font-size: 15px; 
+        margin: 5px
+    }
+    .brd td{
+        border: 0.1px solid #555 ;   
+    }
+</style>
+<div class="head-file" style="width:100%;text-align:center;margin-top:200px;">
+    <table cellspacing="0" style="text-align:center;vertical-align : middle;font-size:9px;" class="STable" align="center">
+        <thead>
+            <tr>
+                <th style="background-color:rgb(51,63,79);color:white;padding:7px 10px;border-left:0.5px solid black;border-top:0.5px solid black;width:40px;">ORD</th>
+                <th style="background-color:rgb(51,63,79);color:white;padding:7px 10px;border-left:0.5px solid black;border-top:0.5px solid black;width:120px;">ID Pré-inscription</th>
+                <th style="background-color:rgb(51,63,79);color:white;padding:7px 10px;border-left:0.5px solid black;border-top:0.5px solid black;width:120px;">Nom</th>
+                <th style="background-color:rgb(51,63,79);color:white;padding:7px 10px;border-right:0.5px solid black;border-top:0.5px solid black;width:120px;">Prénom</th>
+                <th style="background-color:rgb(51,63,79);color:white;padding:7px 10px;border-right:0.5px solid black;border-top:0.5px solid black;width:80px;">Etablissement</th>
+                <th style="background-color:rgb(51,63,79);color:white;padding:7px 10px;border-right:0.5px solid black;border-top:0.5px solid black;width:170px;">Formation</th>
+                <th style="background-color:rgb(51,63,79);color:white;padding:7px 10px;border-right:0.5px solid black;border-top:0.5px solid black;width:80px;">Niveau</th>
+                <th style="background-color:rgb(51,63,79);color:white;padding:7px 10px;border-right:0.5px solid black;border-top:0.5px solid black;width:80px;">Type</th>
+                <th style="background-color:rgb(51,63,79);color:white;padding:7px 10px;border-right:0.5px solid black;border-top:0.5px solid black;width:80px;">Organisme</th>
+                <th style="background-color:rgb(51,63,79);color:white;padding:7px 10px;border-right:0.5px solid black;border-top:0.5px solid black;width:80px;">CA</th>
+                <th style="background-color:rgb(51,63,79);color:white;padding:7px 10px;border-right:0.5px solid black;border-top:0.5px solid black;width:80px;">Réglement</th>
+                <th style="background-color:rgb(51,63,79);color:white;padding:7px 10px;border-right:0.5px solid black;border-top:0.5px solid black;width:80px;">Créances</th>
+            </tr>
+        </thead>
+        <tbody cellspacing="0" class="Btable" >
+                {% set i = 1 %}
+                {% set total_det = 0 %}
+                {% set total_reg = 0 %}
+                {% set cr = 0 %}
+                {% set etab = "" %}
+                {% for creance in creances %}
+                    {% if etab != creance.etab and etab != "" %}
+                        <tr style="background-color:lightgrey; ">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td style="color:red;padding:4.5px 0px;font-size:10.5px;">{{etab}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td style="color:red;font-size:10.5px;">{{total_det|number_format(2, ',', ' ')}}</td>
+                            <td style="color:red;font-size:10.5px;">{{total_reg|number_format(2, ',', ' ')}}</td>
+                            <td style="color:red;font-size:10.5px;">{{cr|number_format(2, ',', ' ')}}</td>
+                        </tr>
+                        {% set i = 1 %}
+                        {% set total_det = 0 %}
+                        {% set total_reg = 0 %}
+                        {% set cr = 0 %}
+                    {% endif %}
+                    <tr style="line-height:10px ;">
+                        <td>{{i}}</td>
+                        <td>{{creance.code_pre}}</td>
+                        <td>{{creance.nom}}</td>
+                        <td>{{creance.prenom}}</td>
+                        <td style="color:red;padding:4.5px 0px;font-size:10.5px;">{{creance.etab}}</td>
+                        <td>{{creance.forma}}</td>
+                        <td>{{creance.niveau}}</td>
+                        <td{{creance.type}}></td>
+                        <td>{{creance.org}}</td>
+                        <td>{{creance.montant_det|number_format(2, ',', ' ')}}</td>
+                        <td>{{creance.montant_reg|number_format(2, ',', ' ')}}</td>
+                        <td>{{creance.creance|number_format(2, ',', ' ')}}</td>
+                    </tr>
+                        {% set i = i + 1 %}
+                        {% set total_det = total_det + creance.montant_det %}
+                        {% set total_reg = total_reg + creance.montant_reg %}
+                        {% set cr = cr + creance.creance %}
+                        {% set etab = creance.etab %}
+                {% endfor %}
+                <tr style="background-color:lightgrey; ">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="color:red;padding:4.5px 0px;font-size:10.5px;">{{etab}}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="color:red;font-size:10.5px;">{{total_det|number_format(2, ',', ' ')}}</td>
+                    <td style="color:red;font-size:10.5px;">{{total_reg|number_format(2, ',', ' ')}}</td>
+                    <td style="color:red;font-size:10.5px;">{{cr|number_format(2, ',', ' ')}}</td>
+                </tr>
+        </tbody>
+    </table>
+</div>
+<div style="position: absolute;bottom:0;width:100%;border-top:1px solid gray;padding:5px;text-align: center;font-size: 11px;line-height:14px">
+  <p>
+    B.P. 6533, Avenue Allal El Fassi,Madinat Al Irfane, Rabat 10 000. Maroc -
+    Web : www.uiass.ma - Contact : contact@uiass.ma
+    <br />Tel : +212 5 37 68 70 20 / 21 / 22 - Fax : +212 5 37 77 01 06 &nbsp;
+    &nbsp; IF: 03333477 &nbsp;&nbsp; ICE: 001713416000075
+  </p>
+</div>

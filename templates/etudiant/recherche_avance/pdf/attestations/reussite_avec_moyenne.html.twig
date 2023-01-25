@@ -1,0 +1,250 @@
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
+<style type="text/Css">
+    body{
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+    .titre-reb{
+        width: 100%;
+        background: #1f4f7a;
+        font-size: 9px ;
+        padding:3px 10px;
+        color: #f1f1f1;
+        font-weight: bold
+    }
+    div.zone_over
+    {
+        display: block;
+        width: 40%;
+        word-wrap:break-word !important;
+    }
+    .slh tr td {
+        border-bottom: 1px solid #292929;
+    }
+
+    .txt {
+        width: 100%;
+        text-align: left;
+        line-height: 30px; 
+        padding-top: 0px ;  
+        padding-bottom: 0px ;
+        padding-left: 30px ;
+        padding-right:  30px ;
+        text-align: justify; 
+        
+        font-weight: normal ;
+    }
+    .txt span {
+        font-size:12px;
+        font-weight: bold;
+        color:black;
+        margin-left: 5px ; 
+        margin-right: 5px ; 
+    }
+</style>
+
+<div style="text-align: center;">
+        <table style="width: 100% ;" cellspacing="0">
+            <tr>
+                <th style="width: 100% ; font-size: 13px ;font-weight: 200;font-weight: bold;padding:0 4px;color:rgb(3, 35, 68);">
+                    {# {% if inscription.annee.formation.etablissement.id == 28 %}
+                        <img src="./assets/img/logo/cpge.jpg" style=" width: 400px; margin: 0 auto;">                
+                    {% endif %} #}
+                </th>
+                <th style="width: 100% ; font-size: 13px ;font-weight: 200;font-weight: bold;padding:0 4px;color:rgb(3, 35, 68);">
+                    {% if inscription.annee.formation.etablissement.id == 28 %}
+                            <img src="./assets/img/logo/cpge.svg" style=" width: 600px; margin: 0 auto;"> 
+                    {% elseif inscription.annee.formation.etablissement.id == 5 %}
+                            <img src="./assets/img/logo/logo_lez.png" style=" width: 600px; margin: 0 auto;">
+                    {% else %}                
+                            <img src="./assets/img/logo/Logo_UIASS_bkack2.png" style=" width: 600px; margin: 0 auto;">
+                    {% endif %}
+                    {# <img src="./assets/img/logo/Logo_UIASS_bkack2.png" style=" width: 400px; margin: 0 auto;"> #}
+                </th>
+                <th style="width: 100% ; font-size: 13px ;font-weight: 200;font-weight: bold;padding:0 4px;color:rgb(3, 35, 68);">
+                    {# {% if inscription.annee.formation.etablissement.id == 28 %}               
+                        <img src="./assets/img/logo/Logo_UIASS_bkack2.png" style=" width: 400px; margin: 0 auto;">
+                    {% endif %} #}
+                </th>                    
+            </tr>
+        </table>
+    {# <img src="./assets/img/logo/Logo_UIASS_bkack2.png" style=" width: 180px; margin: 0 auto;"> #}
+    {# <img src="./assets/img/logo/cpge.jpg" style=" width: 250px; margin: 0 auto;"> #}
+</div>
+{# <br><br><br><br><br><br><br> #}
+<br/>
+<br/>
+<p style="text-align:center;font-size:25px;font-weight: bold;color:rgb(12, 40, 66);">ATTESTATION DE REUSSITE</p>
+<br/>
+<br/><br/>
+<table style="width: 100%;"  cellspacing="0">
+
+    <tbody>
+
+        <tr>
+
+            <td class="txt">
+                L'Université Internationale Abulcasis des Sciences de la Santé sise à Madinat Al Irfane, avenue Allal El Fassi, Rabat, atteste par la présente que:
+            </td>
+
+        </tr>
+    </tbody>
+
+</table>
+<br>
+<br>
+
+
+<table style="width: 100%;font-size:12px;"  cellspacing="0"> 
+
+    <tbody>
+
+        <tr>
+            <td style="width: 10%; text-align: left;line-height: 18px">
+
+            </td>
+
+            <td style="width: 50%; text-align: left;line-height: 18px">
+                <span style="font-size:12px;font-weight: bold;color:black;">L’étudiant(e)</span> : {{inscription.admission.preinscription.etudiant.nom}} {{inscription.admission.preinscription.etudiant.prenom}}
+            </td>
+            <td style="width: 40%; text-align: left;line-height: 18px">
+
+            </td>
+
+
+        </tr>
+        
+        <tr>
+            <td style="width: 10%; text-align: left;line-height: 18px">
+
+            </td>
+            <td style="width: 50%; text-align: left;line-height: 18px">
+                <span style="font-size:12px;font-weight: bold;color:black;"> </span> 
+            </td>
+            <td style="width: 40%; text-align: left;line-height: 18px">
+                <span style="font-size:12px;font-weight: bold;color:black;"> </span>
+            </td> 
+        </tr>
+        
+        <tr>
+            <td style="width: 10%; text-align: left;line-height: 18px">
+
+            </td>
+
+            <td style="width: 50%; text-align: left;line-height: 18px">
+                <span style="font-size:12px;font-weight: bold;color:black;">N° d’inscription </span> : {{inscription.code}}
+            </td>
+            <td style="width: 40%; text-align: left;line-height: 18px">
+
+            </td>
+
+
+        </tr>
+        
+        <tr>
+            <td style="width: 10%; text-align: left;line-height: 18px">
+
+            </td>
+            <td style="width: 50%; text-align: left;line-height: 18px">
+                <span style="font-size:12px;font-weight: bold;color:black;"> </span> 
+            </td>
+            <td style="width: 40%; text-align: left;line-height: 18px">
+                <span style="font-size:12px;font-weight: bold;color:black;"> </span>
+            </td> 
+        </tr>
+        
+        <tr>
+            <td style="width: 10%; text-align: left;line-height: 18px">
+
+            </td>
+            <td style="width: 50%; text-align: left;line-height: 18px">
+                <span style="font-size:12px;font-weight: bold;color:black;">Né(e) le </span> : {{inscription.admission.preinscription.etudiant.dateNaissance|date("d/m/Y")}}
+            </td>
+            <td style="width: 40%; text-align: left;line-height: 18px">
+                <span style="font-size:12px;font-weight: bold;color:black;"> </span>
+            </td> 
+        </tr>
+        
+        <tr>
+            <td style="width: 10%; text-align: left;line-height: 18px">
+
+            </td>
+            <td style="width: 50%; text-align: left;line-height: 18px">
+                <span style="font-size:12px;font-weight: bold;color:black;"> </span> 
+            </td>
+            <td style="width: 40%; text-align: left;line-height: 18px">
+                <span style="font-size:12px;font-weight: bold;color:black;"> </span>
+            </td> 
+        </tr>
+        
+        <tr>
+            <td style="width: 10%; text-align: left;line-height: 18px">
+
+            </td>
+            <td style="width: 50%; text-align: left;line-height: 18px">
+                <span style="font-size:12px;font-weight: bold;color:black;">CIN/Passeport </span>: {{inscription.admission.preinscription.etudiant.cin}}
+            </td>
+            <td style="width: 40%; text-align: left;line-height: 18px">
+
+            </td>
+        </tr>
+        
+        
+        
+    </tbody>
+
+</table>
+<br><br>
+<br>
+<p style="line-height: 1.8; margin: 10px 30px ;">
+   A suivi avec succès le cycle de   <b>{{inscription.annee.formation.designation}}</b> de <b>{{inscription.annee.formation.etablissement.designation}}</b> et a cumulé les moyennes suivantes durant son cursus universitaire :
+                    
+                <br>
+</p>
+
+
+<table class="" style="width: 100% ; margin: 10px 30px ;" cellspacing="0">
+    <tr style="background-color: #292929; color:white; font-size: 9px;">
+        <th style="width: 20%;font-size: 9px; color:white;">ANNEE UNIVERSITAIRE</th>
+        <th style="width: 20%;font-size: 9px; color:white;">NIVEAU</th>
+        <th style="width: 20%;font-size: 9px; color:white;">MOYENNE ANNUELLE</th> 
+        <th style="width: 20%;font-size: 9px; color:white;">STATUT</th> 
+        <th style="width: 10%;font-size: 9px; color:white;">MENTION</th>
+    </tr>
+    <tr>
+        <td style="font-size: 8px;text-align:center;">{{inscription.annee.designation}}</td>
+        <td style="font-size: 8px;text-align:center;">{{inscription.promotion.designation}}</td>
+        <td style="font-size: 8px;text-align:center;">{{inscription.anotes.note}}</td>
+        <td style="font-size: 8px;text-align:center;"></td>
+        <td style="font-size: 8px;text-align:center;"></td>
+    </tr>  
+    
+</table>
+<br><br>
+<p style="line-height: 1.8; margin: 10px 30px ;">
+                Cette attestation est délivrée à l'intéressé(e) pour servir et valoir ce que de droit.
+</p>         
+
+
+<br><br><br><br>
+
+<table style="width: 100%;" align="center" cellspacing="0">
+    <thead>
+        <tr>
+            <th style="width: 30%; text-align: left;"></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+
+            <td style="width: 89%; text-align: right;">
+                <br><br><br>
+                <span style="font-size:12px;font-weight: bold;color:black;"> Fait à Rabat, le {{"now"|date("d/m/Y")}}</span>
+
+            </td>
+
+        </tr>
+    </tbody>
+
+</table>

@@ -1,0 +1,623 @@
+
+
+{% block title %}Hello IndexController!{% endblock %}
+{% block stylesheets %}
+<head>
+<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+
+<!-- Bootstrap core JavaScript-->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('css/googleab.css') }}" rel="stylesheet" type="text/css">
+
+<!--- Include the above in your HEAD tag -->
+<link href="{{ asset('css/bootstrap34.css') }}" rel="stylesheet" type="text/css">
+<!--===============================================================================================-->
+	
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/sb-admin-2.min.css') }}">
+  <link href="{{ asset('css/bootstrap43.css') }}" rel="stylesheet" type="text/css">
+
+  <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
+
+<!--===============================================================================================-->
+
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('vendor/perfect-scrollbar/perfect-scrollbar.css') }}">
+   <link  rel="stylesheet" type="text/css" href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" >
+  <link href="{{ asset('css/table.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/bootstrap36.css') }}" rel="stylesheet" type="text/css">
+
+        <link href="{{ asset('css/bootstrap44.css') }}" rel="stylesheet" type="text/css">
+
+        <link href="{{ asset('css/jquery.css') }}" rel="stylesheet" type="text/css">
+
+<!--===============================================================================================-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    zoom: 98%;
+}
+body{
+    font-family: Helvetica;
+    -webkit-font-smoothing: antialiased;
+    background: rgba( 71, 147, 227, 1);
+  font-size: 5px;
+
+}
+h2{
+    text-align: center;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    padding: 30px 0;
+}
+
+/* Table Styles */
+
+.table-wrapper{
+    margin: -29px 54px 48px;
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+}
+
+.fl-table {
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+}
+
+.fl-table td, .fl-table th {
+    text-align: center;
+    padding: 6px;
+}
+
+.fl-table td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 12px;
+}
+
+.fl-table thead th {
+    color: #ffffff;
+    background: #4FC3A1;
+}
+
+
+.fl-table thead th:nth-child(odd) {
+    color: #ffffff;
+    background: #324960;
+}
+
+.fl-table tr:nth-child(even) {
+    background: #F8F8F8;
+}
+
+/* Responsive */
+
+@media (max-width: 767px) {
+    .fl-table {
+        display: block;
+        width: 100%;
+    }
+    .table-wrapper:before{
+        content: "Scroll horizontally >";
+        display: block;
+        text-align: right;
+        font-size: 11px;
+        color: white;
+        padding: 0 0 10px;
+    }
+    .fl-table thead, .fl-table tbody, .fl-table thead th {
+        display: block;
+    }
+    .fl-table thead th:last-child{
+        border-bottom: none;
+    }
+    .fl-table thead {
+        float: left;
+    }
+    .fl-table tbody {
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+    }
+    .fl-table td, .fl-table th {
+        padding: 20px .625em .625em .625em;
+        height: 60px;
+        vertical-align: middle;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 120px;
+        font-size: 13px;
+        text-overflow: ellipsis;
+    }
+    .fl-table thead th {
+        text-align: left;
+        border-bottom: 1px solid #f7f7f9;
+    }
+    .fl-table tbody tr {
+        display: table-cell;
+    }
+    .fl-table tbody tr:nth-child(odd) {
+        background: none;
+    }
+    .fl-table tr:nth-child(even) {
+        background: transparent;
+    }
+    .fl-table tr td:nth-child(odd) {
+        background: #F8F8F8;
+        border-right: 1px solid #E6E4E4;
+    }
+    .fl-table tr td:nth-child(even) {
+        border-right: 1px solid #E6E4E4;
+    }
+    .fl-table tbody td {
+        display: block;
+        text-align: center;
+    }
+}
+* {
+  box-sizing: border-box;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 15%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+{% endblock %}
+{% block body %}
+{#<iframe src="{{ asset('hello.pdf') }}" onload="window.print()"></iframe>#}
+   <body onload = "JavaScript:AutoRefresh(50000);">
+<h2>Présence</h2>
+
+            
+<div class="table-wrapper" style="font-size: 10px;">
+{#<div class="row">
+  <div class="column"id="top">
+     <table class="fl-table" style="width:250px   !important;" id="salle">
+        <thead>
+        <tr>
+            <th>Etudiants</th>
+            <th>categorie</th>
+           
+        </tr>
+        </thead>
+        <tbody>
+        {% set count = 0 %}                                            
+                    
+         {% for sall in salle %}
+
+         <tr>
+            <td style="  white-space: nowrap;max-width:40px;
+    overflow: hidden;
+    text-overflow: ellipsis;">{{ sall.nom }} {{ sall.prénom }}</td>
+           {% if  sall.categorie  == 'A' %}
+              <td style="background-color:lightgreen;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+              {% if  sall.categorie  == 'B' %}
+              <td style="background-color:lightyellow;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+              {% if  sall.categorie  == 'C' %}
+              <td style="background-color:red;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+              {% if  sall.categorie  == 'D' %}
+              <td style="background-color:red;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+          
+            
+           {% set count = count + 1 %}
+           {% if count == 20 %}
+        </tr>
+         <tbody>
+    </table>
+    </div>
+     
+    <div class="column" >
+    <table class="fl-table" style="width:250px   !important;" id="salle">
+        <thead>
+        <tr>
+            <th>Etudiants</th>
+            <th>categorie</th>
+           
+        </tr>
+        </thead>
+        <tbody>
+        
+
+         <tr>
+            <td style="  white-space: nowrap;max-width:40px;
+    overflow: hidden;
+    text-overflow: ellipsis;">{{ sall.nom }} {{ sall.prénom }}</td>
+           {% if  sall.categorie  == 'A' %}
+              <td style="background-color:lightgreen;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+              {% if  sall.categorie  == 'B' %}
+              <td style="background-color:lightyellow;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+              {% if  sall.categorie  == 'C' %}
+              <td style="background-color:red;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+              {% if  sall.categorie  == 'D' %}
+              <td style="background-color:red;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+          
+            
+            {% endif %}
+    {% endfor %}
+        </tr>
+       
+       
+        <tbody>
+    </table>
+
+  </div>#}
+<div class="row">
+  <div class="column">
+  <table class="fl-table" style="width:250px   !important;" id="salle">
+        <thead>
+        <tr style="font-size: 10px;">
+            <th>Etudiants</th>
+            <th>categorie</th>
+           
+        </tr>
+        </thead>
+        <tbody style="font-size: 10px;">
+        {% set count = 0 %}                                            
+                    
+         {% for sall in salle %}
+    
+         <tr>
+            <td style="  white-space: nowrap;max-width:40px;
+    overflow: hidden;
+    text-overflow: ellipsis;">{{ sall.nom }} {{ sall.prénom }}</td>
+           {% if  sall.categorie  == 'A' %}
+              <td style="background-color:lightgreen;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+              {% if  sall.categorie  == 'B' %}
+              <td style="background-color:lightyellow;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+              {% if  sall.categorie  == 'C' %}
+              <td style="background-color:red;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+              {% if  sall.categorie  == 'D' %}
+              <td style="background-color:red;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+              {% if  sall.categorie  == 'P' %}
+              <td style="background-color:green;"> {{ sall.categorie }} </td>
+            {% endif %}
+          
+            
+           {% set count = count + 1 %}
+           {% if count == 28 %}
+                      {% set count = count + 1 %}
+
+        </tr>
+         <tbody>
+    </table>
+  </div>
+  <div class="column" >
+  <table class="fl-table" style="width:250px   !important;" id="salle">
+        <thead>
+        <tr style="font-size: 10px;">
+            <th>Etudiants</th>
+            <th>categorie</th>
+           
+        </tr>
+        </thead>
+        <tbody style="font-size: 10px;">
+        
+
+         <tr>
+            <td style="  white-space: nowrap;max-width:40px;
+    overflow: hidden;
+    text-overflow: ellipsis;">{{ sall.nom }} {{ sall.prénom }}</td>
+           {% if  sall.categorie  == 'A' %}
+              <td style="background-color:lightgreen;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+              {% if  sall.categorie  == 'B' %}
+              <td style="background-color:lightyellow;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+              {% if  sall.categorie  == 'C' %}
+              <td style="background-color:red;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+              {% if  sall.categorie  == 'D' %}
+              <td style="background-color:red;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+          
+            
+            {% endif %}
+        </tr>
+        {% if count == 56 %}
+                      {% set count = count + 1 %}
+
+       
+        <tbody>
+    </table>
+  </div>
+  <div class="column">
+    <table class="fl-table" style="width:250px   !important;" id="salle">
+        <thead>
+        <tr style="font-size: 10px;">
+            <th>Etudiants</th>
+            <th>categorie</th>
+           
+        </tr>
+        </thead>
+        <tbody style="font-size: 10px;">
+        
+
+         <tr>
+            <td style="  white-space: nowrap;max-width:40px;
+    overflow: hidden;
+    text-overflow: ellipsis;">{{ sall.nom }} {{ sall.prénom }}</td>
+           {% if  sall.categorie  == 'A' %}
+              <td style="background-color:lightgreen;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+              {% if  sall.categorie  == 'B' %}
+              <td style="background-color:lightyellow;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+              {% if  sall.categorie  == 'C' %}
+              <td style="background-color:red;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+              {% if  sall.categorie  == 'D' %}
+              <td style="background-color:red;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+          
+            
+            {% endif %}
+          
+             </tr>
+  {% if count == 84 %}
+                      {% set count = count + 1 %}
+
+ <tbody>
+    </table>
+  </div>
+  <div class="column">
+    <table class="fl-table" style="width:250px   !important;" id="salle">
+        <thead>
+        <tr style="font-size: 10px;">
+            <th>Etudiants</th>
+            <th>categorie</th>
+           
+        </tr>
+        </thead>
+        <tbody style="font-size: 10px;">
+      
+
+         <tr>
+            <td style="  white-space: nowrap;max-width:40px;
+    overflow: hidden;
+    text-overflow: ellipsis;">{{ sall.nom }} {{ sall.prénom }}</td>
+           {% if  sall.categorie  == 'A' %}
+              <td style="background-color:lightgreen;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+              {% if  sall.categorie  == 'B' %}
+              <td style="background-color:lightyellow;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+              {% if  sall.categorie  == 'C' %}
+              <td style="background-color:red;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+              {% if  sall.categorie  == 'D' %}
+              <td style="background-color:red;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+          
+            
+            {% endif %}
+  {% if count == 112 %}
+                      {% set count = count + 1 %}
+
+ <tbody>
+    </table>
+  </div>
+  <div class="column">
+    <table class="fl-table" style="width:250px   !important;" id="salle">
+        <thead>
+        <tr style="font-size: 10px;">
+            <th>Etudiants</th>
+            <th>categorie</th>
+           
+        </tr>
+        </thead>
+        <tbody style="font-size: 10px;">
+      
+
+         <tr>
+            <td style="  white-space: nowrap;max-width:40px;
+    overflow: hidden;
+    text-overflow: ellipsis;">{{ sall.nom }} {{ sall.prénom }}</td>
+           {% if  sall.categorie  == 'A' %}
+              <td style="background-color:lightgreen;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+              {% if  sall.categorie  == 'B' %}
+              <td style="background-color:lightyellow;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+              {% if  sall.categorie  == 'C' %}
+              <td style="background-color:red;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+              {% if  sall.categorie  == 'D' %}
+              <td style="background-color:red;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+          
+            
+            {% endif %}
+          
+             </tr>
+  {% if count == 140 %}
+                      {% set count = count + 1 %}
+
+
+       </tr>
+         <tbody>
+    </table>
+  </div>
+  <div class="column" >
+  <table class="fl-table" style="width:250px   !important;" id="salle">
+        <thead>
+        <tr style="font-size: 10px;">
+            <th>Etudiants</th>
+            <th>categorie</th>
+           
+        </tr>
+        </thead>
+        <tbody style="font-size: 10px;">
+        
+
+         <tr>
+            <td style="  white-space: nowrap;max-width:40px;
+    overflow: hidden;
+    text-overflow: ellipsis;">{{ sall.nom }} {{ sall.prénom }}</td>
+            {% if  sall.categorie  == 'A' %}
+              <td style="background-color:lightgreen;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+              {% if  sall.categorie  == 'B' %}
+              <td style="background-color:lightyellow;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+              {% if  sall.categorie  == 'C' %}
+              <td style="background-color:red;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+              {% if  sall.categorie  == 'D' %}
+              <td style="background-color:red;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+          
+            
+            {% endif %}
+        </tr>
+  {# {% if count == 100 %}
+                      {% set count = count + 1 %}
+
+
+       
+ </tr>
+         <tbody>
+    </table>
+  </div>
+  <div class="column" >
+  <table class="fl-table" style="width:250px   !important;" id="salle">
+        <thead>
+        <tr style="font-size: 10px;">
+            <th>Etudiants</th>
+            <th>categorie</th>
+           
+        </tr>
+        </thead>
+        <tbody style="font-size: 10px;">
+        
+
+         <tr>
+            <td style="  white-space: nowrap;max-width:40px;
+    overflow: hidden;
+    text-overflow: ellipsis;">{{ sall.nom }} {{ sall.prénom }}</td>
+           {% if  sall.categorie  == 'A' %}
+              <td style="background-color:lightgreen;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+              {% if  sall.categorie  == 'B' %}
+              <td style="background-color:lightyellow;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+              {% if  sall.categorie  == 'C' %}
+              <td style="background-color:red;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+              {% if  sall.categorie  == 'D' %}
+              <td style="background-color:red;max-width:20px;"> {{ sall.categorie }} </td>
+            {% endif %}
+          
+            
+            {% endif %}
+        </tr> #}
+          {% endfor %}  
+             </tr>
+             
+  </div>
+</div>
+
+
+ 
+</div>
+
+       
+       
+       
+{#}  <div class="column" >
+    <table class="fl-table" style="width:250px   !important;" id="salle">
+        <thead>
+        <tr>
+            <th>Etudiants</th>
+            <th>categorie</th>
+           
+        </tr>
+        </thead>
+        <tbody>
+         {% for sal in salle %}
+
+         <tr>
+            <td>{{ sal.nom }} {{ sal.prénom }}</td>
+            {% if  sal.categorie  == 'A' %}
+              <td style="background-color:lightgreen;"> {{ sal.categorie }} </td>
+            {% endif %}
+              {% if  sal.categorie  == 'B' %}
+              <td style="background-color:lightyellow;"> {{ sal.categorie }} </td>
+            {% endif %}
+              {% if  sal.categorie  == 'C' %}
+              <td style="background-color:red;"> {{ sal.categorie }} </td>
+            {% endif %}
+              {% if  sal.categorie  == 'D' %}
+              <td style="background-color:red;"> {{ sal.categorie }} </td>
+            {% endif %}
+          
+            
+           
+        </tr>
+    {% endfor %}
+       
+       
+        <tbody>
+    </table>
+  </div>
+</div>#}
+   
+   
+
+</body>
+{% endblock %}
+{% block javascripts %}
+
+ <script type = "text/JavaScript">
+         <!--
+           function AutoRefresh( t ) {
+               setTimeout("location.reload(true);", t);
+            }
+         //-->
+      </script>
+
+
+{% endblock %}

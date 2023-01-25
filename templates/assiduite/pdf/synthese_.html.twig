@@ -1,0 +1,1022 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Syntheses {% endblock %}
+{% block stylesheets %}
+<style>
+@page { margin-top: 15px; 
+ padding-bottom: 10px; }
+body { margin-top: 10px;margin-bottom: 0px;
+font-size:8px;
+ }
+hr{
+    border:none;
+    height:1px;
+    background-color:black;
+    margin: 2 0;
+}
+#exname{
+    background-color:#E3E3E3;
+    height:auto;
+    padding:10px 5px;
+    font-size:27px;
+    text-align:center;
+    margin-bottom:25px;
+}
+#title{
+    font-size:1.5em;
+font-family: Courier, Helvetica, sans-serif;
+}
+
+#sidebar{
+    width:170px;
+    height:auto;
+    background-color:#E3E3E3;
+overflow-wrap:break-word;
+padding-top:1px;
+padding-left:5px;
+border:1px solid #333333;
+}
+#mainContent{
+    float:left;
+    width:536px;
+    margin-left:190px;
+    height:auto;
+    margin-top:-20px;
+    overflow-wrap:break-word;
+}
+
+h3.Crx{
+    border-top:1px solid #333333;
+    border-bottom:1px solid #333333;
+    line-height:23px;
+    padding-bottom:0px;
+    color: #333333 !important;
+    width:130px;
+}
+h5{
+    line-height:1px;
+
+}
+#sidebar p{
+    text-align:left;
+    margin-left:25px;
+    margin-top:8px;
+    margin-bottom:8px;
+}
+.contain{
+    display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.txt{
+    padding-bottom:0px;
+    margin-left:25px;
+    font-size:14px;
+   /*  margin-top:-10px;
+    margin-bottom:-10px;
+       border-top:1px solid #333333;
+    border-bottom:1px solid #333333;*/
+}
+.rightH{
+    margin-left: 470px;
+
+}
+.topH{
+    font-size:13px;
+    font-weight:600;
+    margin-bottom:0px;
+}
+#medecin h4{
+     border-top:2px solid #333333;
+     border-bottom:2px solid #333333;
+     line-height:20px;
+float:right;}
+
+#medecin{
+    height:20px;
+}
+
+#img{
+    width:200px;
+    float:right;
+}
+#bc{
+    margin-top:20px;
+    margin-left:8px;
+}
+#pff{
+     width:170px;
+    height:auto;
+}
+.column {
+  float: left;
+  width:390;
+
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+#pl{
+    margin-right:450px;
+}
+#pr{
+    margin-left:600px;
+    
+}
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+ 
+
+
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 5px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    font-size:10px;
+ 
+  text-align: left;
+  background-color: lightblue;
+  color: black;
+  width:30px;
+}
+
+            /** 
+                Set the margins of the page to 0, so the footer and the header
+                can be of the full height and width !
+             **/
+    
+  body {
+                margin-top: 1cm;
+                margin-left: 0cm;
+                margin-right: 0cm;
+                margin-bottom: 0cm;
+            }
+            /** Define the header rules **/
+  
+ footer {
+                position: fixed; 
+                bottom: 0cm; 
+                left: 0cm; 
+                right: 0cm;
+                height: 0cm;
+            }
+
+
+</style>
+{% endblock %}
+{% block body %}
+<header>
+<div style="margin-right:540px;"><img id="img" style="float:left" src="images/Abulcassis.png"/></div><br>
+<p style="text-align:center;font-size:13px;font-family: Impact,bold,sans-serif;"></p>
+<h1 id="title" align="center" style="margin-right:140px; font-size:19px;">Situation Numerique des absences </h1>
+<br>
+<br>
+<br >
+
+<h2>-Journalier-</h2>
+ <h2>{{ dat }}</h2> 
+</header>
+<footer>
+
+<div class="topH">{{ date }}</div><div style="margin-left:150px;"></div><div style="margin-left:290px;"><h3>Année Universitaire:</h3></div><div style="margin-left:180px;"></div></div></div>
+
+
+          
+        </footer>
+
+
+
+ <table  class="table" style="margin-top:5px;  padding:0px; width: 700px !important;" id="customers">
+    <thead>
+      <tr>
+        <th >N°</th>
+        <th >Etablissement</th>
+        <th>1ére Annee</th>        
+        <th>2éme Année</th>
+        <th>3éme Année</th> 
+        <th>4éme Année</th> 
+        <th>5éme Année</th>
+        <th>6éme Année</th>
+        <th>7éme Année</th> 
+
+                                        </tr>
+    </thead>
+    <tbody>
+                 
+                        <tr style="background:lightgrey; text-align:center;letter-spacing:1.5px;">
+    <td colspan=6>Effectifs</td>
+    </tr>
+                                 <tr>
+                         
+        <td >1</td>  
+      
+                   
+                <td style="text-align:center;">FMA_MG</td>
+           <td style="text-align:center;">{{pr1.etud}}</td>
+            <td style="text-align:center;">{{pr2.etu}}</td>
+           <td style="text-align:center;">{{pr3.etu3}}</td>
+           <td style="text-align:center;">{{pr4.etu4}}</td>
+           <td style="text-align:center;">{{pr5.etu5}}</td>
+           <td style="text-align:center;">{{pr6.etu6}}</td>
+           <td style="text-align:center;">{{pr7.etu7}}</td>
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+
+     
+        <td >2</td>  
+                <td style="text-align:center;">FMDA_MD</td>
+            <td style="text-align:center;">{{pr8.etu8}}</td>
+            <td style="text-align:center;">{{pr9.etu9}}</td>
+           <td style="text-align:center;">{{pr10.etu10}}</td>
+           <td style="text-align:center;">{{pr11.etu11}}</td>
+           <td style="text-align:center;">{{pr12.etu12}}</td>
+           <td style="text-align:center;">{{pr13.etu13}}</td>
+           <td style="text-align:center;"></td>
+                 
+    
+</tr>
+                 
+    
+
+        <tr>
+ 
+        <td >3</td>  
+               <td style="text-align:center;">ISITS_IST</td>
+          <td style="text-align:center;">{{pr15.etu15}}</td>
+          <td style="text-align:center;">{{pr16.etu16}}</td> 
+          <td style="text-align:center;">{{pr17.etu17}}</td>
+           <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td>  
+    
+</tr>
+        <tr>
+                             
+        <td >4</td>  
+           <td style="text-align:center;">FASIMH-CAM</td>
+         <td style="text-align:center;">{{pr18.etu18}}</td>
+         <td style="text-align:center;">{{pr19.etu19}}</td>
+         <td style="text-align:center;">{{pr20.etu20}}</td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td> 
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >5</td>  
+              <td style="text-align:center;">FASIMH-CAM-SIBOP</td>
+                  <td style="text-align:center;">{{pr21.etu21}}</td>
+                  <td style="text-align:center;">{{pr22.etu22}}</td>
+                  <td style="text-align:center;">{{pr23.etu23}}</td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td>  
+               
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >6</td>  
+       <td style="text-align:center;">FASIMH-CAM-SIH</td>
+         <td style="text-align:center;">{{pr24.etu24}}</td>
+         <td style="text-align:center;">{{pr25.etu25}}</td>
+         <td style="text-align:center;">{{pr26.etu26}}</td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td>  
+               
+               
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >7</td>  
+         <td style="text-align:center;">FASIMH_IAR</td>
+       <td style="text-align:center;">{{pr27.etu27}}</td>
+       <td style="text-align:center;">{{pr28.etu28}}</td>
+       <td style="text-align:center;">{{pr29.etu29}}</td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td>  
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >8</td>  
+        <td style="text-align:center;">FASIMH_IM</td>
+     <td style="text-align:center;">{{pr30.etu30}}</td>
+     <td style="text-align:center;">{{pr31.etu31}}</td> 
+     <td style="text-align:center;">{{pr32.etu32}}</td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td>  
+               
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >9</td>  
+         <td style="text-align:center;">FASIMH_IP</td>
+      <td style="text-align:center;">{{pr33.etu33}}</td>
+      <td style="text-align:center;">{{pr34.etu34}}</td>
+      <td style="text-align:center;">{{pr35.etu35}}</td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td>
+               
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >10</td>  
+                 <td style="text-align:center;">CPGEM</td>
+          <td style="text-align:center;">{{pr36.etu36}}</td>  
+          <td style="text-align:center;">{{pr37.etu37}}</td> 
+       <td style="text-align:center;"></td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td>
+               
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >11</td>  
+                 <td style="text-align:center;">FPA_PH</td>
+           <td style="text-align:center;">{{pr38.etu38}}</td>
+           <td style="text-align:center;">{{pr39.etu39}}</td>
+           <td style="text-align:center;">{{pr40.etu40}}</td>
+           <td style="text-align:center;">{{pr41.etu41}}</td>
+           <td style="text-align:center;">{{pr42.etu42}}</td>
+           <td style="text-align:center;">{{pr43.etu43}}</td> 
+           <td style="text-align:center;"></td>
+               
+                 
+    
+</tr>
+
+                        <tr style="background:lightgrey; text-align:center;letter-spacing:1.5px;">
+    <td colspan=6>Effectif Total</td>
+    </tr>
+                    <tr>
+                         
+                   
+      
+     
+        <td >1</td>  
+                 <td style="text-align:center;">FMA_MG</td>
+           <td style="text-align:center;">{{pr44.etu44}}</td>
+           <td style="text-align:center;">{{pr45.etu45}}</td>
+           <td style="text-align:center;">{{pr46.etu46}}</td>
+           <td style="text-align:center;">{{pr47.etu47}}</td>
+           <td style="text-align:center;">{{pr48.etu48}}</td>
+           <td style="text-align:center;">{{pr49.etu49}}</td>
+           <td style="text-align:center;">{{pr50.etu50}}</td>
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >2</td>  
+                <td style="text-align:center;">FMDA_MD</td>
+           <td style="text-align:center;">{{pr51.etu51}}</td> 
+           <td style="text-align:center;">{{pr52.etu52}}</td> 
+           <td style="text-align:center;">{{pr53.etu53}}</td>
+           <td style="text-align:center;">{{pr54.etu54}}</td> 
+           <td style="text-align:center;">{{pr55.etu55}}</td>
+           <td style="text-align:center;">{{pr56.etu56}}</td>
+           <td style="text-align:center;"></td>
+                 
+    
+</tr>
+                 
+    
+
+        <tr>
+                         
+                   
+      
+     
+        <td >3</td>  
+           <td style="text-align:center;">ISITS_IST</td>
+        <td style="text-align:center;">{{pr57.etu57}}</td>
+        <td style="text-align:center;">{{pr58.etu58}}</td>
+        <td style="text-align:center;">{{pr59.etu59}}</td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td>  
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >4</td>  
+          <td style="text-align:center;">FASIMH-CAM</td>
+        <td style="text-align:center;">{{pr60.etu60}}</td>
+        <td style="text-align:center;">{{pr61.etu61}}</td>
+        <td style="text-align:center;">{{pr62.etu62}}</td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td> 
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >5</td>  
+    <td style="text-align:center;">FASIMH-CAM-SIBOP</td>
+        <td style="text-align:center;">{{pr63.etu63}}</td>
+        <td style="text-align:center;">{{pr64.etu64}}</td>
+        <td style="text-align:center;">{{pr65.etu65}}</td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td>  
+               
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >6</td>  
+      <td style="text-align:center;">FASIMH-CAM-SIH</td>
+        <td style="text-align:center;">{{pr66.etu66}}</td>
+        <td style="text-align:center;">{{pr67.etu67}}</td>
+        <td style="text-align:center;">{{pr68.etu68}}</td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td>  
+               
+               
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >7</td>  
+          <td style="text-align:center;">FASIMH_IAR</td>
+        <td style="text-align:center;">{{pr69.etu69}}</td>
+        <td style="text-align:center;">{{pr70.etu70}}</td>
+        <td style="text-align:center;">{{pr71.etu71}}</td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td>  
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >8</td>  
+           <td style="text-align:center;">FASIMH_IM</td>
+        <td style="text-align:center;">{{pr72.etu72}}</td>
+        <td style="text-align:center;">{{pr73.etu73}}</td>
+        <td style="text-align:center;">{{pr74.etu74}}</td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td>  
+               
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >9</td>  
+           <td style="text-align:center;">FASIMH_IP</td> 
+        <td style="text-align:center;">{{pr75.etu75}}</td>
+        <td style="text-align:center;">{{pr76.etu76}}</td>
+        <td style="text-align:center;">{{pr77.etu77}}</td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td>
+               
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >10</td>  
+          <td style="text-align:center;">CPGEM</td>
+   <td style="text-align:center;">{{pr78.etu78}}</td> 
+   <td style="text-align:center;">{{pr79.etu79}}</td>
+           <td style="text-align:center;"></td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td>
+               
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >11</td>  
+        <td style="text-align:center;">FPA_PH</td>
+        <td style="text-align:center;">{{pr80.etu80}}</td>
+           <td style="text-align:center;">{{pr81.etu81}}</td>
+           <td style="text-align:center;">{{pr82.etu82}}</td>
+           <td style="text-align:center;">{{pr83.etu83}}</td>
+           <td style="text-align:center;">{{pr84.etu84}}</td>
+           <td style="text-align:center;">{{pr85.etu85}}</td>
+           <td style="text-align:center;"></td>
+               
+                 
+    
+</tr>
+
+
+
+
+                        <tr style="background:lightgrey; text-align:center;letter-spacing:1.5px;">
+    <td colspan=6>Absences Promotions</td>
+    </tr>
+                    <tr>
+                         
+                   
+      
+     
+        <td >1</td>  
+                       
+               <td style="text-align:center;">FMA_MG</td>
+        <td style="text-align:center;">{{ pr86.etu86}}</td> 
+           <td style="text-align:center;">{{pr87.etu87}}</td>
+           <td style="text-align:center;">{{pr88.etu88}}</td>
+           <td style="text-align:center;">{{pr89.etu89}}</td>
+           <td style="text-align:center;">{{pr90.etu90}}</td>
+           <td style="text-align:center;">{{pr91.etu91}}</td>
+           <td style="text-align:center;">{{pr92.etu92}}</td>
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >2</td>  
+                  <td style="text-align:center;">FMDA_MD</td> 
+        <td style="text-align:center;">{{pr93.etu93}}</td> 
+           <td style="text-align:center;">{{pr94.etu94}}</td>
+           <td style="text-align:center;">{{pr95.etu95}}</td>
+           <td style="text-align:center;">{{pr96.etu96}}</td>
+           <td style="text-align:center;">{{pr97.etu97}}</td>
+           <td style="text-align:center;">{{pr98.etu98}}</td>
+           <td style="text-align:center;"></td>
+                 
+    
+</tr>
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >3</td>  
+           <td style="text-align:center;">ISITS_IST</td> 
+        <td style="text-align:center;">{{pr99.etu99}}</td> 
+       <td style="text-align:center;">{{pr100.etu100}}</td> 
+       <td style="text-align:center;">{{pr101.etu101}}</td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td>  
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >4</td>  
+           <td style="text-align:center;">FASIMH-CAM</td> 
+        <td style="text-align:center;">{{pr102.etu102}}</td> 
+        <td style="text-align:center;">{{pr103.etu103}}</td> 
+        <td style="text-align:center;">{{pr104.etu104}}</td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td> 
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >5</td>  
+              <td style="text-align:center;">FASIMH-CAM-SIBOP</td>
+                 <td style="text-align:center;">{{pr105.etu105}}</td>
+                 <td style="text-align:center;">{{pr106.etu106}}</td>
+                 <td style="text-align:center;">{{pr107.etu107}}</td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td>  
+               
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >6</td>  
+       <td style="text-align:center;">FASIMH-CAM-SIH</td>
+        <td style="text-align:center;">{{pr108.etu108}}</td>
+        <td style="text-align:center;">{{pr109.etu109}}</td>
+        <td style="text-align:center;">{{pr110.etu110}}</td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td>  
+               
+               
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >7</td>  
+           <td style="text-align:center;">FASIMH_IAR</td>
+        <td style="text-align:center;">{{pr111.etu111}}</td>
+        <td style="text-align:center;">{{pr112.etu112}}</td>
+        <td style="text-align:center;">{{pr113.etu113}}</td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td>  
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >8</td>  
+            <td style="text-align:center;">FASIMH_IM</td> 
+        <td style="text-align:center;">{{pr114.etu114}}</td>
+        <td style="text-align:center;">{{pr115.etu115}}</td>
+        <td style="text-align:center;">{{pr116.etu116}}</td>
+       <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td>  
+               
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >9</td>  
+            <td style="text-align:center;">FASIMH_IP</td>
+        <td style="text-align:center;">{{pr117.etu117}}</td>
+        <td style="text-align:center;">{{pr118.etu118}}</td>
+        <td style="text-align:center;">{{pr119.etu119}}</td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td>
+               
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >10</td>  
+                   <td style="text-align:center;">CPGEM</td>
+           <td style="text-align:center;">{{pr120.etu120}}</td>
+           <td style="text-align:center;">{{pr121.etu121}}</td>
+           <td style="text-align:center;"></td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td>
+               
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >11</td>  
+        <td style="text-align:center;">FPA_PH</td>
+          <td style="text-align:center;">{{pr122.etu122}}</td>
+          <td style="text-align:center;">{{pr123.etu123}}</td>
+           <td style="text-align:center;">{{pr124.etu124}}</td>
+           <td style="text-align:center;">{{pr125.etu125}}</td>
+           <td style="text-align:center;">{{pr126.etu126}}</td>
+           <td style="text-align:center;">{{pr127.etu127}}</td>
+      <td style="text-align:center;"></td>
+               
+                 
+    
+</tr>
+                        <tr style="background:lightgrey; text-align:center;letter-spacing:1.5px;">
+    <td colspan=6>Pourcentage par promotion</td>
+    </tr>
+                    <tr>
+                         
+                   
+      
+     
+            <td >1</td>  
+                       
+               <td style="text-align:center;">FMA_MG</td> 
+           <td style="text-align:center;">{% if pr44.etu44 == 0 %} 0 {% else %} {{ (pr86.etu86 / pr44.etu44 * 100)|number_format(2)}}{% endif %} %</td> 
+           <td style="text-align:center;">{% if pr45.etu45 == 0 %} 0 {% else %} {{ (pr87.etu87 / pr45.etu45 * 100)|number_format(2)}}{% endif %} %</td>
+           <td style="text-align:center;">{% if pr46.etu46 == 0 %} 0 {% else %} {{ (pr88.etu88 / pr46.etu46 * 100)|number_format(2)}}{% endif %} %</td>
+           <td style="text-align:center;">{% if pr47.etu47 == 0 %} 0 {% else %} {{ (pr89.etu89 / pr47.etu47 * 100)|number_format(2)}}{% endif %} %</td>
+           <td style="text-align:center;">{% if pr48.etu48 == 0 %} 0 {% else %} {{ (pr90.etu90 / pr48.etu48 * 100)|number_format(2)}}{% endif %} %</td>
+           <td style="text-align:center;">{% if pr49.etu49 == 0 %} 0 {% else %} {{ (pr91.etu91 / pr49.etu49 * 100)|number_format(2)}}{% endif %} %</td>
+           <td style="text-align:center;">{% if pr50.etu50 == 0 %} 0 {% else %} {{ (pr92.etu92 / pr50.etu50 * 100)|number_format(2)}}{% endif %} %</td>
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >2</td>  
+                  <td style="text-align:center;">FMDA_MD</td>
+           <td style="text-align:center;">{% if pr51.etu51 == 0 %} 0 {% else %}{{ (pr93.etu93 / pr51.etu51 * 100)|number_format(2)}}{% endif %} %</td>
+           <td style="text-align:center;">{% if pr52.etu52 == 0 %} 0 {% else %}{{ (pr94.etu94 / pr52.etu52 * 100)|number_format(2)}}{% endif %} %</td>
+           <td style="text-align:center;">{% if pr53.etu53 == 0 %} 0 {% else %}{{ (pr95.etu95 / pr53.etu53 * 100)|number_format(2)}}{% endif %} %</td>
+           <td style="text-align:center;">{% if pr54.etu54 == 0 %} 0 {% else %}{{ (pr96.etu96 / pr54.etu54 * 100)|number_format(2)}}{% endif %} %</td>
+           <td style="text-align:center;">{% if pr55.etu55 == 0 %} 0 {% else %}{{ (pr97.etu97 / pr55.etu55 * 100)|number_format(2)}}{% endif %} %</td>
+           <td style="text-align:center;">{% if pr56.etu56 == 0 %} 0 {% else %}{{ (pr98.etu98 / pr56.etu56 * 100)|number_format(2)}}{% endif %} %</td>
+           <td style="text-align:center;"></td>
+                 
+    
+</tr>
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >3</td>  
+        <td style="text-align:center;">ISITS_IST</td>
+             <td style="text-align:center;">{% if pr57.etu57 == 0 %} 0 {% else %}{{ (pr99.etu99 / pr57.etu57 * 100)|number_format(2)}}{% endif %} %</td>
+            <td style="text-align:center;">{% if pr58.etu58 == 0 %} 0 {% else %}{{ (pr100.etu100 / pr58.etu58 * 100)|number_format(2)}}{% endif %} %</td>
+           <td style="text-align:center;">{% if pr59.etu59 == 0 %} 0 {% else %}{{ (pr101.etu101 / pr59.etu59 * 100)|number_format(2)}}{% endif %} %</td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td>  
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >4</td>  
+           <td style="text-align:center;">FASIMH-CAM</td>
+        <td style="text-align:center;">{% if pr60.etu60 == 0 %} 0 {% else %}{{ (pr102.etu102 / pr60.etu60 * 100)|number_format(2)}}{% endif %} %</td>
+        <td style="text-align:center;">{% if pr61.etu61 == 0 %} 0 {% else %}{{ (pr103.etu103 / pr61.etu61 * 100)|number_format(2)}}{% endif %} %</td>
+        <td style="text-align:center;">{% if pr62.etu62 == 0 %} 0 {% else %}{{ (pr104.etu104 / pr62.etu62 * 100)|number_format(2)}}{% endif %} %</td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td> 
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >5</td>  
+              <td style="text-align:center;">FASIMH-CAM-SIBOP</td>
+        <td style="text-align:center;">{% if pr63.etu63 == 0 %} 0 {% else %}{{ (pr105.etu105 / pr63.etu63 * 100)|number_format(2)}}{% endif %} %</td>  
+           <td style="text-align:center;">{% if pr64.etu64 == 0 %} 0 {% else %}{{ (pr106.etu106 / pr64.etu64 * 100)|number_format(2)}}{% endif %} %</td>
+           <td style="text-align:center;">{% if pr65.etu65 == 0 %} 0 {% else %}{{ (pr107.etu107 / pr65.etu65 * 100)|number_format(2)}}{% endif %} %</td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td>  
+               
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >6</td>  
+       <td style="text-align:center;">FASIMH-CAM-SIH</td>
+        <td style="text-align:center;">{% if pr66.etu66 == 0 %} 0 {% else %}{{ (pr108.etu108 / pr66.etu66 * 100)|number_format(2)}}{% endif %} %</td>
+           <td style="text-align:center;">{% if pr67.etu67 == 0 %} 0 {% else %}{{ (pr109.etu109 / pr67.etu67 * 100)|number_format(2)}}{% endif %} %</td>
+           <td style="text-align:center;">{% if pr68.etu68 == 0 %} 0 {% else %}{{ (pr110.etu110 / pr68.etu68 * 100)|number_format(2)}}{% endif %} %</td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td>  
+               
+               
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >7</td>  
+         <td style="text-align:center;">FASIMH_IAR</td> 
+        <td style="text-align:center;">{% if pr69.etu69 == 0 %} 0 {% else %}{{ (pr111.etu111 / pr69.etu69 * 100)|number_format(2)}}{% endif %} %</td>
+           <td style="text-align:center;">{% if pr70.etu70 == 0 %} 0 {% else %}{{ (pr112.etu112 / pr70.etu70 * 100)|number_format(2)}}{% endif %} %</td> 
+           <td style="text-align:center;">{% if pr71.etu71 == 0 %} 0 {% else %}{{ (pr113.etu113 / pr71.etu71 * 100)|number_format(2)}}{% endif %} %</td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td>  
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >8</td>  
+        <td style="text-align:center;">FASIMH_IM</td>
+        <td style="text-align:center;">{% if pr72.etu72 == 0 %} 0 {% else %}{{ (pr114.etu114 / pr72.etu72 * 100)|number_format(2)}}{% endif %} %</td>
+           <td style="text-align:center;">{% if pr73.etu73 == 0 %} 0 {% else %}{{ (pr115.etu115 / pr73.etu73 * 100)|number_format(2)}}{% endif %} %</td>
+           <td style="text-align:center;">{% if pr74.etu74 == 0 %} 0 {% else %}{{ (pr116.etu116 / pr74.etu74 * 100)|number_format(2)}}{% endif %} %</td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td>  
+               
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >9</td>  
+         <td style="text-align:center;">FASIMH_IP</td>
+        <td style="text-align:center;">{% if pr75.etu75 == 0 %} 0 {% else %}{{ (pr117.etu117 / pr75.etu75 * 100)|number_format(2)}}{% endif %} %</td> 
+           <td style="text-align:center;">{% if pr76.etu76 == 0 %} 0 {% else %}{{ (pr118.etu118 / pr76.etu76 * 100)|number_format(2)}}{% endif %} %</td>
+           <td style="text-align:center;">{% if pr77.etu77 == 0 %} 0 {% else %}{{ (pr119.etu119 / pr77.etu77 * 100)|number_format(2)}}{% endif %} %</td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td>
+               
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >10</td>  
+          <td style="text-align:center;">CPGEM</td>
+        <td style="text-align:center;">{% if pr78.etu78 == 0 %} 0 {% else %}{{ (pr120.etu120 / pr78.etu78 * 100)|number_format(2)}}{% endif %} %</td>
+           <td style="text-align:center;">{% if pr79.etu79 == 0 %} 0 {% else %}{{ (pr121.etu121 / pr79.etu79 * 100)|number_format(2)}}{% endif %} %</td>
+           <td style="text-align:center;"></td>
+            <td style="text-align:center;"></td>
+               <td ></td>  
+        <td style="text-align:center;"></td>
+               <td ></td>
+               
+                 
+    
+</tr>
+        <tr>
+                         
+                   
+      
+     
+        <td >11</td>  
+        <td style="text-align:center;">FPA_PH</td>
+        <td style="text-align:center;">{% if pr80.etu80 == 0 %} 0 {% else %}{{ (pr122.etu122 / pr80.etu80 * 100)|number_format(2)}}{% endif %} %</td>
+           <td style="text-align:center;">{% if pr81.etu81 == 0 %} 0 {% else %}{{ (pr123.etu123 / pr81.etu81 * 100)|number_format(2)}}{% endif %} %</td> 
+           <td style="text-align:center;">{% if pr82.etu82 == 0 %} 0 {% else %}{{ (pr124.etu124 / pr82.etu82 * 100)|number_format(2)}}{% endif %} %</td> 
+           <td style="text-align:center;">{% if pr83.etu83 == 0 %} 0 {% else %}{{ (pr125.etu125 / pr83.etu83 * 100)|number_format(2)}}{% endif %} %</td> 
+           <td style="text-align:center;">{% if pr84.etu84 == 0 %} 0 {% else %}{{ (pr126.etu126 / pr84.etu84 * 100)|number_format(2)}}{% endif %} %</td> 
+           <td style="text-align:center;">{% if pr85.etu85 == 0 %} 0 {% else %}{{ (pr127.etu127 / pr85.etu85 * 100)|number_format(2)}}{% endif %} %</td> 
+           <td style="text-align:center;"></td>
+               
+                 
+    
+</tr>
+                 
+    
+</tr>
+                        
+
+
+
+{% endblock %}

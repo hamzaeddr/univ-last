@@ -1,0 +1,31 @@
+ {# <h4>Tableau des épreuves</h4> #}
+        <thead>
+            <tr style= "background-color:white; position: sticky; top: 0;">
+                <th>#</th>
+                <th>inscription</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                {% for epreuve in epreuves %}
+                    <th>EPV:{{epreuve.id}}<br>Coef: {{epreuve.coefficient}}</th>
+                {% endfor %}
+                <th>Moyenne</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for array in inscriptionsArray %}
+                <tr>
+                    <th>{{loop.index}}</th>
+                    <th>{{array.inscription.id}}</th>
+                    <th>{{array.inscription.admission.preinscription.etudiant.nom}}</th>
+                    <th>{{array.inscription.admission.preinscription.etudiant.prenom}}</th>
+                    {% for note in array.notes %}
+                        {% if note != "" %} 
+                            <th>{{note|number_format(2, '.', ',') }}</th>
+                        {% else %} 
+                            <th></th>
+                        {% endif %} 
+                    {% endfor %}
+                    <th>{{array.moyenne|number_format(2, '.', ',') }}</th>
+                </tr>
+            {% endfor %}
+        </tbody>

@@ -1,0 +1,130 @@
+<div class="col-md-6" style="border-right: 1px solid #eee;">
+    <fieldset>
+        <div class="col-md-12 row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>  C.N.E :</label>
+                    <input class="form-control" type="text" name="cne" placeholder="C.N.E" value="{{etudiant.cne}}"> 
+                </div>
+            </div> 
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Académie :</label>
+                    <select class="form-control " style="width: 100%" name="id_academie">
+                        <option value=""  disabled selected>Choix de académie</option>
+                        {% for academie in academies %}
+                            {% if etudiant.academie == academie  %}
+                                <option value="{{academie.id}}" selected>{{academie.designation}}</option>
+                            {% else %}
+                                <option value="{{academie.id}}">{{academie.designation}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Filiere (*) :</label>
+                    <select class="form-control " style="width: 100%" name="id_filiere">
+                        <option value=""  disabled selected>Choix de filiere</option>
+                        {% for filiere in filieres %}
+                            {% if etudiant.filiere == filiere  %}
+                                <option value="{{filiere.id}}" selected>{{filiere.designation}}</option>
+                            {% else %}
+                                <option value="{{filiere.id}}">{{filiere.designation}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Etablissement :</label>
+                    <input class="form-control" type="text" name="etablissement" placeholder="Etablissement" value="{{etudiant.etablissement}}"> 
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Type de Bac (*) :</label>
+                    <select class="form-control " style="width: 100%" name="id_type_bac">
+                        <option value=""  disabled selected>Choix de Type de Bac</option>
+                        {% for typebac in typebacs %}
+                            {% if etudiant.typeBac == typebac  %}
+                                <option value="{{typebac.id}}" selected>{{typebac.designation}}</option>
+                            {% else %}
+                                <option value="{{typebac.id}}">{{typebac.designation}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>  Année Bac (*) :</label>
+                    <input class="form-control" type="text" name="annee_bac" placeholder="Année Bac" value="{{etudiant.anneeBac}}"> 
+                </div>
+            </div>
+        </div>  
+    </fieldset>
+</div>
+<div class="col-md-6 parents-tab" style="border-left: 1px solid #eee;">
+    <fieldset>
+        <div class="col-md-12 row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>  Moyen Regional (*) :</label>
+                    <input class="form-control" type="text" name="moyen_regional" placeholder="Moyen Regional" value="{{etudiant.moyenRegional}}"> 
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>  Moyen National (*) :</label>
+                    <input class="form-control" type="text" name="moyen_national" placeholder="Moyen national" value="{{etudiant.moyenNational}}"> 
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 row"> 
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>  Moyen bac (*) :</label>
+                    <input class="form-control" type="text" name="moyenne_bac" placeholder="Moyen Bac" value="{{etudiant.moyenneBac}}"> 
+                </div>
+            </div>        
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>  Langue concours :</label>
+                    <select class="form-control chosen-select" name="langue_concours">
+                        <option value="" disabled selected>Choix langue</option>
+                        {% for langues in langues %}
+                            {% if etudiant.langueConcours == langues  %}
+                                <option value="{{langues.id}}" selected>{{langues.designation}}</option>
+                            {% else %}
+                                <option value="{{langues.id}}">{{langues.designation}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>  Concours  :</label>
+                    <input class="form-control" type="text" name="concours_medbup" placeholder="Concours" value="{{etudiant.concoursMedbup}}">
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-12 row">    
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>  Observation :</label>
+                    <textarea class="form-control" name="obs" style="width: 100%; height: 32px;">{{etudiant.obs}}</textarea>
+                </div>
+            </div>
+        </div>
+    </fieldset>      
+</div> 
+

@@ -1,0 +1,112 @@
+ {# <form > #}
+{% for etud in etudiants %}
+    
+                    <div class="col-md-12 row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="Id_Seance" style="margin-top: 1rem;">Id_Seance :</label>
+                                                        <input type="text" class="form-control" name="Id_Seance" id="Id_Seance" value="{{ etud.getIDSéance() }}" disabled>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="ID_Admission" style="margin-top: 1rem;">ID_Admission:</label>
+                                <input type="text" class="form-control" name="ID_Admission" id="ID_Admission" value="{{ etud.getIDAdmission() }}" disabled>
+                            </div>
+                        </div> 
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="Etudiant" style="margin-top: 1rem;">Etudiant :</label>
+                                <input type="text" class="form-control" name="Etudiant" id="Etudiant" value="{{ etud.getNom() }} {{ etud.getPrénom() }} " disabled>
+                            </div>
+                        </div> 
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="Categorie" style="margin-top: 1rem;">Categorie SI:</label>
+                                <input type="text" class="form-control" name="Categorie" id="Categorie" value="{{ etud.getCategorie() }}" disabled>
+                            </div>
+                        </div> 
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="Categorie_ens" style="margin-top: 1rem;">Categorie_ens  :</label>
+                                <select class="form-control" name="Categorie_ens" id="Categorie_ens">
+                                        <option value="{{etud.getCategorieEnseig() }}">{{etud.getCategorieEnseig() }}</option>
+                                        <option value=""></option>
+                                        <option value="AD">AD</option>
+                                        <option value="BD">BD</option>
+                                        <option value="PEE">PEE</option>
+                                    
+                                </select>
+                            </div>
+                        </div> 
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="hp">Heure Pointage :</label>
+                                <input type="text" class="form-control" name="hp" id="hp" value="{{ etud.getHeurePointage() | date('H:i') }}" disabled>
+                            
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="ma">motif Absence:</label>
+                                <select class="form-control" name="motif_abs" id="motif_abs">
+                       {% for motif in xseance_motif %}
+
+                         <option value="{{etud.getMotif() | number_format }}">{{motif.getMotif() }}</option>
+                         {% endfor %}
+                        <option></option>
+                        <option value="1">Convocation Administrative </option>
+                        <option value="2">Exclusion Temporaire</option>
+                        <option value="3">Maladie avec certificat</option>
+                        <option value="4">Maladie sans certificat</option>
+                        <option value="5">Problème de transport</option>
+                        <option value="6">Raison familiale</option>
+                        <option value="7">Sans excuses</option>
+                        <option value="8">RDV médical</option>
+                        <option value="9"></option>
+                        <option value="10">RDV médical extérieur</option>
+                        <option value="11">Retard</option>
+                        <option value="12">Stage à l'étranger</option>
+                        <option value="13">Module Capitalisé</option>
+                        <option value="14">Exclusion Commission Disciplinaire</option>
+                        <option value="15">Sanction Assiduité</option>
+                        <option value="16">Autorisé</option>
+                        <option value="17">Avis de Décès</option>
+                        <option value="18">11ème Congrée National des Etudiant</option>
+                        <option value="19">Evaluation Fin Stage</option>
+                        <option value="20">Erreur Affectation Promotion</option>
+                        <option value="21">Attente Visa</option>
+                        <option value="22">Problème technique</option>
+                        <option value="23">Convocation permis</option>
+                        <option value="24">Maladie chronique</option>
+                        <option value="25">Autorisée</option>
+                        <option value="26">Non Autorisée</option>
+                        <option value="27">ST Etranger</option>
+                        <option value="28">Présent</option>
+                                        </select>
+                            </div>
+                        </div> 
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="reference">observation :</label>
+                                <textarea id="obs" name="w3review" rows="4" cols="40">{{etud.getObs() }}</textarea>
+                            </div>
+                        </div> 
+                        <div class="col-md-4" style="margin-left:40px">
+                            <label>  </label><br> 
+                            {% if etud.getJustifier() > 0 %}
+                            {% set check = "checked" %}
+                            {% else %}
+                            {% set check = " " %}
+                            {% endif %}
+                            
+                            <input type="checkbox" name="justifier" class="justifier"  {{ check }}> 
+                            <label style="margin:5px" for="justifier"> justifier  </label>  
+                                
+                        </div>
+                    </div>
+                    
+{% endfor %}
+
+{# </form> #}

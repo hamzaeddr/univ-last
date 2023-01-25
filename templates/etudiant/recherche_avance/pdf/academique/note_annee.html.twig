@@ -1,0 +1,392 @@
+<style type="text/Css">
+    body{
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+    .titre-reb{
+        width: 100%;
+        background: #1f4f7a;
+        font-size: 9px ;
+        padding:3px 10px;
+        color: #f1f1f1;
+        font-weight: bold;
+    }
+    .slh tr td {
+        border-bottom: 0.5px solid #292929;
+    }
+</style>
+<br><br><br><br>
+<table style="width: 100% ;text-align: center;border: 0.5px solid #292929; ">
+    <tr>
+        <td style="width: 30% ;">
+            <table style="width: 100% ;">
+                <tr>
+                    <th style="width: 100% ; font-size: 11px ;font-weight: 200">Date du relevé </th>
+                </tr>
+                <tr>
+                    <td style="border-bottom:  solid 0.5px #292929 ;width: 100%"></td>
+                </tr>
+                <tr>
+                    <td style="width: 100% ; font-size: 11px ;font-weight: bold">{{"now"|date('d/m/Y')}}</td>
+                </tr>
+            </table>
+        </td>
+        <td style="width: 40% ;font-size: 16px;font-weight: bold ; border-right: 0.5px;border-left: 0.5px;">RELEVE DE NOTES </td>
+        <td style="width: 30% ;">
+            <table style="width: 100% ; background: #FFFFFF; text-align: center">
+                <tr>
+                    <th style="width: 100% ; font-size: 11px ;font-weight: 200">Année universitaire</th>
+                </tr>
+                <tr>
+                    <td style="border-bottom:  solid 0.5px #292929 ;width: 100%"></td>
+                </tr>
+                <tr>
+                    <td style="width: 100% ; font-size: 11px ;font-weight: bold">{{inscription.annee.designation}}</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+
+
+<br>
+<table cellspacing="0" style="background: #292929 ;width: 100%; text-align: left; font-size: 12px">
+   
+    <tr>
+        <td style="width: 100% ;padding:  4px  ; font-weight: bold;font-size: 13px; color: #fff;">Informations Etudiant</td> 
+    </tr>
+</table>
+<br>
+
+
+
+
+
+<table style="width: 100%; text-align: left; font-size: 9px; margin-left: 10px;">
+    <tr style="width: 100%;"> 
+        <td style="width: 50% ;">
+            <table style="width: 100% ;">
+                <tr>
+                    
+                    <td style="width: 35% ;border: 0.5px solid #292929">
+                        <table style="width: 100% ; ">
+                            <tr><td style="width: 100%"><b>NOM  </b></td></tr>
+                        </table>
+                    </td>
+                    <td style="width: 35%;border: 0.5px solid #292929">
+                        <table style="width: 100% ;">
+                            <tr><td style="width: 100%">{{inscription.admission.preinscription.etudiant.nom}}</td></tr>
+                        </table>
+                    </td>
+                    
+                   
+
+
+                  <td style="width: 35% ;border: 0.5px solid #292929">
+                        <table style="width: 100% ; ">
+                            <tr><td style="width: 100%"><b>CODE INSCRIPTION </b></td></tr>
+                        </table>
+                    </td>
+                    
+                    <td style="width: 35%;border: 0.5px solid #292929">
+                        <table style="width: 100% ;">
+                            <tr><td style="width: 100%">{{inscription.code}}</td></tr>
+                        </table>
+                    </td>
+
+                   
+                </tr>
+
+                <tr>
+                    
+                    
+                    
+                    <td style="width: 35% ;border: 0.5px solid #292929">
+                        <table style="width: 100% ; ">
+                            <tr>
+                                <td style="width: 100%"><b>PRENOM </b></td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td style="width: 35%;border: 0.5px solid #292929">
+                        <table style="width: 100% ;">
+                            <tr>
+                                <td style="width: 100%">{{inscription.admission.preinscription.etudiant.prenom}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                    
+                    
+                    
+                     <td style="width: 35% ;border: 0.5px solid #292929">
+                        <table style="width: 40% ; ">
+                            <tr><td style="width: 100%"><b>ETABLISSEMENT </b></td></tr>
+                        </table>
+                    </td>
+                    <td style="width: 35%;border: 0.5px solid #292929">
+                        <table style="width: 100% ;">
+                            <tr><td style="width: 100%">{{inscription.annee.formation.etablissement.designation}}</td></tr>
+                        </table>
+                    </td>
+                    
+                    
+                    
+
+                 
+
+
+                </tr>
+                <tr>
+                    
+                     <td style="width: 35% ;border: 0.5px solid #292929">
+                        <table style="width: 100% ; ">
+                            <tr><td style="width: 100%"><b>CODE ETUDIANT</b></td></tr>
+                        </table>
+                    </td>
+                    
+                    <td style="width: 35%;border: 0.5px solid #292929">
+                        <table style="width: 100% ;">
+                            <tr><td style="width: 100%">{{inscription.admission.preinscription.etudiant.code}}</td></tr>
+                        </table>
+                    </td>
+                    
+                    
+                       <td style="width: 35% ;border: 0.5px solid #292929">
+                        <table style="width: 100% ; ">
+                            <tr>
+                                <td style="width: 100%"><b>FORMATION  </b></td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td style="width: 35%;border: 0.5px solid #292929">
+                        <table style="width: 100% ;">
+                            <tr>
+                                <td style="width: 100%">{{inscription.annee.formation.designation}}</td>
+                            </tr>
+                        </table>
+                    </td>
+
+                </tr>
+                
+                
+                 <tr>
+                    <td style="width: 35% ;border: 0.5px solid #292929">
+                        <table style="width: 100% ; ">
+                            <tr>
+                                <td style="width: 100%"><b>CODE ADMISSION  </b></td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td style="width: 35%;border: 0.5px solid #292929">
+                        <table style="width: 100% ;">
+                            <tr>
+                                <td style="width: 100%">{{inscription.admission.code}}</td>
+                            </tr>
+                        </table>
+                    </td>
+
+                    
+                    
+                     <td style="width: 35% ;border: 0.5px solid #292929">
+                        <table style="width: 100% ; ">
+                            <tr>
+                                <td style="width: 100%"><b>PROMOTION  </b></td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td style="width: 35%;border: 0.5px solid #292929">
+                        <table style="width: 100% ;">
+                            <tr>
+                                <td style="width: 100%">{{inscription.promotion.designation}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                    
+                </tr>
+                
+                
+                
+                
+
+            </table>
+        </td>
+    </tr>   
+</table>
+
+<table style="width: 100%;" align="center" cellspacing="0">
+    <tbody>
+        <tr>
+            <td style="width: 10%;padding: 3px;font-size: 10px;text-align: center;background-color: #f7f7f7;font-weight: 800 !important;"><b>{{noteSemestre1.semestre.designation}}</b></td>
+
+        </tr>
+        
+    </tbody>
+</table>
+<table class="" style="width: 100% ;" cellspacing="0">
+    <tr style="background-color: #292929; color:white; font-size: 9px;">
+        <th style="width: 8%;padding: 3px;color:white; font-size: 9px;">ORD</th>
+        <th style="width: 38%;padding: 3px;color:white; font-size: 9px;">LIBELLE</th>
+        <th style="width: 9%;padding: 3px;text-align: center;color:white; font-size: 9px;">NOTE Sess 1</th> 
+        <th style="width: 9%;padding: 3px;text-align: center;color:white; font-size: 9px;">NOTE Sess 2</th> 
+        <th style="width: 9%;padding: 3px;text-align: center;color:white; font-size: 9px;">NOTE Finale</th>
+        <th style="width: 15%;padding: 3px;color:white; font-size: 9px;">STATUT</th>
+        <th style="width: 10%;padding: 3px;text-align: center;color:white; font-size: 9px;">Observation</th>   
+    </tr>
+    {% for mnote in noteModulesBySemestre1 %}
+        <tr>
+            <td style="width: 8%;padding: 3px;font-size: 8px;text-align: left;border: 0px;"><b>MODULE {{loop.index}}</b></td>
+            <td style="width: 38%;padding: 3px;font-size: 8px;text-align: left;border: 0px;">{{mnote.module.designation}}</td>
+            <td style="width: 9%;padding: 3px;font-size: 8px;text-align:center;border: 0px;">{% if mnote.statutAff.id == 35 %} -  {% else %} {{mnote.noteIni}}{% endif %}</td>
+            <td style="width: 9%;padding: 3px;font-size: 8px;text-align:center;border: 0px;">{% if mnote.statutAff.id == 35 or mnote.noteRat is null %} -  {% else %} {{ mnote.noteRat}}{% endif %}</td>
+            <td style="width: 9%;padding: 3px;font-size: 8px;text-align:center;border: 0px;">{% if mnote.statutAff.id == 35 %} -  {% else %} {{mnote.note}}{% endif %}</td>
+            <td style="width: 15%;padding: 3px;font-size: 7px;text-align:left;border: 0px;">{{mnote.statutAff.designation}}</td>
+            <td style="width: 10%;padding: 3px;font-size: 7px;text-align: left;border: 0px;">{{mnote.observation}}</td>
+        </tr>
+    {% endfor %}    
+
+
+</table>
+<br>
+<table style="width: 100%;" align="center" cellspacing="0">
+    <tbody>
+        <tr>
+            <td style="width: 100%; text-align: left;font-size: 10px;">
+                
+                {% if assiduite == 1 %}
+                    <p style="margin: 15px 0px 0px 0px"><b>MOYENNE {{noteSemestre1.semestre.designation}} :  {% if noteSemestre1.statutAff.id == 40 %} - {% else %}{{noteSemestre1.noteSec}}{% endif %}</b></p>
+                    <p style="margin: 2px 0px 0px 0px"><b>STATUT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{noteSemestre1.semestre.designation}} :{{noteSemestre1.statutAff.designation}}</b></p>
+                {% else %} 
+                    <p style="margin: 15px 0px 0px 0px"><b>MOYENNE {{noteSemestre1.semestre.designation}} :  {% if noteSemestre1.statutAff.id == 40 %} - {% else %}{{noteSemestre1.note}}{% endif %}</b></p>
+                    <p style="margin: 2px 0px 0px 0px"><b>STATUT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{noteSemestre1.semestre.designation}} :{{noteSemestre1.statutAff.designation}}</b></p>
+                {% endif %}
+                
+                
+                
+            </td>
+        </tr>
+        
+    </tbody>
+</table>
+<br>
+
+<table style="width: 100%;" align="center" cellspacing="0">
+    <tbody>
+        <tr>
+            <td style="width: 10%;padding: 3px;font-size: 10px;text-align: center;background-color: #f7f7f7;font-weight: 800 !important;"><b>{{noteSemestre2.semestre.designation}}</b></td>
+
+        </tr>
+        
+    </tbody>
+</table>
+<table class="" style="width: 100% ;" cellspacing="0">
+    <tr style="background-color: #292929; color:white; font-size: 9px;">
+        <th style="width: 8%;padding: 3px;color:white; font-size: 9px;">ORD</th>
+        <th style="width: 38%;padding: 3px;color:white; font-size: 9px;">LIBELLE</th>
+        <th style="width: 9%;padding: 3px;text-align: center;color:white; font-size: 9px;">NOTE Sess 1</th> 
+        <th style="width: 9%;padding: 3px;text-align: center;color:white; font-size: 9px;">NOTE Sess 2</th> 
+        <th style="width: 9%;padding: 3px;text-align: center;color:white; font-size: 9px;">NOTE Finale</th>
+        <th style="width: 15%;padding: 3px;color:white; font-size: 9px;">STATUT</th>
+        <th style="width: 10%;padding: 3px;text-align: center;color:white; font-size: 9px;">Observation</th>   
+    </tr>
+    {% for mnote in noteModulesBySemestre2 %}
+        <tr>
+            <td style="width: 8%;padding: 3px;font-size: 8px;text-align: left;border: 0px;"><b>MODULE {{loop.index}}</b></td>
+            <td style="width: 38%;padding: 3px;font-size: 8px;text-align: left;border: 0px;">{{mnote.module.designation}}</td>
+            <td style="width: 9%;padding: 3px;font-size: 8px;text-align:center;border: 0px;">{% if mnote.statutAff.id == 35 %}  -  {% else %} {{mnote.noteIni}}{% endif %}</td>
+            <td style="width: 9%;padding: 3px;font-size: 8px;text-align:center;border: 0px;">{% if mnote.statutAff.id == 35 or mnote.noteRat is null  %} -  {% else %} {{ mnote.noteRat}}{% endif %}</td>
+            <td style="width: 9%;padding: 3px;font-size: 8px;text-align:center;border: 0px;">{% if mnote.statutAff.id == 35 %} -  {% else %} {{mnote.note}} {% endif %}</td>
+            <td style="width: 15%;padding: 3px;font-size: 7px;text-align:left;border: 0px;">{{mnote.statutAff.designation}}</td>
+            <td style="width: 10%;padding: 3px;font-size: 7px;text-align: left;border: 0px;">{{mnote.observation}}</td>
+        </tr>
+    {% endfor %}    
+
+
+</table>
+<br>
+<table style="width: 100%;" align="center" cellspacing="0">
+    <tbody>
+        <tr>
+            <td style="width: 100%; text-align: left;font-size: 10px;">
+                
+                {% if assiduite == 1 %}
+                    <p style="margin: 15px 0px 0px 0px"><b>MOYENNE {{noteSemestre2.semestre.designation}} :  {% if noteSemestre2.statutAff.id == 40 %} - {% else %}{{noteSemestre2.noteSec}}{% endif %}</b></p>
+                    <p style="margin: 2px 0px 0px 0px"><b>STATUT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{noteSemestre2.semestre.designation}} :{{noteSemestre2.statutAff.designation}}</b></p>
+                {% else %} 
+                    <p style="margin: 15px 0px 0px 0px"><b>MOYENNE {{noteSemestre2.semestre.designation}} :  {% if noteSemestre2.statutAff.id == 40 %} - {% else %}{{noteSemestre2.note}}{% endif %}</b></p>
+                    <p style="margin: 2px 0px 0px 0px"><b>STATUT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{noteSemestre2.semestre.designation}} :{{noteSemestre2.statutAff.designation}}</b></p>
+                {% endif %}
+                
+                
+                
+            </td>
+        </tr>
+        
+    </tbody>
+</table>
+<br/>
+<table style="width: 100%;font-size: 10px;" cellspacing="0">
+    <tbody>
+        <tr>
+            
+            
+             
+            
+            
+            
+            <td style="width: 100px; text-align: left ;">
+                <b>MOYENNE Année </b>
+            </td>
+            <td style="width: 80%">
+                {% if assiduite == 1 %}
+                <b>: {{inscription.anotes.noteSec}}</b>
+                {% else %}
+                <b>: {{inscription.anotes.note}}</b>
+                {% endif %}
+            </td>
+        </tr>
+        
+
+        
+        
+        <tr>
+            
+            <td>
+                <b>DECISION DU JURY </b>
+            </td>
+            <td >
+                <b>: {{inscription.anotes.statutAff.designation}}</b>
+            </td>
+        </tr>
+        
+    </tbody>
+</table>
+
+<br/>
+<table style="width: 100%;" align="center" cellspacing="0">
+    <tbody>
+        <tr>
+            <td style="width: 50%; text-align: left;">
+                <p style="padding:0px !important; margin: 0px !important;font-size: 10px;"><b><u>Avis important :</u></b></p>
+                <p style="padding:0px !important; margin: 0px !important;font-size: 10px;">Il ne peut être délivré qu'un seul exemplaire du présent relevé de notes. <br/>Aucun duplicata ne sera fourni. </p>
+            </td>
+            <td style="width: 50%; text-align: left;">
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<br/><br/>
+
+<table style="width: 100%;" align="center" cellspacing="0">
+    <tbody>
+        <tr>
+            <td style="width: 45%; text-align: left;">
+            </td>
+            <td style="width: 50%; text-align: right;;font-size: 10px;">
+                <p style="padding:0px !important; margin: 0px !important;font-size: 10px;">Fait à Rabat, Le : <b> {{"now"|date("d/m/Y")}}</b></p>
+            </td>
+            
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,109 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Univ - Gestion Admissions{% endblock %}
+
+
+{% block body %}
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+          <h1>Gestion Des Admissions</h1>
+          <div class="section-header-breadcrumb">
+            {% for operation in operations %}
+                {% if operation.idTag ==  "inscription-modal"%} 
+                    <button href="{{operation.link}}" class="{{operation.classTag}}" id="{{operation.idTag}}" disabled ><i class="{{operation.icon}}"></i>  {{operation.designation}}</button>
+                {% else %}
+                    <a href="{{operation.link}}" class="{{operation.classTag}}" id="{{operation.idTag}}"><i class="{{operation.icon}}"></i>  {{operation.designation}}</a>
+                {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="section-body">
+        <div class="card">
+            <div class="card-header">
+            <h4>Tableau des admissions</h4>
+            </div>
+            <div class="card-body">
+            <div class="card-search" style="margin-bottom: 1.5rem;">
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="etablissement">Etablissement:</label>
+                        <select class="form-control" name="etablissement" id="etablissement">
+                            <option value="">Choix etablissement</option>
+                            {% for etablissement in etablissements %}
+                                <option value="{{etablissement.id}}">{{etablissement.designation}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="formation">Formation:</label>
+                        <select class="form-control" name="formation" id="formation">
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="frais">annee:</label>
+                        <select class="form-control" name="annee" id="annee">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <table id="datatables_gestion_admission" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th width="1">#</th>
+                        <th>id</th>
+                        <th>C.ADM</th>
+                        <th>C.PRE</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>ETABLISSEMENT</th>
+                        <th>FORMATION</th>
+                        <th>CA</th>
+                        <th>INS</th>
+                        <th>STATUS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th width="1">#</th>
+                        <th>id</th>
+                        <th>C.ADM</th>
+                        <th>C.PRE</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>ETABLISSEMENT</th>
+                        <th>FORMATION</th>
+                        <th>CA</th>
+                        <th>INS</th>
+                        <th>STATUS</th>
+                    </tr>
+                </tfoot>
+            </table>
+            </div>
+            
+        </div>
+        </div>
+    </section>
+</div>
+
+
+
+<!--Modal Import Group-->
+{% include 'admission/modals/documents.html.twig' %}
+{% include 'admission/modals/frais.html.twig' %}
+{% include 'admission/modals/inscription.html.twig' %}
+
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+{{ encore_entry_script_tags('gestionadmission') }}
+
+{# <script src="/assets/js/admission/gestionadmission.js"></script> #}
+
+{% endblock %}
+

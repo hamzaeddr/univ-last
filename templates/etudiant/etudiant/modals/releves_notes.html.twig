@@ -1,0 +1,48 @@
+<div class="modal" tabindex="-1" role="dialog" id="releves-notes-modal" aria-modal="true"> 
+<div class="modal-dialog modal-md" style="max-width: 720px !important"  role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Releves Notes</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+        <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {# <div class="alert alert-info">Veuillez selectionner un ligne Pour Continuer Cette opération !!</div> #}
+        <div class="row">
+          <div class="col-md-6">
+            <form id="relevenote_save">
+              <div class="row">
+                <div class="col-md-8">
+                  <label>Matière (*)</label>
+                  <select class="form-control" name="matiere" id="matiereDispo">
+                    <option value="">Selection une matiere</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label>Note (*)</label>
+                  <input name="note" class="form-control" step="0.01" type="number" style="padding: 0 !important;" placeholder="0.0" id="matiereNote">
+                </div>
+              </div>
+              <button class="btn btn-success mt-2"><i class="fas fa-check-circle"></i> Enregistrer</button>
+            
+            </form>
+          </div>
+          <div class="col-md-6">
+            <table class="matiereExist table table-striped">
+              <thead>
+                <td>Ord</td>
+                <td>Désignation</td>
+                <td>Note</td>
+                <td>Sup</td>
+              </thead>
+              <tbody >
+
+              </tbody>
+            </table>
+          </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

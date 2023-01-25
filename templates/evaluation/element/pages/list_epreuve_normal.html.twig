@@ -1,0 +1,33 @@
+ {# <h4>Tableau des épreuves</h4> #}
+        <thead>
+            <tr style= "background-color:white; position: sticky; top: 0;">
+                <th>#</th>
+                <th>inscription</th>
+                <th>Nom</th>
+                <th>Prenom</th>                
+                <th>M.CC</th>                
+                <th>M.TP</th>                
+                <th>M.EF</th>                
+                <th>Moyenne Ini</th>                
+                <th>Moyenne Rat</th>                
+                <th>N.Rachat</th>
+                <th>Moyenne Tot</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in data_saved %}
+                <tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{data.inscription.id}}</td>
+                    <td>{{data.inscription.admission.preinscription.etudiant.nom}}</td>
+                    <td>{{data.inscription.admission.preinscription.etudiant.prenom}}</td>
+                    <td>{{data.mcc|number_format(2, '.', ',')}}</td>                
+                    <td>{{data.mtp|number_format(2, '.', ',')}}</td>                
+                    <td>{{data.mef|number_format(2, '.', ',')}}</td>                
+                    <td>{{data.moyenneIni|number_format(2, '.', ',')}}</td>                
+                    <td>{{data.moyenneRat|number_format(2, '.', ',')}}</td>                
+                    <td>{{data.noteRachat|number_format(2, '.', ',')}}</td>                
+                    <td>{{data.moyenneTot|number_format(2, '.', ',') }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>

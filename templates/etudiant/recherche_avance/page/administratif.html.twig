@@ -1,0 +1,46 @@
+<div class="row">        
+    <div class="col-md-12">
+        <h3> {{inscription.code}} - {{inscription.promotion.designation}} - {{inscription.annee.designation}}   </h3>
+    </div>
+    <div class="col-md-4">
+        <p>Attestations</p>
+        <ul>
+            <li>
+                <a target="_blank" href="{{path('etudiant_recherche_attestation_inscription', {inscription: inscription.id})}}">    Attestation d'inscription	</a>
+            </li>
+            <li>
+                <a target="_blank" href="{{path('etudiant_recherche_attestation_scolarite', {inscription: inscription.id})}}">        Attestation de scolarité	</a>
+            </li>
+            <li>
+               <a target="_blank" href="{{path('etudiant_recherche_attestation_reussite', {inscription: inscription.id})}}">     Attestation de réussite </a>
+           </li>
+             <li>
+                <a target="_blank" href="{{path('etudiant_recherche_attestation_reussite_note', {inscription: inscription.id})}}">        Attestation de réussite Avec Moyenne	</a>
+            </li>
+        </ul>
+    </div>    
+    
+    <div class="col-md-4">
+        <p>Lettre d'avertissement</p>
+        
+    </div>    
+    
+    <div class="col-md-4">
+        <p>Statistique</p>
+        
+          <ul>
+            <li>
+                <a target="_blank" href="">Absence</a>
+            </li>
+             <li>
+                <a target="_blank" href="">Assiduité</a>
+            </li>
+             
+        </ul>
+    </div>
+
+
+   
+
+   
+</div>

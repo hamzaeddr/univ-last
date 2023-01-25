@@ -1,0 +1,68 @@
+<div class="modal" role="dialog" id="frais_preinscription-modal" aria-modal="true"> 
+<div class="modal-dialog modal-md modal-preins" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Données Frais d'inscriprion</h5>
+        </hr>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+        <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {# <div class="alert alert-info">Veuillez selectionner un ligne Pour Continuer Cette opération !!</div> #}
+        <div class="etudiant_info modal-box">
+          
+        </div>
+        <div class="modal-box">
+          <h5 class="title-article">Code Facture : <span id="code-facture"> </span></h5>
+          <div class="article row">
+            <div class="left col-md-6">
+                <div class="row mb-4">
+                  <div class="field frais col-md-8">
+                    <label for="frais">Frais de scolarité (*)</label>
+                    <select class="form-control" name="frais" id="frais">
+                    </select>
+                  </div>
+                  <div class="field col-md-4">
+                    <label for="montant">Montant(*):</label>
+                    <input type="text" class="form-control" id='montant'>
+                  </div>
+                  <div class="field col-md-6">
+                      <label> Type Organisme:</label><br> 
+                      <input type="radio" name="organ" id="organ" value="1" checked=""> 
+                      <label style="margin:5px" for="organ"> Payant </label>  
+                      <input type="radio" name="organ" id="norgan" value="0"> 
+                      <label style="margin: 0px 5px 0px 0px;"  for="norgan"> Organisme </label>  
+                  </div>
+                  <div class="field frais col-md-6 select-organ">
+                    <label for="org">Organisme (*)</label>
+                    <select class="form-control" name="org" id="org">
+                    </select>
+                  </div>
+                </div>
+                <div class="field add">
+                  <button type="button" class="btn btn-primary add-btn" id="add-btn"><i class="fas fa-plus"></i> Ajouter</button>  
+                </div>
+            </div>
+            <div class="right col-md-6">
+              <table class="table table-fee">
+                <thead>
+                  <tr>
+                    <th scope="col">Ord</th>
+                    <th scope="col" style="width:20rem">Designation</th>
+                    <th scope="col">Montant</th>
+                    <th scope="col" style="width:20rem">Organisme</th>
+                    <th scope="col">Sup</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-success save"><i class="fas fa-check-circle"></i> Enregistrer</button>
+      </div>
+    </div>
+  </div>
+</div>

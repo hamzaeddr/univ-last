@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Univ - Groupe Inscriptions{% endblock %}
+
+
+{% block body %}
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+          <h1>Admission</h1>
+          <div class="section-header-breadcrumb">
+            <div class="admissible_action">
+                {% for operation in operations %}
+                    {% if operation.idTag !=  "annuler"%}             
+                        <a href="{{operation.link}}" class="{{operation.classTag}}" id="{{operation.idTag}}"><i class="{{operation.icon}}"></i>  {{operation.designation}}</a>
+                    {% endif %}
+                {% endfor %}
+                
+            </div>
+            <div class="admis_action" style="display: none;">
+                {% for operation in operations %}
+                    {% if operation.idTag ==  "annuler"%}             
+                        <a href="{{operation.link}}" class="{{operation.classTag}}" id="{{operation.idTag}}"><i class="{{operation.icon}}"></i>  {{operation.designation}}</a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            
+              
+              <!-- <button href="#" class="btn btn-primary  ml-1" id="modal_group_ins" ><i class="fas fa-stream"></i>  Suivi</button>
+              <button href="#" class="btn btn-danger  ml-1" id="modal_group_ins" ><i class="fas fa-trash-alt"></i>  Supprimer</button>
+              <button href="#" class="btn btn-primary  ml-1" id="modal_group_ins" ><i class="fas fa-edit"></i>  Modifier</button>
+              <button href="#" class="btn btn-primary  ml-1" id="modal_group_ins"><i class="fas fa-plus-circle"></i>  Ajouter</button> -->
+
+          </div>
+        </div>
+
+        <div class="section-body">
+        <div class="card">
+            <div class="card-header">
+                <ul class="nav nav-pills">                
+                    <li class="nav-item mr-2">
+                        <a href="#candidats_admissibles" class="nav-link active">Candidats Admissibles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#candidats_admis" class="nav-link">Candidats Admis</a>
+                    </li>                
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="candidats_admissibles">
+                       {% include 'admission/pages/candidat_admissibles.html.twig' %}                     
+                    </div>
+                    <div class="tab-pane fade" id="candidats_admis">
+                       {% include 'admission/pages/candidat_admis.html.twig' %}                            
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+        </div>
+    </section>
+</div>
+
+
+
+<!--Modal Import Group-->
+{# {% include 'etudiant/modals/valider.html.twig' %}
+{% include 'etudiant/modals/importer.html.twig' %}
+{% include 'etudiant/modals/date_d_appel.html.twig' %}
+{% include 'etudiant/modals/statut.html.twig' %}
+{% include 'etudiant/modals/releves_notes.html.twig' %}
+{% include 'etudiant/modals/suivi.html.twig' %}
+{% include 'etudiant/modals/supprimer.html.twig' %}
+{% include 'etudiant/modals/modifier.html.twig' %}
+{% include 'etudiant/modals/ajouter.html.twig' %} #}
+
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+{{ encore_entry_script_tags('admission') }}
+
+{# <script src="/assets/js/admission/admissions.js"></script> #}
+
+{% endblock %}
+

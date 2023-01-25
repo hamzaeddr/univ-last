@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Univ - Compte Etudiant{% endblock %}
+
+
+{% block body %}
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+          <h1>Compte Etudiant</h1>
+          <div class="section-header-breadcrumb">
+              {% for operation in operations %}
+                    <a href="{{operation.link}}" class="{{operation.classTag}}" id="{{operation.idTag}}"><i class="{{operation.icon}}"></i>  {{operation.designation}}</a>
+              {% endfor %}
+          </div>
+        </div>
+
+        <div class="section-body">
+        <div class="card">
+            <div class="card-header">
+            <h4>Tableau des etudiants</h4>
+            </div>
+            <div class="card-body">
+
+            <table id="datables_etudiant" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Télé1</th>
+                        <th>Télé2</th>
+                        <th>Télé3</th>
+                        <th>Annee Bac</th>
+                        <th>Note</th>
+                        <th>Type de bac</th>
+                        <th>Filiere</th>
+                        <th>Statut</th>
+                        <th>Observation</th>
+                        <th>RDV1</th>
+                        <th>RDV2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>id</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Télé1</th>
+                        <th>Télé2</th>
+                        <th>Télé3</th>
+                        <th>Annee Bac</th>
+                        <th>Note</th>
+                        <th>Type de bac</th>
+                        <th>Filiere</th>
+                        <th>Statut</th>
+                        <th>Observation</th>
+                        <th>RDV1</th>
+                        <th>RDV2</th>
+                    </tr>
+                </tfoot>
+            </table>
+            </div>
+            
+        </div>
+        </div>
+    </section>
+</div>
+
+
+
+<!--Modal Import Group-->
+{% include 'etudiant/centre_appel/modals/date_d_appel.html.twig' %}
+
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+{{ encore_entry_script_tags('centreappel') }}
+{# <script src="/assets/js/etudiant/etudiant.js"></script> #}
+
+{% endblock %}
+

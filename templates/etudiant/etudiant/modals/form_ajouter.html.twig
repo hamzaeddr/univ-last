@@ -1,0 +1,50 @@
+<div class="modal" role="dialog" id="ajouter_modal" aria-modal="true" style="text-transform: uppercase"> 
+<div class="modal-dialog modal-md modal-ajouter" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Ajouter Un Etudiant </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+        <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form id="form_ajouter">
+            <div class="card">
+              <div class="card-header">
+                  <ul class="nav nav-pills">                
+                      <li class="nav-item mr-2">
+                          <a href="#ajouter_candidats_infos" class="nav-link active">Informations sur le candidat</a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="#ajouter_parents_infos" class="nav-link">Informations sur les parents</a>
+                      </li>  
+                      <li class="nav-item mr-2">
+                          <a href="#ajouter_academique_infos" class="nav-link">Informations académiques</a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="#ajouter_divers" class="nav-link">Divers</a>
+                      </li>                
+                  </ul>
+              </div>
+              <div class="card-body">
+                  <div class="tab-content">
+                      <div class="tab-pane fade show active" id="ajouter_candidats_infos">
+                        {% include 'etudiant/etudiant/pages/ajouter_candidats_infos.html.twig' %}             
+                      </div>
+                      <div class="tab-pane fade" id="ajouter_parents_infos">
+                        {% include 'etudiant/etudiant/pages/ajouter_parents_infos.html.twig' %}
+                      </div>
+                      <div class="tab-pane fade" id="ajouter_academique_infos">
+                        {% include 'etudiant/etudiant/pages/ajouter_academique_infos.html.twig' %}
+                      </div>
+                      <div class="tab-pane fade" id="ajouter_divers">
+                        {% include 'etudiant/etudiant/pages/ajouter_divers.html.twig' %}  
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>

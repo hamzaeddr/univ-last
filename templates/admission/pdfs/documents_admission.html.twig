@@ -1,0 +1,251 @@
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+<style type="text/Css">
+    body{
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+    .titre-reb{
+        width: 100%;
+        background: #1f4f7a;
+        font-size: 9px ;
+        padding:3px 10px;
+        color: #f1f1f1;
+        font-weight: bold
+    }
+    div.zone_over
+    {
+        display: block;
+        width: 40%;
+        word-wrap:break-word !important;
+    }
+    .slh tr td {
+        border-bottom: 1px solid #292929;
+    }
+</style>
+<br/><br/>
+<table style="width: 100%;border-top: 1px solid#292929" cellspacing="0">
+    <tr>
+        <td style="width: 100% ; height: 10px;"></td>
+    </tr>
+</table>
+<br/><br/>
+
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 12px" >
+    <tr>
+        <td style="width: 100% ;background: rgb(31, 79, 122); color: #fff ;height: 17px;padding: 4px ;font-weight: bold;padding-left: 15px;"> Informations sur la formation</td> 
+    </tr>
+    <tr>
+
+    </tr>
+
+
+</table>
+
+<table style="width: 100%; text-align: left; font-size:12px">
+    <tr style="width: 100%"> 
+        <td style="width: 50% ;">
+            <table style="width: 100% ;">
+                <tr>
+                    <td style="width: 35% ;font-weight: bold;">
+                        <table style="width: 100% ; ">
+                            <tr>
+                                <td style="width: 100%">Etablissement   : </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td style="width: 65%;">
+                        <table style="width: 100% ;">
+                            <tr>
+                                <td style="width: 100%">{{preinscription.annee.formation.etablissement.designation}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 35% ;font-weight: bold;">
+                        <table style="width: 100% ; ">
+                            <tr>
+                                <td style="width: 100%">Formation :</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td style="width: 65%;">
+                        <table style="width: 100% ;">
+                            <tr>
+                                <td style="width: 100%">{{preinscription.annee.formation.designation}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 40% ;font-weight: bold;">
+                        <table style="width: 100% ; ">
+                            <tr>
+                                <td style="width: 100%">Année Universitaire : </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td style="width: 60%;">
+                        <table style="width: 100% ;">
+                            <tr>
+                                <td style="width: 100%">{{preinscription.annee.designation}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>   
+</table>
+
+
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 12px" >
+    <tr>
+        <td style="width: 100% ;background: rgb(31, 79, 122); color: #fff ;height: 17px;padding: 4px ;font-weight: bold;padding-left: 15px;">Informations sur le Condidat</td> 
+    </tr>
+    <tr>
+
+    </tr>
+
+
+</table>
+
+
+
+
+<table style="width: 100%; text-align: left; font-size:12px">
+    <tr style="width: 100%"> 
+        <td style="width: 50% ;">
+            <table style="width: 100% ;">
+                <tr>
+                    <td style="width: 35% ;font-weight: bold;">
+                        <table style="width: 100% ; ">
+                            <tr>
+                                <td style="width: 100%">Référence    : </td>
+                            </tr>
+                        </table>
+                    </td>
+
+                    <td style="width: 65%;">
+                        <table style="width: 100% ;">
+                            <tr>
+                                <td style="width: 100%">{{preinscription.code}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="width: 35% ;font-weight: bold;">
+                        <table style="width: 100% ; ">
+                            <tr>
+                                <td style="width: 100%">Nom :</td>
+                            </tr>
+                        </table>
+                    </td>
+
+                    <td style="width: 65%;">
+                        <table style="width: 100% ;">
+                            <tr>
+                                <td style="width: 100%">{{preinscription.etudiant.nom}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td style="width: 35% ;font-weight: bold;">
+                        <table style="width: 100% ; ">
+                            <tr>
+                                <td style="width: 100%">Prénom : </td>
+                            </tr>
+                        </table>
+                    </td>
+
+                    <td style="width: 65%;">
+                        <table style="width: 100% ;">
+                            <tr>
+                                <td style="width: 100%">{{preinscription.etudiant.prenom}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 35% ;font-weight: bold;">
+                        <table style="width: 100% ; ">
+                            <tr>
+                                <td style="width: 100%">CIN : </td>
+                            </tr>
+                        </table>
+                    </td>
+
+                    <td style="width: 65%;">
+                        <table style="width: 100% ;">
+                            <tr>
+                                <td style="width: 100%">{{preinscription.etudiant.cin}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 35% ;font-weight: bold;">
+                        <table style="width: 100% ; ">
+                            <tr>
+                                <td style="width: 100%">CNE : </td>
+                            </tr>
+                        </table>
+                    </td>
+
+                    <td style="width: 65%;">
+                        <table style="width: 100% ;">
+                            <tr>
+                                <td style="width: 100%">{{preinscription.etudiant.cne}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+
+
+    </tr>   
+</table>
+<!--End II-  Informations Fournisseur-->
+
+<!--End III-  Détails commande-->
+
+
+<br/>
+<table style="width: 100% ; background: #FFFFFF;font-size: 10px" cellspacing="0" class="slh">
+    <thead>
+        <tr style="background-color: rgb(31, 79, 122);color:white;font-size: 9px;">
+            <th style="width: 10%;padding:6px; font-weight: bold;color:#fff">Parvenu</th>
+            <th style="width: 90%;padding:6px; font-weight: bold;color:#fff">Documents</th>
+        </tr>
+    </thead>
+    <tbody>
+    {# <img style="width: 15px" src="./assets/img/valide.png" /> #}
+        {% for document in documents %}
+            <tr>
+                <td style="width: 10%;padding:6px;border-right:1px solid;border-left:1px solid ;text-align: left;">
+                    {% if document in admdocs %}
+                        <img style="width: 15px" src="./assets/img/valide.png"/>
+                    {% else %}
+                        <img style="width: 15px" src="./assets/img/non-valide.png"/>
+                    {% endif %}
+                </td>
+                <td style="width: 90%;padding:6px;border-right:1px solid ;text-align: left;">{{document.designation}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+<br/>
+
+
+
+
+<br/><br/>
+
+

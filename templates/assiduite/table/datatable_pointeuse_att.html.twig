@@ -1,0 +1,39 @@
+  <table id="dtDynamicVerticalScrollExample_pointeuse2" class="table table-striped table-bordered table-sm" cellspacing="0"  width="100%" height="100%">
+
+  <thead>
+    <tr>
+    
+       <th >ID Admission
+      </th>
+      <th >Name 
+      </th>
+      <th >UserId
+      </th>
+      <th >Pointage
+      </th>
+     
+
+    </tr>
+  </thead>
+  <tbody>
+  
+     {% for user in device_users %}
+     {% for us in users %}
+     {% if user.id == us.badgenumber %}
+     
+                <tr>
+                <td>{{us.street}}</td>
+                <td>{{us.name}}</td>
+                <td>{{user.id}}</td>
+                <td>{{user.timestamp}}</td>
+               
+                
+                </tr>
+                {% endif %}
+
+                {% endfor %}
+                {% endfor %}
+    
+  </tbody>
+ 
+</table>

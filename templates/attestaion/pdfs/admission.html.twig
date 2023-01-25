@@ -1,0 +1,75 @@
+
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+<style type="text/Css">
+   
+    body{
+        font-family: 'Source Sans Pro', sans-serif;
+        width:100%;
+        font-size: 12px;
+        /* margin:0 20px; */
+    }
+    /* span{
+        font-weight:900;
+    } */
+    table{
+        width: 100%;
+        margin-top: 35px;
+    }
+    table tr td {
+        /* width:70%; */
+        line-height: 2;
+    }
+    .title{
+        /* font-size:24px; */
+        /* font-weight: 900; */
+        color:#0c2842;
+        margin-bottom: 20mm;
+    }
+    .signature{
+        text-align:right;
+        margin-right:20px;
+    }
+    .text{
+        margin:50px 0 120px 0;
+    }
+    .td-left{
+        width:55%;
+    }
+    .td-right{
+        width:35%;
+    }
+</style>
+<br/>
+<br/>
+<br/>
+<div >
+    <h2 class='title' style='text-align:center;'>Attestation d'inscription</h2>
+    <table>
+        <tr> 
+            <td class="td-left"><b>Nom : </b>{{etudiant.nom}} </td>
+            <td class="td-right"><b>Référence : </b>{{preinscription.code}} </td>
+        </tr>
+        <tr> 
+            <td><b>Prénom : </b>{{etudiant.prenom}} </td>
+            <td class="td-right"><b>Date Naissance : </b>{{etudiant.dateNaissance | date("m/d/Y")}} </td>
+        </tr>
+        <tr> 
+            <td><b>Etablissement : </b>{{etablissement.designation}} </td>
+        </tr>
+        <tr> 
+            <td><b>Formation : </b>{{formation.designation}} </td>
+        </tr>
+    </table>
+
+
+    <div class="text">
+        Est inscrit(e) à l'université Internationale Abulcasis des Sciences de la Santé (UIASS), <b>{{etablissement.designation}}</b> , 
+        pour l'année universitaire <b>{{annee.designation}}</b> .
+        Cette attestation est délivrée à l'intéressé(e) pour servir et valoir ce que de droit.
+    </div>
+    
+    <div class="signature"> <b>Fait à Rabat, le {{"now"| date("m/d/Y")}}</b> </div>
+    
+
+
+</div>

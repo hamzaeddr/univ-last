@@ -1,0 +1,182 @@
+{% set readonly = "" %}
+{% if emptime.valider == 1 %}
+    <center style="color:red">NB: Impossible de modifier une planification qui été déja validé!!</center>
+    {% set readonly = 'disabled' %}
+{% endif %}
+<div class="plannification_info modal-box">
+        <p><span>Etablissement</span> : {{emptime.programmation.element.module.semestre.promotion.formation.etablissement.designation}} </p>
+        <p><span>Formation</span> : {{emptime.programmation.element.module.semestre.promotion.formation.designation}} </p>
+        <p><span>Annee</span> :  {{annee.designation}}</p>
+        <p><span>Promotion</span> : {{emptime.programmation.element.module.semestre.promotion.designation}} </p>
+        <p><span>Semestre</span> : {{emptime.programmation.element.module.semestre.designation}} </p>
+</div>
+<div class="seance_info modal-box">
+    {# <div class="card"> #}
+        <div class="card-header">
+            <ul class="nav nav-pills">                
+                <li class="nav-item mr-2">
+                    <a href="#planification_info" class="nav-link active">Planification</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#enseignants_info" class="nav-link">Enseignants</a>
+                </li>              
+            </ul>
+        </div>
+        <div class="card-body">
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="planification_info">
+                    <div class="col-md-12 row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="description">Niveau 1:</label>
+                                <select class="form-control chosen-select" id="niveau1" {{readonly}}>
+                                    <option value="">Choix Niveau 1</option>
+                                    {% for groupe in groupes %}
+                                        <option value="{{groupe.id}}">{{groupe.niveau}}</option>                                                                                       
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="niveau">Niveau 2:</label>
+                                <select class="form-control chosen-select" id="niveau2" {{readonly}}>
+                                    <option value="">Choix Niveau 2</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="niveau">Niveau 3:</label>
+                                <select class="form-control chosen-select" id="niveau3" {{readonly}}>
+                                    <option value="">Choix Niveau 3</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col-md-12 row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="description">Description :</label>
+                                {% if emptime.description != "NULL" %}
+                                    <input class="form-control" type="text" placeholder="description" name="description" value="{{emptime.description}}"> 
+                                    {% else %}
+                                    <input class="form-control" type="text" placeholder="description" name="description" value=""> 
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="niveau">Niveau :</label>
+                                <input class="form-control" type="text" name="niveau" id="niveau" value="{{nivs}}" readonly> 
+                            </div>
+                        </div>
+                        <div class="col-md-3" style = "display: flex;align-items: end;">
+                            <div class="form-group d-flex">
+                                <label for="vide">Vider le groupe :</label>
+                                <input class="ml-3" type="checkbox" name="vide" id="vide"  {{readonly}}> 
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="col-md-12 row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="h_debut">Heure de début  :</label>
+                                <input class="form-control" type="text" name="h_debut" id="h_debut" value="{{emptime.heurdb | date("H:i")}}" readonly> 
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="h_fin">Heure de fin  :</label>
+                                <input class="form-control" type="text" name="h_fin" id="h_fin" value="{{emptime.heurfin | date("H:i")}}" readonly> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="salle">Salle :</label>
+                                <select class="form-control chosen-select" name="salle" {{readonly}}>
+                                    <option value="">Choix Salle</option>
+                                    {% for salle in salles %}
+                                        {% if salle == emptime.salle %}
+                                            <option value="{{salle.id}}" selected >{{salle.designation}}</option>  
+                                            {% else %}
+                                            <option value="{{salle.id}}">{{salle.designation}}</option>                                                                                       
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="nature_seance">Nature Seance :</label>
+                                <select class="form-control chosen-select" name="nature_seance" id="nature_seance" {{readonly}}>
+                                    <option value="">Choix Nature Seance</option>
+                                    {% for natureepreuve in natureepreuves %}
+                                        {% if natureepreuve == emptime.programmation.natureepreuve %}
+                                            <option value="{{natureepreuve.id}}" selected>{{natureepreuve.designation}}</option>   
+                                            {% else %}
+                                            <option value="{{natureepreuve.id}}">{{natureepreuve.designation}}</option>   
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="module">Module :</label>
+                                <select class="form-control chosen-select" name="module" id="module" {{readonly}}>
+                                    <option value="">Choix Module</option>
+                                    {% for module in modules %}
+                                        {% if module == emptime.programmation.element.module %}
+                                                <option value="{{module.id}}" selected>{{module.designation}}</option>
+                                            {% else %}
+                                                <option value="{{module.id}}">{{module.designation}}</option>                                                
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="element">Element :</label>
+                                <select class="form-control chosen-select" name="element" id="element" {{readonly}}>
+                                    <option value="">Choix Element</option>
+                                    {% for element in elements %}
+                                        {% if element == emptime.programmation.element %}
+                                            <option value="{{element.id}}" selected>{{element.designation}}</option>
+                                            {% else %}
+                                            <option value="{{element.id}}">{{element.designation}}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="enseignants_info">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="enseignant">Enseignant :</label>
+                            <select class="form-control chosen-select" name="enseignant[]" id="enseignant" multiple="multiple" >
+                                <option value="" disabled="disabled">Choix Enseignant</option>
+                                    {% for enseignant in emptime.programmation.Enseignants %}
+                                        {% if enseignant in empenseignants %}
+                                            <option value="{{enseignant.id}}" selected>{{enseignant.nom}} {{enseignant.prenom}}</option>
+                                            {% else %}
+                                            <option value="{{enseignant.id}}">{{enseignant.nom}} {{enseignant.prenom}}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                            </select>
+                        </div>
+                    </div>              
+                </div>
+            </div>
+        </div>
+    {# </div> #}
+</div>

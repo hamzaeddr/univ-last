@@ -1,0 +1,19 @@
+<label for="nom">Nom : (*)</label>
+<input type="text" class="form-control" name="nom" id="nom" placeholder="Nom d'enseignant" value="{{enseignant.nom}}"/>
+
+<label for="prenom">Prénom : (*)</label>
+<input type="text" class="form-control" name="prenom" id="prenom" placeholder="Prénom  d'enseignant" value="{{enseignant.prenom}}" />
+
+<label for="grade">Grade : (*)</label>
+<select class="form-control" name="grade" id="grade">
+    <option value="">Choix Grade </option>
+    {% for grade in grades %}
+        {% if enseignant.grade == grade %}
+            <option value="{{ grade.id }}" selected>{{ grade.designation }}</option>
+            {% else %}
+            <option value="{{ grade.id }}">{{ grade.designation }}</option>
+        {% endif %}
+        
+    {% endfor %}
+</select>
+<button type="submit" class="btn btn-success mt-4"><i class="fas fa-check-circle"></i> Enregister</button>

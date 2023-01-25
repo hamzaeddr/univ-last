@@ -1,0 +1,219 @@
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+<style type="text/Css">
+   
+    body{
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+    .slh tr td {
+        border-bottom: 1px solid #292929;
+        text-align: left;
+    }
+    .titre-reb{
+        width: 100%;
+        background: #1f4f7a;
+        font-size: 9px ;
+        padding:3px 10px;
+        color: #f1f1f1;
+        font-weight: bold
+    }
+    div.zone_over
+    {
+        display: block;
+        width: 40%;
+        word-wrap:break-word !important;
+    }
+
+</style>
+<div style="text-align: center; margin-bottom: 60px !important;">
+        <table style="width: 100% ;" cellspacing="0">
+            <tr>
+                <th style="width: 100% ; font-size: 13px ;font-weight: 200;font-weight: bold;padding:4px;color:rgb(3, 35, 68);">
+                    {# {% if operationcab.preinscription.annee.formation.etablissement.id == 28 %}
+                        <img src="./assets/img/logo/cpge.jpg" style=" width: 400px; margin: 0 auto;">                
+                    {% endif %} #}
+                </th>
+                <th style="width: 100% ; font-size: 13px ;font-weight: 200;font-weight: bold;padding:4px;color:rgb(3, 35, 68);">
+                    {% if operationcab.preinscription.annee.formation.etablissement.id == 28 %}
+                            <img src="./assets/img/logo/cpge.svg" style=" width: 800px; margin: 20 auto;"> 
+                    {% elseif operationcab.preinscription.annee.formation.etablissement.id == 5 %}
+                            <img src="./assets/img/logo/logo_lez.png" style=" width: 800px; margin: 0 auto;">
+                    {% else %}                
+                            <img src="./assets/img/logo/Logo_UIASS_bkack2.png" style=" width: 500px; margin: 0 auto;">
+                    {% endif %}
+                    {# <img src="./assets/img/logo/Logo_UIASS_bkack2.png" style=" width: 400px; margin: 0 auto;"> #}
+                </th>
+                <th style="width: 100% ; font-size: 13px ;font-weight: 200;font-weight: bold;padding:4px;color:rgb(3, 35, 68);">
+                    {# {% if operationcab.preinscription.annee.formation.etablissement.id == 28 %}               
+                        <img src="./assets/img/logo/Logo_UIASS_bkack2.png" style=" width: 400px; margin: 0 auto;">
+                    {% endif %} #}
+                </th>                    
+            </tr>
+        </table>
+    {# <img src="./assets/img/logo/Logo_UIASS_bkack2.png" style=" width: 180px; margin: 0 auto;"> #}
+    {# <img src="./assets/img/logo/cpge.jpg" style=" width: 250px; margin: 0 auto;"> #}
+</div>
+<div >
+    <table style="width: 100% ;text-align: center;border: 1px solid #292929; border-bottom: none;" cellspacing="0">        <tr>
+            <td style="width: 30% ; border-bottom: 1px solid #292929 ;">
+                <table style="width: 100% ;" cellspacing="0">
+                    <tr>
+                        <th style="width: 100% ; font-size: 13px ;font-weight: 200;font-weight: bold;padding:4px;color:rgb(3, 35, 68);">Code Facture </th>
+                    </tr>
+                    <tr>
+                        <td style="border-bottom: 1px solid #292929 ;width: 100%"></td>
+                    </tr>
+    
+                    <tr>
+                        <td style="width: 100% ; font-size: 11px ;padding:4px;color:rgb(31, 79, 122);">{{operationcab.code}}</td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width: 40% ;font-size: 20px;font-weight: bold ; border-left: 1px solid #292929 ;border-right: 1px solid #292929; border-bottom: 1px solid #292929 ;color:rgb(3, 35, 68);">FACTURE </td>
+            <td style="width: 30% ;border-bottom: 1px solid #292929 ;">
+                <table style="width: 100% ; background: #FFFFFF; text-align: center" cellspacing="0">
+                    <tr>
+    
+                        <th style="width: 100% ; font-size: 13px ;font-weight: 200;font-weight: bold;padding:4px;color:rgb(3, 35, 68);">Date   </th>
+                    </tr>
+                    <tr>
+    
+                        <td style="border-bottom: 1px solid  #292929 ;width: 100%"></td>
+                    </tr>
+    
+                    <tr>
+                        {# <td style="width: 100% ; font-size: 11px ;padding:4px;color:rgb(3, 35, 68);">{{ "now"|date("d/m/Y") }}</td> #}
+                        <td style="width: 100% ; font-size: 11px ;padding:4px;color:rgb(3, 35, 68);">{{ operationcab.created|date("d/m/Y") }}</td>
+                    </tr>
+                </table>
+            </td>
+    
+        </tr>
+    </table>
+    <table style="width: 100%;border-top: 1px solid#292929" cellspacing="0">
+        <tr>
+            <td style="width: 100% ; height: 10px;"></td>
+        </tr>
+    </table>
+
+    {# ///////////////////////////////////////// #}
+    
+    <table cellspacing="0" style="width: 100%; text-align: left; font-size: 12px" >
+        <tr>
+            <td style="font-weight: bold;padding:2px 0px 5px 2px;width:70%"> INFORMATIONS SUR L'ETABLISSEMENT</td> 
+            <td style="font-weight: bold;padding:2px 0px 5px 2px;"> INFORMATIONS SUR L'ETUDIANT</td> 
+        </tr> 
+        <tr>
+            <td style="font-size:10px;padding:2px 0px 5px 2px;width:70%">ETABLISSEMENT   :   {{operationcab.annee.formation.etablissement.designation}}</td>
+            <td style="font-size:10px;padding:2px 0px 5px 2px;">REFERENCE   :   {{operationcab.preinscription.code}}</td>
+        </tr>  
+        <tr>
+            <td style="font-size:10px;padding:2px 0px 5px 2px;width:70%">FORMATION   :   {{operationcab.annee.formation.designation}}</td>
+            <td style="font-size:10px;padding:2px 0px 5px 2px;">NOM & PRENOM :  {{operationcab.preinscription.etudiant.nom}} {{operationcab.preinscription.etudiant.prenom}}</td>
+        </tr>  
+        <tr>
+            <td style="font-size:10px;padding:2px 0px 5px 2px;width:70%">ANNEE UNIVERSITAIRE :  {{operationcab.annee.designation}}</td>
+                {% set codes = ['FMA-FAC00016175/2017','FMA-FAC00028745/2019','FMA-FAC00042874/2021','FMA-FAC00028744/2019','FMA-FAC00042872/2021'] %}
+                {% if operationcab.code in codes %}
+                    <td style="font-size:10px;padding:2px 0px 5px 2px;"></td>
+                {% else %}
+                    <td style="font-size:10px;padding:2px 0px 5px 2px;">NIVEAU   :   {{promotion}}</td>
+                {% endif %}
+        </tr>  
+        <tr>
+            <td style="font-size:10px;padding:2px 0px 5px 2px;width:70%">Source :  {{source}}</td>
+        </tr>  
+    </table>
+    <br/>
+
+    <table cellspacing="0" style="width: 100%; text-align: left; font-size: 11px;" >
+        <tr style='background: #C9C5A5; color: #fff ;'>
+            <td style="font-weight: bold;padding:3px 0px 3px 2px;width:20%;text-align:center;font-size: 10px"> DATE OPERATION </td> 
+            <td style="font-weight: bold;padding:3px 0px 3px 2px;width:30%;text-align:center;font-size: 10px"> DESIGNATION</td> 
+            <td style="font-weight: bold;padding:3px 0px 3px 2px;width:20%;text-align:center;font-size: 10px"> ORGANISME </td> 
+            <td style="font-weight: bold;padding:3px 0px 3px 2px;width:20%;text-align:center;font-size: 10px"> PART PAYANT</td> 
+            <td style="font-weight: bold;padding:3px 0px 3px 2px;width:15%;text-align:center;font-size: 10px"> MONTANT TOTAL</td> 
+        </tr> 
+        {% set i = 1 %}
+        {% set SommeOrganisme = 0 %}
+        {% set SommePayant = 0 %}
+        {% set SommeToTal = 0 %}
+        {% for operationdet in operationdets %}
+                <tr>
+                    <td style="font-size:10px;padding:2px 0px 5px 2px;width:20%;text-align:center">{{operationdet.dateOperation}}</td>
+                    <td style="font-size:10px;padding:2px 0px 5px 2px;width:30%;text-align:center">{{operationdet.designation}}</td>
+                    <td style="font-size:10px;padding:2px 0px 5px 2px;width:20%;text-align:center">{{operationdet.SumByOrg|number_format(2, ',', ' ')}}</td>
+                    <td style="font-size:10px;padding:2px 0px 5px 2px;width:15%;text-align:center">{{operationdet.SumByPayant|number_format(2, ',', ' ')}}</td>
+                    <td style="font-size:10px;padding:2px 0px 5px 2px;width:15%;text-align:center">{{operationdet.total|number_format(2, ',', ' ')}}</td>
+                </tr>
+            {% set i = i + 1 %}
+            {% set SommeOrganisme = SommeOrganisme + operationdet.SumByOrg  %}
+            {% set SommePayant = SommePayant + operationdet.SumByPayant %}
+            {% set SommeToTal = SommeToTal + operationdet.total %}
+        {% endfor %} 
+    </table>
+
+    
+    <br/><br/>
+    
+        <table  cellspacing="0" style=" width: 100%; font-size: 15px !important; text-align: left" >
+            <tr>
+                <td style="color: #000;height: 15px;padding: 2px ;padding-left: 25px;font-weight: bold;font-size: 11px;width:20%"> </td>
+                <td style="background: #DBDBDB; color: #000;height: 15px;padding: 2px ;padding-left: 25px;font-weight: bold;font-size: 11px;width:30%">Total </td>
+                <td style="background: #DBDBDB; color: #000;height: 15px;padding: 2px ;padding-left: 25px;font-size: 11px;width:20% ">{{SommeOrganisme|number_format(2, ',', ' ')}}</td> 
+                <td style="background: #DBDBDB; color: #000;height: 15px;padding: 2px ;padding-left: 25px;font-size: 11px;width:15% ">{{SommePayant|number_format(2, ',', ' ')}}</td> 
+                <td style="background: #5F5A58; color: #fff;height: 15px;padding: 2px ;padding-left: 25px;font-size: 11px;width:15% ">{{SommeToTal|number_format(2, ',', ' ')}}</td> 
+            </tr>
+    
+            <tr>
+                <td style="color: #000;height: 15px;padding: 2px ;padding-left: 25px;font-weight: bold;font-size: 11px;width:20%"> </td> 
+                <td style="background: #DBDBDB; color: #000;height: 15px;padding: 2px ;padding-left: 25px;font-weight: bold;font-size: 11px;width:30%">Total Encaissement </td> 
+                <td style="background: #DBDBDB; color: #000;height: 15px;padding: 2px ;padding-left: 25px;font-size: 11px;width:20% ">{{reglementOrg|number_format(2, ',', ' ')}}</td> 
+                <td style="background: #DBDBDB; color: #000;height: 15px;padding: 2px ;padding-left: 25px;font-size: 11px;width:15% ">{{reglementPyt|number_format(2, ',', ' ')}}</td> 
+                <td style="background: #5F5A58; color: #fff;height: 15px;padding: 2px ;padding-left: 25px;font-size: 11px;width:15% ">{{(reglementOrg + reglementPyt)|number_format(2, ',', ' ')}}</td> 
+            </tr>
+            <tr>
+                <td style="color: #000;height: 15px;padding: 2px ;padding-left: 25px;font-weight: bold;font-size: 11px;width:20%"> </td> 
+                <td style="background: #DBDBDB; color: #000;height: 15px;padding: 2px ;padding-left: 25px;font-weight: bold;font-size: 11px;width:30%">Solde </td> 
+                <td style="background: #DBDBDB; color: #000;height: 15px;padding: 2px ;padding-left: 25px;font-size: 11px;width:20% "></td> 
+                <td style="background: #DBDBDB; color: #000;height: 15px;padding: 2px ;padding-left: 25px;font-size: 11px;width:15% "></td> 
+                <td style="background: #5F5A58; color: #fff;height: 15px;padding: 2px ;padding-left: 25px;font-size: 11px;width:15% ">{{(SommeToTal - (reglementOrg + reglementPyt ))|number_format(2, ',', ' ')}}</td> 
+            </tr>
+    
+        </table>
+    <br/><br/>
+    
+        <table cellspacing="0" style="width: 100%; text-align: left; font-size: 9px;margin-top:100px;" >
+            <tr>
+                <td style="width: 100% ;padding:2px 2px 10px 30px "> <b>Délai de paiement :</b> </td> 
+            </tr>
+            <tr>
+                <td style="width: 100% ;padding:2px 2px 2px 30px ">* PAIEMENT ANNUEL : AVANT LE 15 SEPTEMBRE DE CHAQUE ANNEE</td> 
+            </tr>
+            <tr>
+                <td style="width: 100% ;padding:2px 2px 2px 30px">* PAIEMENT SEMESTRIEL : SEMESTRE 01 (AVANT LE 30 SEPTEMBRE DE CHAQUE ANNEE) </td> 
+            </tr>
+            <tr>
+                <td style="width: 100% ;padding:2px 2px 10px 70px">SEMESTRE 02 (AVANT LE 28 FEVRIER DE CHAQUE ANNEE)</td> 
+            </tr>
+            <tr>
+                <td></td> 
+            </tr>
+            <tr>
+                <td style="width: 100% ;padding:15px 2px 2px 30px ">NB : EN CAS DE DEPASSEMENT DES DELAIS DE PAIEMENT,UNE PENALITE DE RETARD EST APPLIQUEE. </td> 
+            </tr>
+            <tr>
+                {% if operationcab.preinscription.annee.formation.etablissement.id == 28 or operationcab.preinscription.annee.formation.etablissement.id == 5 %}
+                    <td style="width: 100% ;padding:40px 2px 2px 30px;"><b>RIB UIASS - LEZ : 007 810 0012405000301617 32</b></td>
+                    {% else %}
+                    <td style="width: 100% ;padding:40px 2px 2px 30px;"><b>RIB UIASS : 007 810 0012404000300234 15</b></td>
+                {% endif %}
+            </tr>
+            <tr>
+                {% if operationcab.preinscription.annee.formation.etablissement.id != 28 and operationcab.preinscription.annee.formation.etablissement.id != 5 %}
+                    <td style="width: 100% ;padding:2px 2px 2px 30px;"><b>RIB UIASS - EAS : 007 810 0012405000301616 35</b></td> 
+                {% endif %}
+            </tr>
+        </table>
+
+
+</div>

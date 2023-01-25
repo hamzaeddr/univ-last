@@ -1,0 +1,49 @@
+<div
+  class="modal"
+  role="dialog"
+  id="import_en_masse"
+  aria-modal="true"
+>
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Affilier les codes anonymat, anonymat s2, salles</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- <div class="alert alert-info">Please check your browser console</div> -->
+         {# <h4>Tableau des épreuves</h4> #}
+        <h4>Informations:</h4>
+        <span><span style="color: red;">*</span> Numero Salle: les numeros des zones ou salle example (01, 02, 03 ...)</span><br>
+        <span><span style="color: red;">*</span> Type Salle: le type des salle <b>0</b> pour les salles, <b>1</b>  pour les zones</span>
+        <form id="import_impression_save" method="post">
+          <div class="form-group">
+            <label>Fichier xlsx</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fas fa-file-excel"></i>
+                </div>
+              </div>
+              <input
+                type="file"
+                class="form-control myfile"
+                name="file"
+                style="padding: 0"
+              />
+            </div>
+          </div>
+          <a href="#" class="btn btn-primary" id="impression_canvas"><i class="fas fa-download"></i> Canvas</a>
+          <button class="btn btn-success" type="submit" id="impression_enregistre"><i class="fas fa-check-circle"></i> Enregistre</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

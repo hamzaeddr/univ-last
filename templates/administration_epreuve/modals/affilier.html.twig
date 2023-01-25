@@ -1,0 +1,44 @@
+<div
+  class="modal"
+  role="dialog"
+  id="affilier_list_etudiant"
+  aria-modal="true"
+>
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Affilier Etudiants</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- <div class="alert alert-info">Please check your browser console</div> -->
+         {# <h4>Tableau des épreuves</h4> #}
+        <div style="max-height: 450px;overflow-y: scroll;">
+          <table id="list" class="table table-striped" style="width:100%">
+              <thead>
+                  <tr style= "background-color:white; position: sticky; top: 0;">
+                      <th><input type ="checkbox" class="check_all_etudiant" ></th>
+                      <th>Id</th>
+                      <th>Nom</th>
+                      <th>Prenom</th>
+                  </tr>
+              </thead>
+                <tbody class="list_etudiants" >
+                    
+                </tbody>
+          </table>
+        </div>
+        
+        <a href="#" class="btn btn-success mt-3" id="save_list_etudiant"><i class="fas fa-check-circle"></i> Enregistre</a>
+
+      </div>
+    </div>
+  </div>
+</div>

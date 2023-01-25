@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Univ - Planification{% endblock %}
+
+
+{% block body %}
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+          <h1>Planification</h1>
+          <div class="section-header-breadcrumb">
+            {% for operation in operations %}
+                <a href="{{operation.link}}" class="{{operation.classTag}}" id="{{operation.idTag}}"><i class="{{operation.icon}}"></i>  {{operation.designation}}</a>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="section-body">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-search" style="margin-bottom: 1.5rem;">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label for="etablissement">Etablissement:</label>
+                            <select class="form-control" name="etablissement" id="etablissement">
+                                 <option value="">Choix etablissement</option>
+                                {% for etablissement in etablissements %}
+                                    <option value="{{etablissement.id}}">{{etablissement.designation}}</option>
+                                {% endfor %} 
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="formation">Formation:</label>
+                            <select class="form-control" name="formation" id="formation">
+                                <option value="">Choix Formation</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="promotion">Promotion:</label>
+                            <select class="form-control" name="promotion" id="promotion">
+                                <option value="">Choix Promotion</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="semestre">Semestre:</label>
+                            <select class="form-control" name="semestre" id="semestre">
+                                <option value="">Choix Semestre</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="niv1">Niveau 1:</label>
+                            <select class="form-control" name="niv1" id="niv1">
+                                <option value="">Choix Niveau 1</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="niv2">Niveau 2:</label>
+                            <select class="form-control" name="niv2" id="niv2">
+                                <option value="">Choix Niveau 2</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="niv3">Niveau 3:</label>
+                            <select class="form-control" name="niv3" id="niv3">
+                                <option value="">Choix Niveau 3</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div id='calendar'></div>
+            </div>
+            
+        </div>
+        </div>
+    </section>
+</div>
+
+
+<!--Modal Import Group-->
+{% include 'planification/modals/add_form.html.twig' %}
+{% include 'planification/modals/update_form.html.twig' %}
+{% include 'planification/modals/import.html.twig' %}
+
+
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+{{ encore_entry_script_tags('planification') }}
+
+{# <script src="/assets/js/planification/planification.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/locale-all.js"></script> #}
+{% endblock %}
+

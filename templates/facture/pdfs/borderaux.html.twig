@@ -1,0 +1,234 @@
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
+<style type="text/Css">
+    body{
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+    div.zone_over
+    {
+        display: block;
+        width: 40%;
+        word-wrap:break-word !important;
+    }
+    .slh tr td {
+        border-bottom: 1px solid #292929;
+    }
+</style>
+    <br/>
+    <br/>
+    <br/>
+    <table style="width: 100% ;text-align: center;border: 1px solid #292929; " cellspacing="0">
+        <tr>
+            <td style="width: 30% ;">
+                <table style="width: 100% ;" cellspacing="0">
+                    <tr>
+                        <th style="width: 100% ; font-size: 13px ;font-weight: 200;font-weight: bold;padding:4px;color:rgb(3, 35, 68);">Code bordereau</th>
+                    </tr>
+                    <tr>
+                        <td style="border-bottom: 1px solid #292929 ;width: 100%"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100% ; font-size: 11px ;padding:4px;color:rgb(31, 79, 122);">{{borderaux.code}}</td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width: 40% ;font-size: 20px;font-weight: bold ; border-right: 1px;border-left: 1px;color:rgb(3, 35, 68);">BORDEREAU </td>
+            <td style="width: 30% ;">
+                <table style="width: 100% ; background: #FFFFFF; text-align: center" cellspacing="0">
+                    <tr>
+
+                        <th style="width: 100% ; font-size: 13px ;font-weight: 200;font-weight: bold;padding:4px;color:rgb(3, 35, 68);">Date</th>
+                    </tr>
+                    <tr>
+
+                        <td style="border-bottom: 1px solid  #292929 ;width: 100%"></td>
+                    </tr>
+
+                    <tr>
+
+                        <td style="width: 100% ; font-size: 11px ;padding:4px;color:rgb(3, 35, 68);">{{ "now"|date("d/m/Y") }}</td>
+                    </tr>
+                </table>
+            </td>
+
+        </tr>
+    </table>
+    <table style="width: 100%;border-top: 1px solid#292929" cellspacing="0">
+        <tr>
+            <td style="width: 100% ; height: 10px;"></td>
+        </tr>
+    </table>
+    <br/>
+    
+    <table cellspacing="0" style="width: 100%; text-align: left; font-size: 12px" >
+        <tr>
+            <td style="width: 100% ;background: rgb(31, 79, 122); color: #fff ;height: 17px;padding: 4px ;font-weight: bold;padding-left: 15px;">Informations sur le Bordereau</td> 
+        </tr>
+        <tr>
+
+        </tr>
+    </table>
+    <table style="width: 100%; text-align: left; font-size:12px">
+        <tr style="width: 100%"> 
+            <td style="width: 50% ;">
+                <table style="width: 100% ;">
+                    <tr>
+                        <td style="width: 35% ;font-weight: bold;">
+                            <table style="width: 100% ; ">
+                                <tr>
+                                    <td style="width: 100%">Etablissement   : </td>
+                                </tr>
+                            </table>
+                        </td>
+
+                        <td style="width: 65%;">
+                            <table style="width: 100% ;">
+                                <tr>
+                                    <td style="width: 100%">
+                                        {{borderaux.etablissement.designation}}
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td style="width: 35% ;font-weight: bold;">
+                            <table style="width: 100% ; ">
+                                <tr>
+                                    <td style="width: 100%"> Modalité : </td>
+                                </tr>
+                            </table>
+                        </td>
+
+                        <td style="width: 65%;">
+                            <table style="width: 100% ;">
+                                <tr>
+                                    <td style="width: 100%">
+                                        {{borderaux.modalite.designation}}
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td style="width: 35% ;font-weight: bold;">
+                            <table style="width: 100% ; ">
+                                <tr>
+                                    <td style="width: 100%">Date de création : </td>
+                                </tr>
+                            </table>
+                        </td>
+
+                        <td style="width: 65%;">
+                            <table style="width: 100% ;">
+                                <tr>
+                                    <td style="width: 100%">{{borderaux.created|date("d/m/Y") }}</td>
+                                </tr>
+                            </table>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td style="width: 35% ;font-weight: bold;">
+                            <table style="width: 100% ; ">
+                                <tr>
+                                    <td style="width: 100%"> Crée par: </td>
+                                </tr>
+                            </table>
+                        </td>
+
+                        <td style="width: 65%;">
+                            <table style="width: 100% ;">
+                                <tr>
+                                    <td style="width: 100%">{{app.user.username}}</td>
+                                    {# {% if borderaux.userCreated != null %}
+                                        <td style="width: 100%">{{borderaux.userCreated.nom}} {{borderaux.userCreated.prenom}}</td>
+                                    {% endif %} #}
+                                    
+                                </tr>
+                            </table>
+                        </td>
+
+                    </tr>
+                </table>
+            </td>
+
+
+        </tr>   
+    </table>
+
+
+  
+    <!--End II-  Informations Fournisseur-->
+    <br/>
+    <!--End III-  Détails commande-->
+
+
+    <br/>
+    <table style="width: 100% ; background: #FFFFFF;font-size: 9.2px" cellspacing="0" class="slh">
+        <thead>
+            <tr style="background-color: rgb(31, 79, 122);color:white;font-size: 9px;">
+                <th style="width: 60px;  padding:6px;border-right:1px solid white;font-weight: bold;color:white;">ORDRE</th>
+                <th style="width: 100px; padding:6px;border-right:1px solid white;font-weight: bold;color:white;">Code Réglement</th>
+                <th style="width: 100px;padding:6px;border-right:1px solid white;font-weight: bold;color:white;">Code Facture</th>
+                <th style="width: 100px;padding:6px;border-right:1px solid white;font-weight: bold;color:white;">Code prèinscription</th>
+                <th style="width: 100px;padding:6px;border-right:1px solid white;font-weight: bold;color:white;">Nom</th>
+                <th style="width: 100px;padding:6px;border-right:1px solid white;font-weight: bold;color:white;">Prenom</th>
+                <th style="width: 100px;padding:6px;border-right:1px solid white;font-weight: bold;color:white;">BQ</th>
+                <th style="width: 100px;padding:6px;border-right:1px solid white;font-weight: bold;color:white;">Référence</th>
+                <th style="width: 90px;padding:6px;border-right:1px solid white;font-weight: bold;color:white;">Montant</th>
+
+            </tr>
+        </thead>
+        <tbody>
+                {% set i = 1 %}
+                {% set somme = 0 %}
+                {% for reglement in reglements %}
+                    <tr>
+                        <td style="padding:6px;border-right:1px solid white;text-align: left;">{{i}}</td>
+                        <td style="padding:6px;border-right:1px solid white;text-align: left;">{{reglement.code}}</td>
+                        <td style="padding:6px;border-right:1px solid white;text-align: right;">{{reglement.operation.code}}</td>
+                        <td style="padding:6px;border-right:1px solid white;text-align: left;">{{reglement.operation.preinscription.code}}</td>
+                        <td style="padding:6px;border-right:1px solid white;text-align: left;">{{reglement.operation.preinscription.etudiant.nom}}</td>
+                        <td style="padding:6px;border-right:1px solid white;text-align: left;">{{reglement.operation.preinscription.etudiant.prenom}}</td>
+                        <td style="padding:6px;border-right:1px solid white;text-align: left;">{{reglement.banque.designation}}</td>
+                        <td style="padding:6px;border-right:1px solid white;text-align: left;">{{reglement.reference}}</td>
+                        <td style="padding:6px;border-right:1px solid white;text-align: right;">{{reglement.montant|number_format(2, ',', ' ')}}</td>
+                    </tr>
+                    {% set i = i + 1 %}
+                    {% set somme = somme + reglement.montant %}
+                {% endfor %}
+                
+                
+        </tbody>
+    </table>
+
+    <br/><br/>
+    <table cellspacing="0" style="width: 100%; text-align: left; font-size: 12px;" >
+        <tr>
+            <td style="width: 60% ;"></td> 
+            <td style="width: 20% ;background: rgb(23, 132, 112);; color: #fff ;height: 17px;padding: 4px ;padding-left: 25px;font-weight: bold;">Total </td> 
+            <td style="width: 20% ;background: rgb(23, 132, 112);; color: #fff ;height: 17px;padding: 4px ;font-weight: bold;padding-left: 25px;">{{somme|number_format(2, ',', ' ')}}</td> 
+        </tr>
+
+
+
+    </table>
+    <br/><br/>
+    <table cellspacing="0" style="width: 100%; text-align: left; font-size: 12px;font-weight: bold;border:1px solid gray" >
+        <tr>
+
+            <td style="width: 100% ;padding:15px">
+                arrêté la présente facture à la somme de :  {{ text }}
+            </td> 
+
+        </tr>
+
+
+
+    </table>

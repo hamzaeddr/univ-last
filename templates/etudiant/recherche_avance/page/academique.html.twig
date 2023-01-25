@@ -1,0 +1,51 @@
+    
+<div class="col-md-12">
+    <h3> {{inscription.code}} - {{inscription.promotion.designation}} - {{inscription.annee.designation}}   </h3>
+</div>
+<div class="row">
+
+{% for semestre in inscription.promotion.semestres %}
+    {% if semestre.active == 1 %}
+
+            
+        <div class="col-md-6">
+            <p>Modules {{semestre.designation}}</p>
+            <div class="height-modules">
+                {% set i = 1 %}
+                {% for mnote in inscription.mnotes %}
+                    {% if mnote.module.semestre.id == semestre.id and mnote.module.type != "A" %}
+                        <span> <b>Module  {{i}} : </b>{{mnote.module.designation}}</span><br>
+                        {% set i = i + 1 %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <p>Relevé {{semestre.designation}}</p>
+            <ul>
+                <li>
+                    <a target="_blank" href="{{path('etudiant_recherche_releve_module', {inscription: inscription.id, semestre:semestre.id, assiduite: 0})}}">    relevé de note modulaire </a>
+                </li>
+                
+                <li>
+                    <a target="_blank" href="{{path('etudiant_recherche_releve_module', {inscription: inscription.id, semestre:semestre.id, assiduite: 1})}}">    relevé de note modulaire Avec Assiduité</a>
+                </li>
+                
+                <li>
+                
+                    <a target="_blank" href="{{path('etudiant_recherche_releve_annee', {inscription: inscription.id, assiduite: 0})}}">         relevé de note annuel 	</a>
+                </li>
+                
+                <li>
+                    <a target="_blank" href="{{path('etudiant_recherche_releve_annee', {inscription: inscription.id, assiduite: 1})}}">         relevé de note annuel Avec Assiduité	</a>
+                </li>
+                
+                <li>
+                    <a target="_blank" href="../u_inscription_gestion/print/uiass_canevas_delib_individuel.php?code=INS-ISITS00008952/2020&amp;semestre=SEM00000141">   déliberation individuelle	</a>
+                </li>
+                
+            </ul>
+        </div>
+    {% endif %}
+{% endfor %}</div> 
+        
+
+        

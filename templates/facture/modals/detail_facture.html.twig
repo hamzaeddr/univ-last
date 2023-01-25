@@ -1,0 +1,62 @@
+<div class="modal" role="dialog" id="detail_facture_modal" aria-modal="true"> 
+<div class="modal-dialog modal-md modal-facture" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Detaille Facture</h5>
+        </hr>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+        <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            <div class="row mb-4 " id="add">
+                <div class="col-md-5">
+                    <label for="frais">Frais (*):</label>
+                    <select class="form-control" name="frais" id="frais">
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="montant">Montant(*):</label>
+                    <input type="text" class="form-control" id='montantt' value="">
+                </div>
+                <div class="col-md-4">
+                    <label for="ice">ICE:</label>
+                    <input type="number" class="form-control" id="ice" maxlength="15" placeholder="15 Chiffres">
+                </div>
+                <div class="col-md-6">
+                    <label> Type Organisme:</label><br> 
+                    <input type="radio" name="organ" id="organ" value="1" checked=""> 
+                    <label style="margin:5px" for="organ"> Payant </label>  
+                    <input type="radio" name="organ" id="norgan" value="0"> 
+                    <label style="margin: 0px 5px 0px 0px;"  for="norgan"> Organisme </label>  
+                </div>
+                <div class="col-md-6 select-organ">
+                  <label for="org">Organisme (*)</label>
+                  <select class="form-control" name="org" id="org">
+                  </select>
+                </div>
+            </div>
+            <button class="btn btn-primary mb-4 float-right " id="add_detaille"><i class="fas fa-plus"></i> Ajouter</button>
+            <button class="btn btn-danger mb-4 mr-4 float-right" id="delete_detaille"><i class="fas fa-window-close"></i> Desactiver Tout</button>
+            <table class="table table-fee table_detaille_facture">
+                <thead>
+                    <tr>
+                        <th scope="col">Ord</th>
+                        <th scope="col" style="width:25rem">Designation</th>
+                        <th scope="col">Organisme</th>
+                        <th scope="col">Montant</th>
+                        <th scope="col">Remise</th>
+                        <th scope="col" id='detaille_active'>Desactive</th>
+                    </tr>
+                </thead>
+                <tbody >
+                </tbody>
+              </table>
+
+      </div>
+
+
+
+    </div>
+  </div>
+</div>

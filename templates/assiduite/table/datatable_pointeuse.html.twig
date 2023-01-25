@@ -1,0 +1,28 @@
+  <table id="dtDynamicVerticalScrollExample_pointeuse" class="table table-striped table-bordered table-sm" cellspacing="0"  width="100%" height="100%">
+
+  <thead>
+    <tr>
+    
+      <th >Salle
+      </th>
+      <th >Sn
+      </th>
+      <th >Ip 
+      </th>
+
+    </tr>
+  </thead>
+  <tbody>
+     {% for salle in salles %}
+                <tr>
+                <td>{{salle.designation}}</td>
+                <td>{{salle.sn}}</td>
+                <td>{{salle.IP}}</td>
+               
+                
+                </tr>
+                {% endfor %}
+    
+  </tbody>
+ 
+</table>

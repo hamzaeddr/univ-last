@@ -1,0 +1,73 @@
+
+
+  <thead>
+    <tr>
+      <th class="th-sm">Statut
+      </th>
+      <th class="th-sm" hidden>Statut 
+      </th>
+      <th class="th-sm" hidden>Statut 
+      </th>
+      <th class="th-sm">Seance
+      </th>
+      <th class="th-sm">Nature
+      </th>
+      <th class="th-sm">Salle
+      </th>
+      <th class="th-sm">Element Module
+      </th>
+      <th class="th-sm">Enseignant
+      </th>
+      <th class="th-sm">HD
+      </th>
+      <th class="th-sm">HF
+      </th>
+      <th class="th-sm">Groupe
+      </th>
+      <th class="th-sm" hidden>Exst
+      </th>
+      <th class="th-sm">sgn
+      </th>
+      <th class="th-sm">anl
+      </th>
+      <th class="th-sm">scn
+      </th>
+      <th hidden class="th-sm">scn
+      </th>
+      <th hidden class="th-sm">scn
+      </th>
+    </tr>
+  </thead>
+  <tbody id="tbody">
+  {% for seance in seances %}
+    <tr class="trx">
+      <td {% if seance.Statut == 1 %}
+      class="traiter"
+      {% elseif seance.Statut == 2 %}
+      class="Verouiller"
+      {% else %}
+      class="notraiter"
+      {% endif %}
+      ></td>
+      <td hidden>{{seance.Statut}}</td>
+      <td hidden>{{ seance.promotion }}</td>
+      <td>{{ seance.code_seance }}</td>
+      <td>{{ seance.seance_natur }}</td>
+      <td>{{ seance.salle }}</td>
+      <td>{{ seance.element }}</td>
+      <td>{{ seance.ens_nom }} {{ seance.ens_prenom }}</td>
+      <td>{{ seance.heur_db }}</td>
+      <td>{{ seance.heur_fin }}</td>
+      <td>{{ seance.groupe }}</td>
+      <td hidden>{{ seance.Existe }}</td>
+      <td>{{ seance.Signé }}</td>
+      <td>{{ seance.Annulée }}</td>
+      <td hidden>{{ seance.id_module }}</td>
+      <td hidden>{{ seance.code_salle }}</td>
+
+      <td></td>
+    </tr>
+    {% endfor %}
+    
+  </tbody>
+ 

@@ -1,0 +1,193 @@
+ {# <table  class="table" style="margin-top:140px;  padding:0px; margin-left:-100px; width: 620px !important; font-size:6px;" id="customers">
+    <thead>
+      <tr>
+        <th >ID Séance</th>
+        <th style="width:5%; font-size:7px;">Type Sénce</th>
+        <th style="width:40%; font-size:7px;">Module</th>        
+        <th style="width:60%; font-size:7px;">Element</th>
+        <th >Date_Séance</th>  
+        <th style="text-align:center; width:10%; font-size:7px;">Heure Début</th>
+                <th style="text-align:center; width:10%; font-size:7px;">Heure Fin</th>
+                      <th style="text-align:center; width:10%; font-size:7px;">Volume Horaire</th>
+                              <th style="text-align:center; width:10%; font-size:7px;">Categorie</th>
+                                        </tr>
+    </thead>
+    <tbody>
+                    {% set semain = 0 %}                                            
+                    {% for et in etud %}
+                        {% if et.Semaine != semain %}
+                        <tr style="background:lightgrey; text-align:center;letter-spacing:1.5px;">
+    <td colspan=6>{{et.DateD}} au {{ et.DateF}}</td>
+    </tr>
+                    {% set semain = et.Semaine %}
+                    {% endif %}
+                    <tr>
+                         
+                   
+      
+     
+        <td >{{et.ID_Séance}} </td>
+        <td >{{et.abreviation}}</td>
+         {% for el in modules %}
+         {% if el.code == et.module %}
+        <td>{{el.designation}} </td>
+        {% endif %}
+        {% endfor %}
+
+         {% for ele in elements %}
+         {% if ele.code == et.element %}
+              <td>{{ele.designation}} </td>
+
+        {% endif %}
+        {% endfor %}
+        
+          <td>{{et.Date_Séance}}</td>
+        <td style="text-align:center;">{{et.hd}}</td>
+                <td style="text-align:center;">{{et.hf}}</td>
+                <td style="text-align:center;">{{ et.volume|round(1, 'floor') }}</td>
+           {% if (et.Categorie == "D" or et.Categorie == "C") and et.Categorie_Enseig == "Z" %}
+
+                <td style="text-align:center;">{{et.Categorie_Enseig}}</td>
+           {% elseif (et.Categorie_Enseig == "AD" or et.Categorie_Enseig == "BD") %}
+
+                <td style="text-align:center;">{{et.Categorie_Enseig}}</td>
+          {% else %}
+               <td style="text-align:center;">{{et.Categorie}}</td>
+
+                                  {% endif %}
+</tr>
+
+{% endfor %} #}
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.column {
+  float: left;
+  padding: 10px;
+}
+
+.left {
+  width: 65%;
+}
+
+.right {
+  width: 25%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+body { margin-top: 0px;margin-bottom: 0px;
+font-size:12px;
+ }
+ #customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+ 
+
+
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 5px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    font-size:10px;
+ 
+  text-align: left;
+  background-color: lightblue;
+  color: black;
+  
+}
+
+       .page-number:before {
+  content: "Page " counter(page);
+}
+</style>
+</head>
+{% set page = 0 %}
+
+<body>
+
+<div>
+</br>
+</br>
+<table  class="table"   id="customers">
+    <thead>
+      <tr >
+        <th >ID Séance</th>
+        <th >Type Sénce</th>
+        <th >Module</th>        
+        <th >Element</th>
+        <th >Date_Séance</th>  
+        <th>Heure Début</th>
+                <th >Heure Fin</th>
+                      <th >Volume Horaire</th>
+                              <th>Categorie</th>
+                                        </tr>
+    </thead>
+    <tbody>
+                    {% set semain = 0 %}                                            
+                    {% for et in etud %}
+                        {% if et.Semaine != semain %}
+                        <tr style="background:lightgrey; text-align:center;letter-spacing:1.5px;">
+    <td colspan=4>{{et.DateD | date('Y-m-d')}} au {{ et.DateF | date('Y-m-d')}}</td>
+    </tr>
+                    {% set semain = et.Semaine %}
+                    {% endif %}
+                    <tr>
+                         
+                   
+      
+     
+        <td >{{et.ID_Séance}} </td>
+        <td >{{et.abreviation}}</td>
+         {% for el in modules %}
+         {% if el.code == et.module %}
+        <td>{{el.designation}} </td>
+        {% endif %}
+        {% endfor %}
+
+         {% for ele in elements %}
+         {% if ele.code == et.element %}
+              <td>{{ele.designation}} </td>
+
+        {% endif %}
+        {% endfor %}
+        
+          <td>{{et.Date_Séance}}</td>
+        <td style="text-align:center;">{{et.hd}}</td>
+                <td style="text-align:center;">{{et.hf}}</td>
+                <td style="text-align:center;">{{ et.volume|round(1, 'floor') }}</td>
+           {% if (et.Categorie == "D" or et.Categorie == "C") and et.Categorie_Enseig == "Z" %}
+
+                <td style="text-align:center;">{{et.Categorie_Enseig}}</td>
+           {% elseif (et.Categorie_Enseig == "AD" or et.Categorie_Enseig == "BD") %}
+
+                <td style="text-align:center;">{{et.Categorie_Enseig}}</td>
+          {% else %}
+               <td style="text-align:center;">{{et.Categorie}}</td>
+
+                                  {% endif %}
+</tr>
+
+{% endfor %}
+    </tbody>
+      </table>
+      </div>
+   
+</body>
+</html>
+
+

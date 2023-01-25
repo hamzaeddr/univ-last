@@ -1,0 +1,143 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Univ - Notes{% endblock %}
+
+
+{% block body %}
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+          <h1>Adminstration Des Notes</h1>
+          <div class="section-header-breadcrumb">
+            {% for operation in operations %}
+                 <a href="{{operation.link}}" class="{{operation.classTag}}" id="{{operation.idTag}}"><i class="{{operation.icon}}"></i>  {{operation.designation}}</a>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="section-body">
+        <div class="card">
+            <div class="card-header">
+                <h4>Tableau des Epreuves</h4>
+            </div>
+            <div class="card-body">
+                <div class="card-search" style="margin-bottom: 1.5rem;">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label for="etablissement">Etablissement:</label>
+                            <select class="form-control" name="etablissement" id="etablissement">
+                                <option value="">Choix Etablissement</option>
+                                {% for etablissement in etablissements %}
+                                    <option value="{{etablissement.id}}">{{etablissement.designation}}</option>
+                                {% endfor %} 
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="formation">Formation:</label>
+                            <select class="form-control" name="formation" id="formation">
+                                <option value="">Choix Formation</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="promotion">Promotion:</label>
+                            <select class="form-control" name="promotion" id="promotion">
+                                <option value="">Choix Promotion</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="semestre">Semestre:</label>
+                            <select class="form-control" name="semestre" id="semestre">
+                                <option value="">Choix Semestre</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="module">Module:</label>
+                            <select class="form-control" name="module" id="module">
+                                <option value="">Choix Module</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="element">Elément:</label>
+                            <select class="form-control" name="element" id="element">
+                                <option value="">Choix Elément</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="professeur">Professeur:</label>
+                            <select class="form-control" name="professeur" id="professeur">
+                                <option value="">Choix Professeur</option>
+                                {% for professeur in professeurs %}
+                                    <option value="{{professeur.id}}">{{professeur.nom}} {{professeur.prenom}}</option>
+                                {% endfor %} 
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            <table id="datables_notes_epreuve" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Id</th>
+                        <th>Epreuve</th>
+                        <th width="8%">Date</th>
+                        <th>Module</th>
+                        <th>Element</th>
+                        <th>Etablissement</th>
+                        <th>Formation</th>
+                        <th width="8%">Promotion</th>
+                        <th>Enseignant</th>
+                        <th>Nature</th>
+                        <th>Effectif</th>
+                        <th>Absents</th>
+                        <th>Saisi</th>
+                        <th>Non Saisi</th>
+                        <th>Statut</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>#</th>
+                        <th>Id</th>
+                        <th>Epreuve</th>
+                        <th>Date</th>
+                        <th>Module</th>
+                        <th>Element</th>
+                        <th>Etablissement</th>
+                        <th>Formation</th>
+                        <th>Promotion</th>
+                        <th>Enseignant</th>
+                        <th>Nature</th>
+                        <th>Effectif</th>
+                        <th>Absents</th>
+                        <th>Saisi</th>
+                        <th>Non Saisi</th>
+                        <th>Statut</th>
+                    </tr>
+                </tfoot>
+            </table>
+            </div>
+            
+        </div>
+        </div>
+    </section>
+</div>
+
+
+
+<!--Modal Import Group-->
+{% include 'administration_epreuve/modals/notes.html.twig' %}
+{% include 'administration_epreuve/modals/import.html.twig' %}
+{% include 'administration_epreuve/modals/imprimer.html.twig' %}
+
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+{{ encore_entry_script_tags('note') }}
+
+{# <script src="/assets/js/administration/note.js"></script> #}
+
+{% endblock %}
+

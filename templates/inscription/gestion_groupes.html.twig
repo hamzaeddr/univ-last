@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Univ - Gestion Inscription{% endblock %}
+
+
+{% block body %}
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+          <h1>Gestion Des Groupes</h1>
+          <div class="section-header-breadcrumb">
+              {% for operation in operations %}
+              <a href="{{operation.link}}" class="{{operation.classTag}}" id="{{operation.idTag}}"><i class="{{operation.icon}}"></i>  {{operation.designation}}</a>
+              {% endfor %}
+          </div>
+        </div>
+
+        <div class="section-body">
+        <div class="card">
+            <div class="card-header">
+            <h4>Tableau des inscriptions</h4>
+            </div>
+            <div class="card-body">
+            <div class="card-search" style="margin-bottom: 1.5rem;">
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="etablissement">Etablissement:</label>
+                        <select class="form-control" name="etablissement" id="etablissement">
+                            <option value="">Choix Etablissement</option>
+                            {% for etablissement in etablissements %}
+                                <option value="{{etablissement.id}}">{{etablissement.designation}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="formation">Formation:</label>
+                        <select class="form-control" name="formation" id="formation">
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="promotion">Promotion:</label>
+                        <select class="form-control" name="promotion" id="promotion">
+                            <option value="">Choix Promotion</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="frais">annee:</label>
+                        <select class="form-control" name="annee" id="annee">
+                            <option value="">Choix Annee</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <table id="datatables_gestion_inscription" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th width="1">#</th>
+                        <th>id</th>
+                        <th>C.Ins</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>CNE</th>
+                        <th>CIN</th>
+                        <th>Etablissement</th>
+                        <th>Formation</th>
+                        <th>Promotion</th>
+                        <th>Année</th>
+                        <th>Statut</th>
+                        <th>Niveau</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th width="1">#</th>
+                        <th>id</th>
+                        <th>C.Ins</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>CNE</th>
+                        <th>CIN</th>
+                        <th>Etablissement</th>
+                        <th>Formation</th>
+                        <th>Promotion</th>
+                        <th>Année</th>
+                        <th>Statut</th>
+                        <th>Niveau</th>
+                    </tr>
+                </tfoot>
+            </table>
+            </div>
+            
+        </div>
+        </div>
+    </section>
+</div>
+
+
+
+<!--Modal Import Group-->
+{% include 'inscription/modals/import_affectation.html.twig' %}
+
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+{{ encore_entry_script_tags('gestionGroupe') }}
+
+{# <script src="/assets/js/inscription/gestiongroupe.js"></script> #}
+
+{% endblock %}
+

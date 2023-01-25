@@ -1,0 +1,426 @@
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+<style type="text/Css">
+    body{
+        font-family: 'Source Sans Pro', serif;
+    }
+    .titre-reb{
+        width: 100%;
+        background: #1f4f7a;
+        font-size: 9px ;
+        padding:3px 10px;
+        color: #f1f1f1;
+        font-weight: bold
+    }
+    div.zone_over
+    {
+        display: block;
+        width: 40%;
+        word-wrap:break-word !important;
+    }
+    .slh tr td {
+        border-bottom: 2px solid black;
+    }
+    .mo tr td{
+        padding:4px;
+
+    }
+</style>
+
+<table style="width: 100%;" align="center" cellspacing="0">
+    <thead>
+        <tr>
+            <th style="width: 30%; text-align: left;"></th>
+            <th style="width: 30%; text-align: left;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="width: 100%;">
+            <td style="width: 80%; text-align: right;font-size:14px;font-weight: bold;padding-right:40px;">
+                <br/> Université Internationale Abulcasis des Sciences de la Santé
+            </td>
+            <td style="width: 25%; text-align: right;">
+                <br/>
+                {# <img style=" margin-right: 75px; width: 25%;" src="./assets/img/logo/pdf-logo.png" alt="Logo"> #}
+                <img style=" margin-right: 75px; width: 17%;" src="./assets/img/logo/Logo_UIASS_bkack2.png" alt="Logo">
+            </td>
+
+        </tr>
+    </tbody>
+
+</table>
+
+
+
+
+
+<!-- 
+<page_footer>
+    <table style="width: 100%; border: solid 1px black;">
+        <tr>
+            <td style="text-align: left;    width: 50%">html2pdf.fr</td>
+            <td style="text-align: right;    width: 50%">page [[page_cu]]/[[page_nb]]</td>
+        </tr>
+    </table>
+</page_footer>-->
+
+<br/>
+<table style="width: 100% ;text-align: center;border: 1px solid #292929;margin-top: 5px;" cellspacing="0">
+
+
+
+    <tr>
+        <td style="width: 20% ;">
+            <table style="width: 100% ; border-right: 1px solid #292929;" cellspacing="0">
+                <tr>
+                    <th style="width: 100% ; font-size: 13px ;font-weight: 200;font-weight: bold;padding:3px;color:black;">Cod_Insc   </th>
+                </tr>
+                <tr>
+
+                    <td style="border-bottom:  solid 1px #292929 ;width: 100%"></td>
+                </tr>
+
+                <tr>
+
+                    <td style="width: 100% ; font-size: 11px ;padding:3px;color:black;font-size: 13px ;font-weight: 200;font-weight: bold;">{{preinscription.code}}</td>
+                </tr>
+            </table>
+        </td>
+        <td style="width: 60% ;font-size:16px;font-weight: bold ; border-right: 1px;border-left: 1px ;color:black;">PRE-INSCRIPTION {{preinscription.annee.formation.etablissement.abreviation}}  </td>
+        <td style="width: 20% ;">
+            <table style="width: 100% ; background: #FFFFFF; text-align: center; border-left: 1px solid #292929;" cellspacing="0">
+                <tr>
+
+                    <th style="width: 100% ; font-size: 13px ;font-weight: 200;font-weight: bold;padding:3px;color:black;">Date   </th>
+                </tr>
+                <tr>
+
+                    <td style="border-bottom:  solid 1px #292929 ;width: 100%"></td>
+                </tr>
+
+                <tr>
+
+                    <td style="width: 100% ; font-size: 11px ;padding:3px;color:black;font-size: 13px ;font-weight: 200;font-weight: bold;">{{ "now" | date("d/m/Y") }}</td>
+                </tr>
+            </table>
+        </td>
+
+    </tr>
+
+
+</table>
+
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 12px;margin-top:6px;" >
+    <tr>
+        <td style="width: 100% ;background: black; color: #fff ;padding-left: 15px;">  I- INFORMATIONS PRE-INSCRIPTION EN LIGNE</td> 
+    </tr>
+    <tr>
+
+    </tr>
+
+
+</table>
+
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 10px;font-weight: bold;margin-top:6px;" >
+    <tr>
+        <td style="width: 100% ;background: gray; color: #fff ;padding-left: 15px;"> 1-1 Informations Personnelles</td> 
+    </tr>
+    <tr>
+
+    </tr>
+
+
+</table>
+<table cellspacing="4px" style="width: 88%;margin-top:6px;margin-left:-4px;font-size:10px;font-weight: bold;" class="mo">
+    <tr>
+        <td style="width: 20% ;background:rgb(194, 194, 194);"> &nbsp;Nom :</td> 
+
+        <td style="width: 25% ;border:1px solid gray;">{{ preinscription.etudiant.nom }}</td> 
+
+        <td style="width: 20% ;background:rgb(194, 194, 194);"> &nbsp;Prénom :</td> 
+
+        <td style="width: 25% ;border:1px solid gray;">{{ preinscription.etudiant.prenom }}</td>
+
+        <td style="width: 25% ;border:1px solid gray;text-align: center;">Photo</td>
+    </tr>
+
+    <tr >
+        <td style="width: 20% ;background:rgb(194, 194, 194);"> &nbsp;Date de naissance  :</td> 
+
+        <td style="width: 25% ;border:1px solid gray;">{{ preinscription.etudiant.datenaissance | date("d/m/Y")}}</td> 
+
+        <td style="width: 20% ;background:rgb(194, 194, 194);">&nbsp; Lieu de Naissance  :</td> 
+
+        <td style="width: 25% ;border:1px solid gray;">{{ preinscription.etudiant.lieuNaissance }}</td>
+
+
+    </tr>
+    <tr >
+        <td style="width: 20% ;background:rgb(194, 194, 194);"> &nbsp;Nationalité   :</td> 
+
+        <td style="width: 25% ;border:1px solid gray;">{{ preinscription.etudiant.nationalite }}</td> 
+
+        <td style="width: 20% ;background:rgb(194, 194, 194);"> &nbsp;Téléphone:  :</td> 
+
+        <td style="width: 25% ;border:1px solid gray;">{{ preinscription.etudiant.tel1 }}</td>
+
+
+    </tr>
+    <tr >
+        <td style="width: 20% ;background:rgb(194, 194, 194);"> &nbsp;Mail   :</td> 
+
+        <td style="width: 25% ;border:1px solid gray;">{{ preinscription.etudiant.mail1 }}</td> 
+
+        <td style="width: 20% ;background:rgb(194, 194, 194);"> &nbsp;Ville:  :</td> 
+
+        <td style="width: 25% ;border:1px solid gray;">{{ preinscription.etudiant.ville }}</td>
+
+    </tr>
+
+</table>
+<table cellspacing="0" style="width: 78%; text-align: center; font-size: 10px;font-weight: bold;margin-top:3px;margin-left:-1px;" >
+    <tr>
+        <td style="width: 100% ;border:1.2px solid  gray; color: #595959 ;padding-left: 15px;height:20px;"> Adresse</td> 
+    </tr>
+
+
+
+</table>
+<table cellspacing="0" style="width: 78%; text-align: left; font-size: 10px;font-weight: bold;margin-top:3px;margin-left:-1px;" >
+    <tr>
+        <td style="width: 100% ;border:1.2px solid  gray; color: #595959 ;height:60px;"> &nbsp; {{ preinscription.etudiant.adresse }}</td> 
+    </tr>
+
+
+
+</table>
+{# <table style="width: 25% ;position: absolute;margin-top:-24.8%;margin-left:78.5%;font-size:10px;font-weight: bold;">  #}
+<table style="width:155px;margin-top:-160px;border:1px solid gray;margin-left:78.5%" > 
+    <tr>    
+        <td style="height: 150px;text-align: center;">
+            Image  
+        </td>
+    </tr>
+</table>
+<br/>
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 10px;font-weight: bold;" >
+    <tr>
+        <td style="width: 100% ;background: gray; color: #fff ;padding-left: 15px;"> 1-3 Informations de Scolarité</td> 
+    </tr>
+    <tr>
+
+    </tr>
+
+
+</table>
+<table cellspacing="4px" style="width: 88%;margin-top:6px;margin-left:-4px;font-size:10px;font-weight: bold;" class="mo">
+    <tr>
+        <td style="width: 25% ;background:rgb(194, 194, 194);"> &nbsp;Langue du Concours </td> 
+            {% if preinscription.etudiant.langueConcours is null %}
+                <td style="width: 33% ;border:1px solid gray;"></td> 
+            {% else %}
+                <td style="width: 33% ;border:1px solid gray;">{{ preinscription.etudiant.langueConcours.designation }}</td> 
+            {% endif %}
+
+        <td style="width: 25% ;background:rgb(194, 194, 194);"> &nbsp;Filière Choisie:</td> 
+
+        <td style="width: 32.2% ;border:1px solid gray;">{{ preinscription.etudiant.filiere.designation }}</td>
+
+    </tr>
+
+
+</table>
+
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 10px;margin-top:6px;font-weight: bold;" >
+    <tr>
+        <td style="width: 100% ;background: black; color: #fff ;padding-left: 15px;">  II- COMPLEMENT D'INFORMATIONS PRE-INSCRIPTION</td> 
+    </tr>
+    <tr>
+
+    </tr>
+
+
+</table>
+<table cellspacing="4px" style="width: 88%;margin-top:6px;margin-left:-4px;font-size:10px;font-weight: bold;" class="mo">
+    <tr>
+        <td style="width: 25% ;background:rgb(194, 194, 194);"> &nbsp;N° CIN/Passeport : </td> 
+
+        <td style="width: 33% ;border:1px solid gray;">{{ preinscription.etudiant.cin }}</td> 
+
+        <td style="width: 25% ;background:rgb(194, 194, 194);"> &nbsp;Moyenne de Bac :</td> 
+
+        <td style="width: 32.2% ;border:1px solid gray;">{{ preinscription.etudiant.moyenneBac }}</td>
+
+    </tr>
+
+    <tr>
+        <td style="width: 25% ;background:rgb(194, 194, 194);"> &nbsp;SEXE  : </td> 
+
+        <td style="width: 33% ;border:1px solid gray;">{{ preinscription.etudiant.sexe }}</td> 
+
+        <td style="width: 25% ;background:rgb(194, 194, 194);"> &nbsp;Année de Bac :</td> 
+
+        <td style="width: 32.2% ;border:1px solid gray;">{{ preinscription.etudiant.anneeBac }}</td>
+
+    </tr>
+    <tr>
+        
+        <td style="width: 25% ;background:rgb(194, 194, 194);"> &nbsp;Serie de Bac : </td> 
+
+        <td style="width: 33% ;border:1px solid gray;"> </td> 
+
+        <td style="width: 25% ;background:rgb(194, 194, 194);"> &nbsp;Academie : </td>
+        {% if preinscription.etudiant.Academie == null %}
+            <td style="width: 32.2% ;border:1px solid gray;"></td>
+        {% else %}
+            <td style="width: 32.2% ;border:1px solid gray;">{{ preinscription.etudiant.Academie.designation }}</td>
+        {% endif %}
+    </tr>
+
+</table>
+<table cellspacing="4px" style="width: 88%;margin-top:6px;margin-left:-4px;font-size:10px;font-weight: bold;text-align: center" class="mo">
+    <tr>
+        <td style="width: 57.5% ;background:rgb(194, 194, 194);"> &nbsp;Père : </td> 
+
+
+
+        <td style="width: 57.5% ;background:rgb(194, 194, 194);"> &nbsp;Mère :</td> 
+
+
+    </tr>
+
+
+</table>
+<table cellspacing="4px" style="width: 88%;margin-left:-4px;font-size:10px;font-weight: bold;" class="mo">
+    <tr>
+        <td style="width: 25% ;background:rgb(194, 194, 194);"> &nbsp;Nom : </td> 
+
+        <td style="width: 33% ;border:1px solid gray;">{{ preinscription.etudiant.nomPere }}</td> 
+
+        <td style="width: 25% ;background:rgb(194, 194, 194);"> &nbsp;Nom  :</td> 
+
+        <td style="width: 32.2% ;border:1px solid gray;">{{ preinscription.etudiant.nomMere }}</td>
+
+    </tr>
+
+    <tr>
+        <td style="width: 25% ;background:rgb(194, 194, 194);"> &nbsp;Prénom  : </td> 
+
+        <td style="width: 33% ;border:1px solid gray;">{{ preinscription.etudiant.prenomPere }}</td> 
+
+        <td style="width: 25% ;background:rgb(194, 194, 194);"> &nbsp;Prénom  :</td> 
+
+        <td style="width: 32.2% ;border:1px solid gray;">{{ preinscription.etudiant.prenomMere }}</td>
+
+    </tr>
+    <tr>
+
+        <td style="width: 25% ;background:rgb(194, 194, 194);"> &nbsp;Nationalité  : </td> 
+
+        <td style="width: 33% ;border:1px solid gray;">{{ preinscription.etudiant.nationalitePere }}</td> 
+
+        <td style="width: 25% ;background:rgb(194, 194, 194);"> &nbsp;Nationalité : </td> 
+  
+        <td style="width: 32.2% ;border:1px solid gray;">{{ preinscription.etudiant.nationaliteMere }}</td>
+
+    </tr>
+    <tr>
+
+        <td style="width: 25% ;background:rgb(194, 194, 194);"> &nbsp;Employeur : </td> 
+
+        <td style="width: 33% ;border:1px solid gray;">{{ preinscription.etudiant.employePere }}</td> 
+
+        <td style="width: 25% ;background:rgb(194, 194, 194);"> &nbsp;Employeur : </td> 
+
+        <td style="width: 32.2% ;border:1px solid gray;">{{ preinscription.etudiant.employeMere }}</td>
+
+    </tr>
+    <tr>
+   
+        <td style="width: 25% ;background:rgb(194, 194, 194);"> &nbsp;Activité/Profession : </td> 
+
+        <td style="width: 33% ;border:1px solid gray;">{{ preinscription.etudiant.professionPere }}</td> 
+
+        <td style="width: 25% ;background:rgb(194, 194, 194);"> &nbsp;Activité/Profession : </td> 
+  
+        <td style="width: 32.2% ;border:1px solid gray;">{{ preinscription.etudiant.professionMere }}</td>
+
+    </tr>
+    <tr>
+
+        <td style="width: 25% ;background:rgb(194, 194, 194);"> &nbsp;Téléphone : </td> 
+
+        <td style="width: 33% ;border:1px solid gray;">{{ preinscription.etudiant.telPere }}</td> 
+
+        <td style="width: 25% ;background:rgb(194, 194, 194);"> &nbsp;Téléphone : </td> 
+   
+        <td style="width: 32.2% ;border:1px solid gray;">{{ preinscription.etudiant.telMere }}</td>
+
+    </tr>
+    <tr>
+
+        <td style="width: 25% ;background:rgb(194, 194, 194);"> &nbsp;Mail : </td> 
+
+        <td style="width: 33% ;border:1px solid gray;">{{ preinscription.etudiant.mailPere }}</td> 
+
+        <td style="width: 25% ;background:rgb(194, 194, 194);"> &nbsp;Mail : </td> 
+ 
+        <td style="width: 32.2% ;border:1px solid gray;">{{ preinscription.etudiant.mailMere }}</td>
+
+    </tr>
+
+</table>
+<br/>
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 10px;margin-top:6px;font-weight: bold;" >
+    <tr>
+        <td style="width: 100% ;background: black; color: #fff ;padding-left: 15px;">   III- CONFIRMATION </td> 
+    </tr>
+    <tr>
+
+    </tr>
+
+
+</table>
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 9px;margin-top:3px;margin-left:-1px;" >
+    <tr>
+        <td style="width: 55% ;border:1.2px solid  gray; color: black ;height:60px;padding:2px;"> 
+            <p>&nbsp; Je déclare (Dénomé :........................) sur l'honneur que les renseignements <br/>indiqués sur le présent formulaire sont exacts.</p>
+            <br/><span style="font-size:8px;"><b>NB : </b>LES FRAIS DE PRE-INSCRIPTION NE SONT PAS REMBOURSABLES !</span> 
+        </td> 
+        <td style="width: 5% ;"></td>
+        <td style="width: 40% ;">
+            <table cellspacing="0" style="">
+                <tr>
+                    <td style="color: black ;height:25px;width:90%;background:rgb(194, 194, 194);text-align: center;"> 
+                        <span style="font-size:9px;font-weight: bold;">Signature du Candidat</span>
+                        <br/><span style="font-size:8px;">Faire précéder la signature de la mention " Lu et Approuvé</span> 
+                    </td>
+                </tr>
+                <tr><td style="width:10%;height:1px"></td></tr>
+                <tr>
+                    <td style="height:20px;width:100%;border:1px solid gray;"></td> 
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<br/>
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 10px;margin-top:6px;font-weight: bold;" >
+    <tr>
+        <td style="width: 100% ;background: black; color: #fff ;padding-left: 15px;">    IV- NOTIFICATION  </td> 
+    </tr>
+    <tr>
+
+    </tr>
+
+
+</table>
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 8px;margin-top:3px;margin-left:-1px;" >
+    <tr>
+        <td style="width: 100% ;border:1.2px solid  gray; color: black ;height:60px;"> &nbsp;Ce formulaire fait partie des documents officiels retenus dans le dossier de candidature. &nbsp;  L'Université se reserve le droit de refuser toute pré-inscrition en cas de nonconformité des informations fournies.</td> 
+    </tr>
+
+
+
+</table>
+
+    

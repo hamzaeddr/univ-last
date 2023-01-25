@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Planification</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        {{ encore_entry_link_tags('app') }}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css"/>
+    </head>
+
+    <body>
+    <STYLE type="text/css" media="print">
+    @page { size: landscape; }
+    </STYLE>
+        <table class="tbl_style">
+            <tr>
+                <td><b> Etablissement :</b> </td>
+                <td> {{semestre.promotion.formation.etablissement.designation}} </td>
+            </tr>
+            
+            <tr>
+                <td><b> Formation :</b> </td>
+                <td> {{semestre.promotion.formation.designation}} </td>
+            </tr>
+
+            <tr>
+                <td><b> Année :</b> </td>
+                <td> {{annee.designation}} </td>
+            </tr>
+                
+            <tr>
+                <td><b> Promotion  :</b> </td>
+                <td> {{semestre.promotion.designation }}</td>
+            </tr>
+
+            <tr>
+                <td><b> Semestre  :</b> </td>
+                <td> {{semestre.designation}} </td>
+            </tr>
+            {% if groupe != 0 %}
+                <tr>
+                    <td><b> Groupe Principale  :</b> </td>
+                    <td> {{niveau.niveau}} </td>
+                </tr>
+                <input type="text" id="niv" value="{{niveau.id}}" style="display:none"/>
+            {% else %}
+                <input type="text" id="niv" value="{{groupe}}" style="display:none"/>
+            {% endif %}
+            
+        </table>
+        {# <div>{{times}}</div> #}
+        <input type="text" id="date" value="{{day}}" style="display:none"/>
+        <input type="text" id="semestre" value="{{semestre.id}}" style="display:none"/>
+    </div>
+    <div id='calendar'></div>
+</div>    
+<!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+{# Full Calendar Script #}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/locale-all.js"></script>
+<script>
+$(document).ready(function () {
+    let alltime = [];
+    const alltimes = async () => {
+        try{
+            const request = await axios.post('/planification/planifications/calendar/'+$('#semestre').val()+'/'+$('#niv').val())
+            //const request = await axios.post('/planification/planifications/calendar/79/4/')
+            alltime = request.data;
+            console.log(alltime)
+            $("#calendar").fullCalendar('removeEvents'); 
+            $("#calendar").fullCalendar('addEventSource', alltime);
+            window.print()
+        }catch(error){
+            alltime = [];
+            $("#calendar").fullCalendar('removeEvents'); 
+            $("#calendar").fullCalendar('addEventSource', alltime);
+        }
+    }
+    alltimes()
+    
+    $('#calendar').fullCalendar({
+        events: alltime,
+        header: {
+            left: '',
+            center: 'title',
+            right: ''
+        },
+        defaultView: 'agendaWeek',
+        defaultDate:$('#date').val(),
+        editable: true,
+        eventLimit: true, // allow "more" link when too many events
+        selectable: true,
+        selectHelper: true,
+        navLinks: true,
+        height: 450,
+        allDaySlot: false,
+        locale: "fr",
+        firstDay: 1,
+        minTime: "08:00:00",
+        maxTime: "18:01:00",
+    });
+    
+    
+})
+    
+</script>
+</body>
+
+</html>

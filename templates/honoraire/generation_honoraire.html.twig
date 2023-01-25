@@ -1,0 +1,177 @@
+{% extends 'base.html.twig' %}
+{% block title %}Univ - Génération Honoraires{% endblock %}
+
+{% block body %}
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+          <h1>Génération Des Honoraires</h1>
+          <div class="section-header-breadcrumb">
+            {% for operation in operations %}
+                {% if operation.designation == 'Ajouter' %}
+                    <a href="{{operation.link}}" class="{{operation.classTag}}" id="{{operation.idTag}}" disabled><i class="{{operation.icon}}"></i>  {{operation.designation}}</a>
+                  {% else %}
+                    <a href="{{operation.link}}" class="{{operation.classTag}}" id="{{operation.idTag}}"><i class="{{operation.icon}}"></i>  {{operation.designation}}</a>
+                {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        <div class="section-body">
+        <div class="card">
+            <div class="card-header">
+                <h4>Tableau des Seances</h4>
+            </div>
+            <div class="card-body">
+                <div class="card-search" style="margin-bottom: 1.5rem;">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label for="etablissement">Etablissement:</label>
+                            <select class="form-control" name="etablissement" id="etablissement">
+                                <option value="">Choix Etablissement</option>
+                                {% for etablissement in etablissements %}
+                                    <option value="{{etablissement.id}}">{{etablissement.designation}}</option>
+                                {% endfor %} 
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="formation">Formation:</label>
+                            <select class="form-control" name="formation" id="formation">
+                                <option value="">Choix Formation</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="promotion">Promotion:</label>
+                            <select class="form-control" name="promotion" id="promotion">
+                                <option value="">Choix Promotion</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="semestre">Semestre:</label>
+                            <select class="form-control" name="semestre" id="semestre">
+                                <option value="">Choix Semestre</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="module">Module:</label>
+                            <select class="form-control" name="module" id="module">
+                                <option value="">Choix Module</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="element">Elément:</label>
+                            <select class="form-control" name="element" id="element">
+                                <option value="">Choix Elément</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="niv1">Niveau 1:</label>
+                            <select class="form-control" name="niv1" id="niv1">
+                                <option value="">Choix Niveau 1</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="niv2">Niveau 2:</label>
+                            <select class="form-control" name="niv2" id="niv2">
+                                <option value="">Choix Niveau 2</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="niv3">Niveau 3:</label>
+                            <select class="form-control" name="niv3" id="niv3">
+                                <option value="">Choix Niveau 3</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="semaine">semaine:</label>
+                            <select class="form-control" name="semaine" id="semaine">
+                                <option value="">Choix semaine</option>
+                                {% for semaine in semaines %}
+                                    <option value="{{semaine.id}}">Semaine {{semaine.nsemaine}} de: {{semaine.datedebut | date('j/m')}} à {{semaine.datefin | date('j/m')}} {{semaine.datefin | date('Y')}}</option>
+                                {% endfor %} 
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="professeur">Professeur:</label>
+                            <select class="form-control" name="professeur" id="professeur">
+                                <option value="">Choix Professeur</option>
+                                {% for professeur in professeurs %}
+                                    <option value="{{professeur.id}}">{{professeur.nom}} {{professeur.prenom}}</option>
+                                {% endfor %} 
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="grade">Grade:</label>
+                            <select class="form-control" name="grade" id="grade">
+                                <option value="">Choix Grade</option>
+                                {% for grade in grades %}
+                                    <option value="{{grade.id}}">{{grade.designation}}</option>
+                                {% endfor %} 
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            <table id="datables_generation_honoraires" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Ord</th>
+                        <th>#</th>
+                        <th>COURS</th>
+                        <th>D.HEURE</th>
+                        <th>DESC</th>
+                        <th>ETAB</th>
+                        <th>FORM</th>
+                        <th>ANNEE</th>
+                        <th>PROMO</th>
+                        <th>SEMES</th>
+                        <th>MDLE</th>
+                        <th>ELEM</th>
+                        <th>NAT</th>
+                        <th>N.H</th>
+                        <th>Nbr.ScRegroupe</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Ord</th>
+                        <th>#</th>
+                        <th>COURS</th>
+                        <th>D.HEURE</th>
+                        <th>DESC</th>
+                        <th>ETAB</th>
+                        <th>FORM</th>
+                        <th>ANNEE</th>
+                        <th>PROMO</th>
+                        <th>SEMES</th>
+                        <th>MDLE</th>
+                        <th>ELEM</th>
+                        <th>NAT</th>
+                        <th>N.H</th>
+                        <th>Nbr.ScRegroupe</th>
+                    </tr>
+                </tfoot>
+            </table>
+            </div>
+            
+        </div>
+        </div>
+    </section>
+</div>
+
+
+
+<!--Modal Import Group-->
+{# {% include 'planification/modals/annuler.html.twig' %} #}
+
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+{{ encore_entry_script_tags('generationHonoraire') }}
+
+{# <script src="/assets/js/honoraire/generation_honoraire.js"></script> #}
+
+{% endblock %}
+

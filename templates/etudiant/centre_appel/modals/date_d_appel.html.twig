@@ -1,0 +1,71 @@
+<div class="modal" tabindex="-1" role="dialog" id="date-d-appel-modal" aria-modal="true"> 
+<div class="modal-dialog modal-md" style="max-width: 400px !important;" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Date Dernier Appel</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+        <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- <div class="alert alert-info">Veuillez selectionner un ligne Pour Continuer Cette opération !!</div> -->
+        <form id="date_appele_save">
+          <label for="">Date</label>
+          <input class="form-control" type="date" name="dateappelle" id="dateappelle">
+          <label for="">Premier RDV</label>
+          <input class="form-control" type="date" name="rdv1" id="rdv1">
+          <label for="">Deusieme RDV</label>
+          <input class="form-control" type="date" name="rdv2" id="rdv2">
+          <label> Statut D'Appel :</label>
+          <select class="form-control chosen-select" name="statut_appel" id ='statut_appel'>
+              <option value="" selected>Choix Statut D'Appel</option>
+              <option value="DECROCHE">DECROCHE</option>
+              <option value="BV">BV</option>
+              <option value="NRP">NRP</option>
+              <option value="FN">FN</option>
+              <option value="PAS DE NUMERO">PAS DE NUMERO</option>
+          </select>
+          <label> Observation :</label>
+          <select class="form-control chosen-select" name="Observation" id ='Observation'>
+              <option value="" selected>Choix Observation</option>
+              <option value="1ER ANNEE">1ER ANNEE</option>
+              <option value="TRANSFERT">TRANSFERT</option>
+              <option value="PASSERELLE">PASSERELLE</option>
+              <option value="PRE-INSCRIT">PRE-INSCRIT</option>
+              <option value="INELIGIBLE">INELIGIBLE</option>
+              <option value="NON INTERESSE">NON INTERESSE</option>
+              <option value="A RELANCER">A RELANCER</option>
+          </select>
+          {# <label> Annee Bac :</label>
+          <input class="form-control" type="text" name="annee_bac" id="annee_bac">
+          <label> Note Bac :</label>
+          <input class="form-control" type="text" name="note_bac" id="note_bac">
+          <label> Type Bac :</label>
+          <select class="form-control chosen-select" name="type_bac" id ='type_bac'>
+              <option value="" selected>Choix Type Bac</option>
+              {% for typebac in typebacs %}
+                  <option value="{{typebac.id}}">{{typebac.designation}}</option>
+              {% endfor %}
+          </select>
+          <label> Filiere :</label>
+          <select class="form-control chosen-select" name="filiere" id ='filiere'>
+              <option value="" selected>Choix Filiere</option>
+              {% for filiere in filieres %}
+                  <option value="{{filiere.id}}">{{filiere.abreviation}}</option>  
+              {% endfor %}
+          </select> #}
+          <label> Choix :</label><br>
+          <div class="d-flex">
+              <div class="d-flex" style='justify-content: center;align-items: center;'>
+                  <input type="radio" name="choix" id="choixu" value="UIASS" checked=""> 
+                  <label style="margin: 0px 10px 0px 10px;"  for="choixu"> UIASS </label>   
+                  <input type="radio" name="choix" id="choixc" value="CPGE"> 
+                  <label style="margin:0 10px" for="choixc"> CPGE </label> 
+              </div> 
+              <button type="submit" class="btn btn-success mt-2 ml-auto"><i class="fas fa-check-circle"></i> Enregistrer</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

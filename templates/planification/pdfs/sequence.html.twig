@@ -1,0 +1,387 @@
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
+<style type="text/Css">
+    body{
+        font-family: 'Source Sans Pro', serif;
+    }
+    .titre-reb{
+        width: 100%;
+        background: #1f4f7a;
+        font-size: 9px ;
+        padding:3px 10px;
+        color: #f1f1f1;
+        font-weight: bold
+    }
+    div.zone_over
+    {
+        display: block;
+        width: 40%;
+        word-wrap:break-word !important;
+    }
+    .slh tr td {
+        border-bottom: 2px solid black;
+    }
+    .mo tr td{
+        padding:4px;
+
+    }
+</style>
+
+
+{# <?php foreach ($infos as $key => $value): ?> #}
+<table style="width: 100%;" align="center" cellspacing="0">
+    <thead>
+        <tr>
+            <th style="width: 30%; text-align: left;"></th>
+            <th style="width: 30%; text-align: left;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="width: 100%;">
+            <td style="width: 80%; text-align: right;font-size:16px;font-weight: bold;padding-right:40px;">
+                <br/> Université Internationale Abulcasis des Sciences de la Santé
+            </td>
+            <td style="width: 25%; text-align: right;">
+                <br/>
+                {% if seance.programmation.element.module.semestre.promotion.formation.etablissement.id == 23 %}
+                    <img style=" margin-right: 75px; width: 30%;" src="./assets/img/logo/ifcp.png" alt="Logo">
+                {% else %}
+                    <img style=" margin-right: 75px; width: 25%;" src="./assets/img/logo/pdf-logo.png" alt="Logo">          
+                {% endif %}
+            </td>
+
+        </tr>
+    </tbody>
+
+</table>
+
+
+<table style="width: 100% ;text-align: center;border: 1px solid #292929;margin-top: 5px;" cellspacing="0">
+    <tr>
+        <td style="width: 20% ;border-right:1px solid #000">
+            <table style="width: 100% ;" cellspacing="0">
+                <tr>
+                    <th style="width: 100% ; font-size: 13px ;font-weight: 200;font-weight: bold;padding:3px;color:black;">ID Cours   </th>
+                </tr>
+                <tr>
+                    <td style="border-bottom:  solid 1px #292929 ;width: 100%"></td>
+                </tr>
+                <tr>
+                    <td style="width: 100% ; font-size: 11px ;padding:3px;color:black;font-size: 13px ;font-weight: 200;font-weight: bold;">{{seance.code}}</td>
+                </tr>
+            </table>
+        </td>
+        {% set abv = ['EF','CC','RE','RCC'] %}
+        {% if seance.programmation.natureepreuve.abreviation in abv  %}
+            <td style="width: 60% ;font-size:20px;font-weight: bold ; border-right: 1px;border-left: 1px ;color:black;">FICHE DE SURVEILLANCE</td>
+        {% else %}
+            <td style="width: 60% ;font-size:20px;font-weight: bold ; border-right: 1px;border-left: 1px ;color:black;">FICHE SEQUENCE</td>        
+        {% endif %}
+        <td style="width: 20% ;border-left:1px solid #000">
+            <table style="width: 100% ; background: #FFFFFF; text-align: center" cellspacing="0">
+                <tr>
+                    <th style="width: 100% ; font-size: 13px ;font-weight: 200;font-weight: bold;padding:3px;color:black;">Date Cours   </th>
+                </tr>
+                <tr>
+                    <td style="border-bottom:  solid 1px #292929 ;width: 100%"></td>
+                </tr>
+                <tr>
+                    <td style="width: 100% ; font-size: 11px ;padding:3px;color:black;font-size: 13px ;font-weight: 200;font-weight: bold;">{{seance.start | date('j/m/Y')}}</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+</br>
+</br>
+
+
+{# <table cellspacing="0" style="width: 100%; text-align: left; font-size: 10px;margin-top:6px;font-weight: bold; " >
+    <tr>
+        <td style="width: 100% ;font-weight: 200; color: #000 ; height: 15px"> 
+        <?php
+        if (!empty($value->user_mod))
+        echo "Date de modification :".$value->date_mod."  / Modifié par :".$value->user_mod; ?>
+        </td> 
+    </tr>
+</table> #}
+
+
+<table cellspacing="0" style="width: 100%;  margin-top: 0px; text-align: left; font-size: 10px;font-weight: bold;" >
+    <tr>
+        <td style="width: 100% ;background: gray; color: #fff ;padding-left: 15px;"> 1-1  Information du Professeur</td> 
+    </tr>
+    <tr></tr>
+</table>
+
+
+<table cellspacing="4px" style="width: 88%;margin-top:6px;margin-left:-4px;font-size:10px;font-weight: bold;" class="mo">
+    {% if emptimenss|length > 0 %}
+        {# {% for emptimens in emptimenss %} #}
+            <tr>
+                <td style="width: 25% ;border:1px solid gray;"> &nbsp;Nom :  </td> 
+                <td style="width: 33% ;border:1px solid gray;">{{emptimens.enseignant.nom}}</td> 
+                <td style="width: 25% ;border:1px solid gray;"> Prénom:</td> 
+                <td style="width: 32.2% ;border:1px solid gray;">{{emptimens.enseignant.prenom}}</td>
+            </tr>
+            <tr>
+                <td style="width: 25% ;border:1px solid gray;"> &nbsp;Grade:  </td> 
+                <td style="width: 33% ;border:1px solid gray;">{{emptimens.enseignant.grade.designation}}</td> 
+                <td style="width: 15% ;border:1px solid gray;"> Nbre Séance :</td> 
+                <td style="width: 10% ;border:1px solid gray;"> </td>
+                <td style="width: 20% ;border:1px solid gray;"> VH Cumulé Prof :</td> 
+                <td style="width: 12% ;border:1px solid gray;"> </td>
+            </tr>
+        {# {% endfor %} #}
+    {% else %}
+        <tr>
+            <td style=""> &nbsp;Enseignants Introuvable. </td> 
+        </tr>
+    {% endif %}
+</table>
+
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 10px;font-weight: bold;" >
+    <tr>
+        <td style="width: 100% ;background: gray; color: #fff ;padding-left: 15px;"> 1-2   Information du Cours</td> 
+    </tr>
+    <tr>
+    </tr>
+</table>
+
+<table cellspacing="4px" style="width: 88%;margin-top:2px;margin-left:-4px;font-size:10px;font-weight: bold;" class="mo">
+    <tr>    
+        <td style="width: 25% ;border:1px solid gray;"> &nbsp;Matière :  </td> 
+        <td style="width: 33% ;border:1px solid gray;">{{seance.programmation.element.designation}}</td> 
+        <td style="width: 15% ;border:1px solid gray;"> Type Matière :</td> 
+        <td style="width: 10% ;border:1px solid gray;"> </td>
+        <td style="width: 20% ;border:1px solid gray;"> Type Cours :</td> 
+        <td style="width: 12% ;border:1px solid gray;">{{seance.programmation.natureepreuve.abreviation}}</td>
+    </tr>  
+</table>
+
+<table cellspacing="4px" style="width: 88%;margin-top:-5px;margin-left:-4px;font-size:10px;font-weight: bold;" class="mo">
+   <tr>  
+       <td style="width: 25% ;border:1px solid gray;"> Durée séance : </td>
+       <td style="width: 15% ;border:1px solid gray;">{{ hours }} </td>
+        <td style="width: 18% ;border:1px solid gray;"> Heure début : </td> 
+        <td style="width: 25% ;border:1px solid gray;">{{seance.start | date('H:i')}}</td>
+        <td style="width: 20% ;border:1px solid gray;"> Heure Fin :  </td> 
+        <td style="width: 12% ;border:1px solid gray;">{{seance.end | date('H:i')}}</td> 
+    </tr>  
+</table>
+
+<table cellspacing="4px" style="width: 88%;margin-top:-5px;margin-left:-4px;font-size:10px;font-weight: bold;" class="mo">
+   <tr>  
+       <td style="width: 25% ;border:1px solid gray;"> VH initial Matière : </td> 
+        <td style="width: 15% ;border:1px solid gray;"> </td>
+        <td style="width: 18% ;border:1px solid gray;"> VH Cumulé Mat: </td> 
+        <td style="width:  25% ;border:1px solid gray;"> </td>
+        <td style="width: 20% ;border:1px solid gray;"> VH restant Mat :  </td> 
+        <td style="width: 12% ;border:1px solid gray;"> </td> 
+    </tr>  
+</table>
+
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 10px;font-weight: bold;margin-top:3px;margin-bottom: 3px ; font-weight: bold;" >
+    <tr>
+        <td style="width: 100% ; color: black ;padding-left: 15px;">  Description : </td> 
+    </tr>
+</table>
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 10px;font-weight: bold;margin-top:3px;margin-left:-1px;" >
+    <tr>
+        <td style="width: 100% ;border:1.2px solid  gray; color: black ;height:30px;padding-left:3px ;">
+            {{seance.Description}}
+        </td> 
+    </tr>
+</table>
+
+<br/>
+
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 10px;font-weight: bold;" >
+    <tr>
+        <td style="width: 100% ;background: gray; color: #fff ;padding-left: 15px;"> 1-3 Informations Classe</td> 
+    </tr>
+    <tr></tr>
+</table>
+
+
+<table cellspacing="4px" style="width: 88%;margin-top:2px;margin-left:-4px;font-size:10px;font-weight: bold;" class="mo">
+    <tr>
+        <td style="width: 25% ;border:1px solid gray;"> &nbsp;Etablissement : </td> 
+        <td style="width: 33% ;border:1px solid gray;">{{seance.programmation.element.module.semestre.promotion.formation.etablissement.abreviation}}</td> 
+        <td style="width: 25% ;border:1px solid gray;"> Filière :</td> 
+        <td style="width: 32.2% ;border:1px solid gray;">{{seance.programmation.element.module.semestre.promotion.formation.abreviation}}</td>
+    </tr>
+    
+    <tr>
+        <td style="width: 25% ;border:1px solid gray;"> &nbsp;Classe/Groupe : </td> 
+        {% if seance.groupe != '' %}
+            <td style="width: 33% ;border:1px solid gray;">{{seance.groupe.niveau}}</td>
+        {% else %}
+            <td style="width: 33% ;border:1px solid gray;"></td>
+        {% endif %}
+        
+        <td style="width: 25% ;border:1px solid gray;"> Effectif :</td> 
+        <td style="width: 32.2% ;border:1px solid gray;"> {{effectife}}</td>
+    </tr>
+    
+    <tr>
+        <td style="width: 25% ;border:1px solid gray;"> &nbsp;Salle : </td> 
+        <td style="width: 33% ;border:1px solid gray;">{{seance.salle.designation}}</td> 
+        <td style="width: 25% ;border:1px solid gray;"> Semestre :</td> 
+        <td style="width: 32.2% ;border:1px solid gray;">{{seance.programmation.element.module.semestre.designation}}</td>
+    </tr>
+</table>
+
+
+
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 10px;font-weight: bold;" >
+    <tr>
+        <td style="width: 100% ;background: gray; color: #fff ;padding-left: 15px;"> 1-4 Déroulement du cours</td> 
+    </tr>
+    <tr></tr>
+</table>
+
+
+
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 10px;margin-top:3px;font-weight: bold;" >
+    <tr>
+        <td style="width: 100% ; color: black ;padding-left: 15px;">  Objectif Pédagogique Opérationnel : </td> 
+    </tr>
+</table>
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 8px;margin-top:3px;margin-left:-1px;" >
+    <tr>
+        <td style="width: 100% ;border:1.2px solid  gray; color: black ;height:40px;">
+        </td> 
+    </tr>
+</table>
+
+
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 10px;margin-top:3px;font-weight: bold;" >
+    <tr>
+        <td style="width: 100% ; color: black ;padding-left: 15px;">  Descriptif du déroulement de la séance (méthodes et supports pédagogique utilisés...)  : </td> 
+    </tr>
+</table>
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 8px;margin-top:3px;margin-left:-1px;" >
+    <tr>
+        <td style="width: 100% ;border:1.2px solid  gray; color: black ;height:40px;">
+        </td> 
+    </tr>
+</table>
+
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 10px;margin-top:3px;font-weight: bold;" >
+    <tr>
+        <td style="width: 100% ; color: black ;padding-left: 15px;">  Observation du professeur : </td> 
+    </tr>
+</table>
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 8px;margin-top:3px;margin-left:-1px;" >
+    <tr>
+        <td style="width: 100% ;border:1.2px solid  gray; color: black ;height:40px;">
+        </td> 
+    </tr>
+</table>
+
+
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 10px;margin-top:3px;font-weight: bold;" >
+    <tr>
+        <td style="width: 100% ; color: black ;padding-left: 15px;">  Dispositions à prévoir pour la prochaine séance pédagogique : </td> 
+    </tr>
+</table>
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 8px;margin-top:3px;margin-left:-1px;" >
+    <tr>
+        <td style="width: 100% ;border:1.2px solid  gray; color: black ;height:40px;">
+        </td> 
+    </tr>
+</table>
+
+
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 10px;margin-top:3px;font-weight: bold; " >
+    <tr>
+        <td style="width: 100% ;background: black; color: #000 ;padding-left: 15px; height: 15px"> ""</td> 
+    </tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 10px;margin-top:3px;font-weight: bold;" >
+    <tr>
+        <td style="width: 100% ; color: black ;padding-left: 15px;">  Remarque d'ordre pédagogique : </td> 
+    </tr>
+</table>
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 8px;margin-top:3px;margin-left:-1px;" >
+    <tr>
+        <td style="width: 100% ;border:1.2px solid  gray; color: black ;height:40px;">
+        </td> 
+    </tr>
+</table>
+
+
+
+
+
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 10px;margin-top:3px;font-weight: bold;" >
+    <tr>
+        <td style="width: 49% ; color: black ;padding-left: 15px; ">  Remarque d'ordre technique/logistique : </td> 
+        <td style="width: 2% ; color: black ;padding-left: 15px;">  </td> 
+        <td style="width: 49% ; color: black ;padding-left: 15px;">  Remarque d'ordre comportemental : </td> 
+    </tr>
+    
+    <tr>
+        <td style="width: 49% ; color: black ;padding-left: 15px; height: 40px ; border: solid gray ;">  </td> 
+        <td style="width: 2% ; color: black ;padding-left: 15px;">  </td> 
+        <td style="width: 49% ; color: black ;padding-left: 15px;height: 40px ; border: solid gray ;">  </td> 
+    </tr>
+    
+    
+</table>
+
+
+
+
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 10px;margin-top:3px;font-weight: bold;" >
+    <tr>
+        <td style="width: 100% ; color: black ;padding-left: 15px;"> Recommandations : </td> 
+    </tr>
+</table>
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 8px;margin-top:3px;margin-left:-1px;" >
+    <tr>
+        <td style="width: 100% ;border:1.2px solid  gray; color: black ;height:40px;">
+        </td> 
+    </tr>
+</table>
+
+
+
+
+
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 10px;margin-top:6px;font-weight: bold; " >
+    <tr>
+        <td style="width: 100% ;background: black; color: #000 ;padding-left: 15px; height: 15px"> ""</td> 
+    </tr>
+</table>
+
+
+
+
+
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 10px;margin-top:6px;font-weight: bold;" >
+    <tr>
+        <td style="width: 49% ; color: black ;padding-left: 15px; text-align: center ; background: gray ; ">  Signature du professeur  : </td> 
+        <td style="width: 2% ; color: black ;padding-left: 15px;">  </td> 
+        <td style="width: 49% ; color: black ;padding-left: 15px; text-align: center ; background: gray ;">  Visa du Doyen  : </td> 
+    </tr>
+    
+    <tr>
+        <td style="width: 49% ; color: black ;padding-left: 15px; height: 40px ; border: solid gray ;">  </td> 
+        <td style="width: 2% ; color: black ;padding-left: 15px;">  </td> 
+        <td style="width: 49% ; color: black ;padding-left: 15px;height: 40px ; border: solid gray ;">  </td> 
+    </tr>
+</table>
+{# <page_break> #}

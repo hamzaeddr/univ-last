@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Univ - Paramétre - Promotions{% endblock %}
+
+
+{% block body %}
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+          <h1>Promotion</h1>
+          <div class="section-header-breadcrumb">
+              {# <a href="#" class="btn btn-success ml-1" id="modifier"><i class="fas fa-edit"></i>  Modifier</a>
+              <a href="#" class="btn btn-success ml-1" id="ajouter"><i class="fas fa-plus"></i>  Aouter</a> #}
+              {# <a href="#" class="btn btn-success ml-1" id="ajouter"><i class="fas fa-plus"></i>  Aouter</a> #}
+              {% for operation in operations %}
+              <a href="{{operation.link}}" class="{{operation.classTag}}" id="{{operation.idTag}}"><i class="{{operation.icon}}"></i>  {{operation.designation}}</a>
+              {% endfor %}
+          </div>
+        </div>
+
+        <div class="section-body">
+        <div class="card">
+            <div class="card-header">
+            <h4>Tableau des promotions</h4>
+            </div>
+            <div class="card-body">
+            <div class="card-search" style="margin-bottom: 1.5rem;">
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="etablissement">Etablissement:</label>
+                        <select class="form-control" name="etablissement" id="etablissement">
+                            <option value="">Choix etablissement</option>
+                            {% for etablissement in etablissements %}
+                                <option value="{{etablissement.id}}">{{etablissement.designation}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="formation">Formation:</label>
+                        <select class="form-control" name="formation" id="formation">
+                           
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <table id="datatables_gestion_promotion" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                         <th>id</th>
+                        <th>etablissement</th>
+                        <th>formation</th>
+                        <th>Promotion</th>
+                        <th>Ordre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>id</th>
+                        <th>etablissement</th>
+                        <th>formation</th>
+                        <th>Promotion</th>
+                        <th>Ordre</th>
+
+                    </tr>
+                </tfoot>
+            </table>
+            </div>
+            
+        </div>
+        </div>
+    </section>
+</div>
+
+
+
+<!--Modal Import Group-->
+{% include 'parametre/promotion/modals/ajouter.html.twig' %}
+{% include 'parametre/promotion/modals/modifier.html.twig' %}
+
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+{{ encore_entry_script_tags('promotion') }}
+
+{# <script src="/assets/js/parametre/formation.js"></script> #}
+
+{% endblock %}
+

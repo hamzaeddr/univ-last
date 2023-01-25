@@ -1,0 +1,113 @@
+<style>
+
+</style>
+<table style="width: 100%;" cellspacing="0">
+    <tbody>
+
+        <tr>
+            <td style="width:45%; text-align:center"><img style="width:80px;margin: 0 auto;" src="{{ asset('assets/img/logo/Logo_UIASS_bkack2.png') }}" alt="Logo"></td>
+            <td style="width:1%;"></td>
+            <td style="width:80%;"><h1>FEUILLE D'APPEL</h1></td>
+        </tr>
+        </br>
+        </br>
+        <tr>
+           <td style="width:25%; text-align:center"></td>
+            <td style="width:1%;"></td>
+            <td  style="width:50%;"><h3>{% for md in sean %} {{ md.etablisement }} {% endfor %}</h3></td>
+        </tr>
+        <tr>
+           <td style="width:25%; text-align:center"></td>
+            <td style="width:1%;"></td>
+            <td  style="width:70%;"><h3>{% for md in sean %} {{ md.formation }} {% endfor %}</h3></td>
+        </tr>
+        <tr>
+           <td style="width:25%; text-align:center"></td>
+            <td style="width:1%;"></td>
+            <td  style="width:80%;"><h3>{% for md in sean %} {{ md.promotion }} {% endfor %}</ph3></td>
+        </tr>
+    
+    </tbody>
+
+</table>
+<br/>
+<div class="row">
+  <div class="column left" >
+   <table style="width: 100%;" cellspacing="0">
+    <tbody>
+       {% for md in sean %}
+
+        <tr>
+            <td >ID_Séance : {{md.ID_Séance}}</td>
+            <td >{{md.Date_Séance}}</td>
+            <td >HD : {{md.Heure_Debut}}</td>
+            <td ></td>
+            <td >HF : {{md.Heure_Fin}}</td>
+        </tr>
+        <tr>
+        <td style"width:95%"><hr/></td>
+        <td style"width:1%"><hr/></td>
+        <td style"width:1%"><hr/></td>
+        <td style"width:1%"><hr/></td>
+        <td style"width:1%"><hr/></td>
+        </tr>
+       
+        <tr>
+            <td >PROFESSEUR : </td>
+            <td >{{md.nom}} </td>
+            <td >{{md.prenom}}</td>
+            <td ></td>
+            <td ></td>
+           
+        </tr>
+         <tr>
+        <td style"width:95%"><hr/></td>
+        <td style"width:1%"><hr/></td>
+        <td style"width:1%"><hr/></td>
+        <td style"width:1%"><hr/></td>
+        <td style"width:1%"><hr/></td>
+        </tr>
+        <tr>
+            <td >MODULE/ELEMENT : </td>
+            <td >{{md.module}}</td>
+            <td ></td>
+            <td ></td>
+            <td ></td>
+           
+        </tr>
+         <tr>
+        <td style"width:95%"><hr/></td>
+        <td style"width:1%"><hr/></td>
+        <td style"width:1%"><hr/></td>
+        <td style"width:1%"><hr/></td>
+        <td style"width:1%"><hr/></td>
+        </tr>
+        <tr>
+            <td >CLASSE/SALLE : </td>
+            <td >{{md.salle}} / {{md.Groupe}}</td>
+            <td ></td>
+            <td ></td>
+            <td ></td>
+           
+        </tr>
+       
+       
+        {% endfor %}
+    
+    </tbody>
+
+</table>
+  </div>
+   <div class="column right" >
+   
+  <div style="font-size:10px;">
+  {% for a in A %}
+A:{{a.A}} {% endfor %}<hr/>{% for b in B %}
+B: {{b.B}}{% endfor %}<hr/>{% for c in C %}
+C: {{c.C}}{% endfor %}<hr/>{% for d in D %}
+D: {{d.D}}{% endfor %}<hr/>{% for t in T %} 
+Total: {{t.T}}{% endfor %} 
+
+  </div>
+  </div>
+  </div>

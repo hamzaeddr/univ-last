@@ -1,0 +1,46 @@
+  <table id="dtDynamicVerticalScrollExample_pointeuse" class="table table-striped table-bordered table-sm" cellspacing="0"  width="100%" height="100%">
+
+  <thead>
+    <tr>
+    
+      <th >ID Admission
+      </th>
+      <th >Name
+      </th>
+      <th >Date de Pointage
+      </th>
+      <th >Heure de Pointage
+      </th>
+      <th >Salle
+      </th>
+      <th >Ip 
+      </th>
+      <th >Sn
+      </th>
+
+    </tr>
+  </thead>
+  <tbody>
+     {% for poin in pointages %}
+                <tr>
+                <td>{{poin.street}}</td>
+                <td>{{poin.name}}</td>
+                <td>{{poin.checktime | date('Y-m-d')}}</td>
+                <td>{{poin.checktime | date('H:m:s')}}</td>
+                    {% for salle in salles %}
+                    {% if poin.sn == salle.id_pointeuse %}
+                      <td>{{salle.abreviation}}</td>
+
+                    {% endif %}
+                              
+                    {% endfor %}
+                <td>{{poin.ip}}</td>
+                <td>{{poin.sn}}</td>
+
+                
+                </tr>
+                {% endfor %}
+    
+  </tbody>
+ 
+</table>

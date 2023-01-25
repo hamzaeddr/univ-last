@@ -1,0 +1,50 @@
+<div class="modal" role="dialog" id="modifier_modal" aria-modal="true" style='text-transform: uppercase'> 
+<div class="modal-dialog modal-md modal-modifier" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modifier une Pré-Inscription </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+        <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form action="" id='form_modifier'>
+            <div class="card">
+              <div class="card-header">
+                  <ul class="nav nav-pills">                
+                      <li class="nav-item mr-2">
+                          <a href="#candidats_infos" class="nav-link active">Informations sur le Condidat</a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="#parents_infos" class="nav-link">Informations sur les parents</a>
+                      </li>  
+                      <li class="nav-item mr-2">
+                          <a href="#academique_infos" class="nav-link">les informations académique</a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="#divers" class="nav-link">divers</a>
+                      </li>                
+                  </ul>
+              </div>
+              <div class="card-body">
+                  <div class="tab-content">
+                      <div class="tab-pane fade show active" id="candidats_infos">
+                        {# {% include 'preinscription/pages/candidats_infos.html.twig' %}              #}
+                      </div>
+                      <div class="tab-pane fade" id="parents_infos">
+                        {# {% include 'preinscription/pages/parents_infos.html.twig' %} #}
+                      </div>
+                      <div class="tab-pane fade" id="academique_infos">
+                        {# {% include 'preinscription/pages/academique_infos.html.twig' %} #}
+                      </div>
+                      <div class="tab-pane fade" id="divers">
+                        {# {% include 'preinscription/pages/divers.html.twig' %}                     #}
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>

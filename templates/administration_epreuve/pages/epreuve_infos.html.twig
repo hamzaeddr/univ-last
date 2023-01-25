@@ -1,0 +1,121 @@
+<div class="col-md-12" style="">
+    <fieldset>
+        <div class="col-md-12 row" style="margin:0">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Etablissement  :</label>
+                    <select class="form-control " style="width: 100%" name="id_etablissement" id='etablissement'>
+                        <option value="" selected>Choix Etablissement</option>
+                        {% for etablissement in etablissements %}
+                            <option value="{{etablissement.id}}">{{etablissement.designation}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div> 
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Formation  :</label>
+                    <select class="form-control " style="width: 100%" name="id_formation" id='formation'>
+                        <option value=""  disabled selected>Choix de Formation</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Promotion  :</label>
+                    <select class="form-control " style="width: 100%" name="id_promotion" id='promotion'>
+                        <option value=""  disabled selected>Choix de Promotion</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 row" style="margin:0">
+            
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Semestre  :</label>
+                    <select class="form-control " style="width: 100%" name="id_semestre" id='semestre'>
+                        <option value=""  disabled selected>Choix de Semestre</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Module :</label>
+                    <select class="form-control " style="width: 100%" name="id_module" id='module'>
+                        <option value=""  disabled selected>Choix de Module</option>
+                        
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Element :</label>
+                    <select class="form-control " style="width: 100%" name="id_element" id='element'>
+                        <option value=""  disabled selected>Choix de Element</option>
+                        
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 row" style="margin:0">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Nature Epreuve :</label>
+                    <select class="form-control " style="width: 100%" name="id_Nature" id='Nature' >
+                        <option value=""  disabled selected>Choix de Nature Epreuve </option>
+                        {% for natureEpreuve in natureEpreuves %}
+                            <option value="{{natureEpreuve.id}}">{{natureEpreuve.designation}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>nature :</label>
+                    <input class="form-control" type="text" name="nature" id="nature" placeholder="Nature" value="">
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Date Epreuve:</label>
+                    <input class="form-control" type="date" name="d_epreuve" id='preuve' value=""> 
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 row" style="margin:0">
+            
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label  >Anonymat :</label><br>
+                    <input type="radio" name="anonymat" id="nanonymat" value="0" checked> 
+                    <label style="margin: 0px 10px 0px 0px;"  for="nanonymat"> Non </label>   
+                    <input type="radio" name="anonymat" id="anonymat" value="1"> 
+                    <label style="margin:10px" for="anonymat"> Oui </label> 
+                </div>
+            </div>
+            
+            
+            <div class="col-md-8">
+                <div class="form-group">
+                    <label>Observation :</label>
+                    <textarea class="form-control" name="obs" style="width: 100%; height: 32px;"></textarea>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Enseignant :</label>
+                    <select class="form-control " style="width: 100%" name="id_enseignant[]" id="enseignant" multiple="multiple" >
+                        <option value=""  disabled >Choix de Enseignant</option>
+                        {% for enseignant in enseignants %}
+                            <option value="{{enseignant.id}}">{{enseignant.nom}} {{enseignant.prenom}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>  
+    </fieldset>
+</div>
+<button type="submit" class="btn btn-primary mb-4 float-right mr-5" ><i class="fas fa-check"></i> Enregister</button>
+{# <button type="submit" class="btn btn-success float-right" style="margin-top:25px" ><i class="fas fa-check"></i> Enregister</button> #}

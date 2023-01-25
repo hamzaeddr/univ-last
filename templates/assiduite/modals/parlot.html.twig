@@ -1,0 +1,94 @@
+<div class="modal" role="dialog" id="parlot_modal" aria-modal="true" style="top: 10rem;"> 
+<div class="modal-dialog modal-md modal-preins" role="document" style="max-width: 1456px !important">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Par Lot</h5>
+        </hr>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+        <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+                <div class="row">
+                 <div class="col-md-2">
+                       <label for="etablissement">Heure Debut:</label>
+                            <select class="form-control" name="hd" id="hd">
+                                 <option value="07:00:00">07:00</option>
+                                 <option value="08:00:00">08:00</option>
+                                 <option value="09:00:00">09:00</option>
+                                 <option value="10:00:00">10:00</option>
+                                 <option value="11:00:00">11:00</option>
+                                 <option value="14:00:00">14:00</option>
+                                 <option value="16:00:00">16:00</option>
+                                 
+                            </select>
+                        </div>     
+                  <div class="col-md-2">
+                       <label for="etablissement">Heure Fin:</label>
+                            <select class="form-control" name="hf" id="hf">
+                                 <option value="10:00:00">10:00</option>
+                                 <option value="10:30:00">10:30</option>
+                                 <option value="11:00:00">11:00</option>
+                                 <option value="11:30:00">11:30</option>
+                                 <option value="12:30:00">12:30</option>
+                                 <option value="16:00:00">16:00</option>
+                                 <option value="18:00:00">18:00</option>
+                                 
+                            </select>
+                        </div> 
+
+                        <div class="section-header-breadcrumb" style="gap:1rem;margin-top: 21px;">       
+                        <button class="btn btn-outline-secondary btn-lg" id="parlot_search"><i class="fas fa-search"></i>  Search</button>   
+                         <button class="btn btn-outline-secondary btn-lg" id="check"><i class="fas fa-check"></i>check</button>        
+                        <button class="btn btn-outline-secondary btn-lg" id="uncheck"><i class="fas fa-circle"></i>uncheck</button>        
+     
+                        </div> 
+                       
+                        {# <button id="check"  type="button" class="btn btn-outline-info btn-rounded waves-effect"><i class="fas fa-check"></i>&nbsp;&nbsp;</button>
+                          <button id="uncheck"  type="button" class="btn btn-outline-info btn-rounded waves-effect"><i class="fas fa-uncheck"></i>&nbsp;&nbsp;</button>
+                          #}
+                        </div>  
+                        <br/>              
+                        <br/>              
+                             <table id="parlot_datatable" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%" height="80%">
+                    <thead>
+                          <tr>
+                          <th >
+                          </th>
+                          <th >Seance
+                          </th>
+                          <th >Heure debut
+                          </th>
+                          <th >Heure Fin
+                          </th>
+                          <th >Etablissement
+                          </th>
+                          <th >Formation
+                          </th>
+                          <th >Promotion
+                          </th>
+                          <th >Groupe
+                          </th>
+                          <th >Salle
+                          </th>
+                          <th >Element Module
+                          </th>
+                          <th >Enseignant
+                          </th>
+                        
+                        
+                          
+                          </tr>
+                    </thead>
+                    <tbody>
+                  
+                        
+                    </tbody>
+                    </table>
+      </div>
+                        <button class="btn btn-outline-success btn-lg" id="parlot_traiter"><i class="fas fa-search"></i>Traiter</button>   
+
+
+    </div>
+  </div>
+</div>

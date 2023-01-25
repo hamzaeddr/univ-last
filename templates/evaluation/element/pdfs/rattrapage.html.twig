@@ -1,0 +1,139 @@
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
+<style type="text/Css">
+    body{
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+    .footer_style {
+        position: relative;left: 5%;width:90%;border-top:1px solid graytext;padding:5px;text-align: center;font-size: 11px;line-height:14px
+    }
+    .titre-reb{
+        width: 100%;
+        background: #1f4f7a;
+        font-size: 9px ;
+        padding:3px 10px;
+        color: #f1f1f1;
+        font-weight: bold
+    }
+    div.zone_over
+    {
+        display: block;
+        width: 40%;
+        word-wrap:break-word !important;
+    }
+    .slh tr td {
+        border-bottom: 1px solid #292929;
+    }
+    .head-file {
+        width: 100% ; 
+
+    }
+
+
+
+
+    .head-file p{
+        font-size: 10px;
+        width: 100%;
+        margin: 3px 0px 3px 5px;
+    }
+    .head-file b{
+
+    }
+
+    h2{
+        font-size: 15px; 
+        margin: 5px
+    }
+
+
+
+</style>
+
+<table  cellspacing="0" style="margin-top:100px; width: 100%; text-align: left; font-size: 12px" >
+    <tr>
+        <td style="width: 100% ;background: #6777ef; color: #fff ;height: 17px;padding: 8px ;font-weight: bold;padding-left: 15px;"> Informations Epreuve </td> 
+    </tr>
+    <tr>
+
+    </tr>
+</table>
+ <br>
+<table cellspacing="0" style="width: 45%; text-align: left; font-size:9px" >
+    <tr>
+        <td style="width: 50% ;">
+            <table cellspacing="0" style="width:60%; text-align: left; font-size: 10px ; " >                               
+               <tr>
+                    <td style="font-weight: bold"> Module</td> 
+                    <td style="padding: 2px">:</td> 
+                    <td><label> {{element.module.designation}} </label> </td> 
+                </tr>
+                <tr>
+                    <td style="font-weight: bold"> Elément de module </td> 
+                    <td style="padding: 2px">:</td> 
+                    <td><label> {{element.designation}} </label> </td> 
+                </tr>
+
+            </table> 
+
+
+        </td> 
+
+    </tr>
+</table> 
+<br/>
+<table cellspacing="0" style="width: 100%; text-align: left; font-size: 12px" >
+    <tr>
+        <td style="width: 100% ;background: #6777ef; color: #fff ;height: 17px;padding: 8px ;font-weight: bold;padding-left: 15px;">Liste des étudiants</td> 
+    </tr>
+    <tr>
+
+    </tr>
+</table>
+<br>
+<table align="center" style=" background: #FFFFFF;font-size: 11px" cellspacing="0" class="slh">
+    <thead>
+        <tr style="background-color: #bfbfbf;font-size: 9px;text-align: center">
+
+
+            <th style="width:50px;text-align: center;padding: 8px; font-weight: 600">ord</th>
+            <th style="width:60px;text-align: left;font-weight: 400">Code</th>
+            <th style="width:120px; text-align: left;font-weight: 600">Nom</th>
+            <th style="width:120px;text-align: left;font-weight: 600">Prénom</th>
+            <th style="width:80px;text-align: left;font-weight: 600">M.CC</th>
+            <th style="width:80;text-align: left;font-weight: 600">M.TP</th>
+            <th style="width:80;text-align: left;font-weight: 600">M.EF</th>
+            <th style="width:80px; background-color: #525252;color: white; text-align: center;font-weight: 800">Moyenne</th>
+            <th style="width:80px; background-color: #525252;color: white; text-align: center;font-weight: 800">Statut</th>
+
+        </tr>
+
+
+    </thead>
+    <tbody>
+        {% for data in dataSaved %}
+            <tr style="font-size: 9px;padding: 5px ;">
+                <td style="font-size: 9px; padding-top: 3px; text-align:center; padding-bottom: 3px">{{loop.index}}</td>
+                <td style="font-size: 9px; padding-top: 3px; text-align:left; padding-bottom: 3px">{{data.inscription.id}}</td>
+                <td style="font-size: 9px; text-align: left">{{data.inscription.admission.preinscription.etudiant.nom}}</td>
+                <td style="font-size: 9px; text-align: left">{{data.inscription.admission.preinscription.etudiant.prenom}}</td>
+                <td style="font-size: 9px; text-align: left">{{data.mcc|number_format(2, '.', ',') }}</td>
+                <td style="font-size: 9px; text-align: left">{{data.mtp|number_format(2, '.', ',') }}</td>
+                <td style="font-size: 9px; text-align: left">{{data.mef|number_format(2, '.', ',') }}</td>
+                <td style="font-size: 9px; background: #d8d8d8; text-align: center ; color: #000; font-weight: bold;"> 
+                    {{data.moyenneTot|number_format(2, '.', ',') }}
+                </td>
+                <td style="font-size: 9px; background: #d8d8d8; text-align: center ; color: #000; font-weight: bold;"> 
+                    {% if affichage == 0  and data.enote.statutDef %} 
+                        {{data.enote.statutDef.abreviation}}
+                    {% elseif affichage == 1  and data.enote.statutAff %}
+                        {{data.enote.statutAff.abreviation}}
+                    {% else %}
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+

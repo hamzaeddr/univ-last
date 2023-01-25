@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Univ - Compte Etudiant{% endblock %}
+
+
+{% block body %}
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+          <h1>Compte Etudiant</h1>
+          <div class="section-header-breadcrumb">
+              {% for operation in operations %}
+                    <a href="{{operation.link}}" class="{{operation.classTag}}" id="{{operation.idTag}}"><i class="{{operation.icon}}"></i>  {{operation.designation}}</a>
+              {% endfor %}
+          </div>
+        </div>
+
+        <div class="section-body">
+        <div class="card">
+            <div class="card-header">
+            <h4>Tableau des etudiants</h4>
+            </div>
+            <div class="card-body">
+
+            <table id="datables_etudiant" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Code</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Categorie</th>
+                        <th>Type de bac</th>
+                        <th>Note</th>
+                        <th>Télé1</th>
+                        <th>Télé2</th>
+                        <th>Valider</th>
+                        <th>Statut</th>
+                        <th>D.D.Appele</th>
+                        <th>D.import</th>
+                        <th>Rég</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>id</th>
+                        <th>Code</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Categorie</th>
+                        <th>Type de bac</th>
+                        <th>Note</th>
+                        <th>Télé1</th>
+                        <th>Télé2</th>
+                        <th>Valider</th>
+                        <th>Statut</th>
+                        <th>D.D.Appele</th>
+                        <th>D.import</th>
+                        <th>Rég</th>
+                    </tr>
+                </tfoot>
+            </table>
+            </div>
+            
+        </div>
+        </div>
+    </section>
+</div>
+
+
+
+<!--Modal Import Group-->
+{% include 'etudiant/etudiant/modals/valider.html.twig' %}
+{% include 'etudiant/etudiant/modals/importer.html.twig' %}
+{% include 'etudiant/etudiant/modals/date_d_appel.html.twig' %}
+{% include 'etudiant/etudiant/modals/statut.html.twig' %}
+{% include 'etudiant/etudiant/modals/releves_notes.html.twig' %}
+{% include 'etudiant/etudiant/modals/suivi.html.twig' %}
+{% include 'etudiant/etudiant/modals/supprimer.html.twig' %}
+{% include 'etudiant/etudiant/modals/modifier.html.twig' %}
+{% include 'etudiant/etudiant/modals/ajouter.html.twig' %}
+{% include 'etudiant/etudiant/modals/modifier.html.twig' %}
+{% include 'etudiant/etudiant/modals/form_ajouter.html.twig' %}
+
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+{{ encore_entry_script_tags('etudiant') }}
+{# <script src="/assets/js/etudiant/etudiant.js"></script> #}
+
+{% endblock %}
+

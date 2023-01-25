@@ -1,0 +1,33 @@
+ {# <h4>Tableau des épreuves</h4> #}
+        <thead>
+            <tr style= "background-color:white; position: sticky; top: 0;">
+                <th>#</th>
+                <th>Anonymat</th>
+                <th>Anonymat Rat</th>                
+                {% for module in modules %}
+                    <th>{{module.id}}<br>{{module.designation}}<br>{{module.coefficient}}<br>{{module.type}}</th>  
+                {% endfor %}           
+                <th>N.Rachat</th>                
+                <th>Moyenne</th>  
+                <th>Moyenne.Sec</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in data_saved %}
+                <tr id="{{data.inscription.id}}">
+                    <td>{{loop.index}}</td>
+                    <td>{{data.inscription.codeAnonymat}}</td>
+                    <td>{{data.inscription.codeAnonymatRat}}</td>
+                    {% for noteModule in data.noteModules %}
+                        <td style={{noteModule.style}}>{{noteModule.note|number_format(2, '.', ',')}}</td>  
+                    {% endfor %}   
+                    <td >{{data.snoteRachat|number_format(2, '.', ',')}}</td>                            
+                    <td style={{data.styleSemestre}}>
+                        {{data.moyenneNormal|number_format(2, '.', ',')}}
+                    </td>
+                    <td style={{data.styleSemestre}}>
+                        {{data.moyenneSec|number_format(2, '.', ',') }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>

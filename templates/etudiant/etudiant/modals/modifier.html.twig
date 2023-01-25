@@ -1,0 +1,55 @@
+<div class="modal" role="dialog" id="modifier_modal" aria-modal="true" style="text-transform: uppercase"> 
+<div class="modal-dialog modal-md modal-modifier" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modifier Les Informations d'un Etudiant </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+        <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form id="form_modifier">
+            <div class="card">
+              <div class="card-header">
+                  <ul class="nav nav-pills">                
+                      <li class="nav-item mr-2">
+                          <a href="#candidats_infos" class="nav-link active">Informations sur le Condidat</a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="#parents_infos" class="nav-link">Informations sur les parents</a>
+                      </li>  
+                      <li class="nav-item mr-2">
+                          <a href="#academique_infos" class="nav-link">les informations académique</a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="#divers" class="nav-link">divers</a>
+                      </li>                
+                  </ul>
+              </div>
+              <div class="card-body">
+                  <div class="tab-content">
+                      <div class="tab-pane fade show active" id="candidats_infos">
+                        {# {% include 'etudiant/etudiant/pages/candidats_infos.html.twig' %}              #}
+                      </div>
+                      <div class="tab-pane fade" id="parents_infos">
+                        {# {% include 'etudiant/etudiant/pages/parents_infos.html.twig' %} #}
+                      </div>
+                      <div class="tab-pane fade" id="academique_infos">
+                        {# {% include 'etudiant/etudiant/pages/academique_infos.html.twig' %} #}
+                      </div>
+                      <div class="tab-pane fade" id="divers">
+                        {# {% include 'etudiant/etudiant/pages/divers.html.twig' %}   #}
+                      </div>
+                  </div>
+              </div>
+              {# <div class="card-footer" style="padding:0 !important;" >
+                  <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary mt-4 float-right update_f" ><i class="fas fa-edit"></i> Modifier</button>
+                  </div>
+              </div> #}
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
